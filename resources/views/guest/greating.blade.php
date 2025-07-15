@@ -219,4 +219,11 @@
 <section>
     @include('guest.partials.ajukan-service')
 </section>
+
+<section style="height:50vh; background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center;">
+    <div class="d-flex justify-content-center flex-column align-items-center h-100" style="background-color:#1A875473;">
+        <p class="montserrat-bold text-white" style="font-size:3.75rem;">Donwload Brosur Kami</p>
+        <a href="{{ asset('document/Brosure jadibener.pdf') }}" download class="btn btn-warning px-4">Download &nbsp; <i class="fa fa-download" aria-hidden="true"></i></a>
+    </div>
+</section>
 @endsection
