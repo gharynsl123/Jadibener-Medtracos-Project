@@ -101,11 +101,6 @@
     </div>
     @endif
 
-
-    <button id="scrollToTopBtn" class="btn btn-warning">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
     <footer id="footer" class="bg-dark text-light pb-2 pt-5">
         <div class="container">
             <div class="row">
@@ -116,23 +111,19 @@
                         <p>📍 Jakarta - Indonesia</p>
                     </section>
                 </div>
-                <div class="col-md-6 d-flex flex-column align-items-center">
+                <div class="col-md-6 d-flex flex-column ">
                     <h2 class="m-0">Developed <span class="fs-6"><small>by: Jadibener IT Team</small></span></h2>
 
                     <div class="my-4">
-                        <button class="btn btn-sm m-0 bottom-0 btn-warning p-3 rounded rounded-pill">Hubungi via
-                            WhatsApp</button>
-                        <a href="{{ asset('document/Brosure jadibener.pdf') }}"
-                            class="btn btn-sm m-0 bottom-0 btn-success p-3 rounded rounded-pill" download>Download
-                            Brosure Kami</a>
-
+                        <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-sm px-4 m-0 bottom-0 btn-warning">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> &nbsp; Hubungi via WhatsApp
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-        <hr class="bg-white w-100 m">
-        <div class="text-bottom">
-            <small class="m-0 p-0 fw-sm">© 2023 Jadibener.com - Semua hak dilindungi</small>
+        <div class="text-center py-3">
+            <small class="m-0  fw-sm">© 2023 Jadibener.com - Semua hak dilindungi</small>
         </div>
     </footer>
 </body>
@@ -158,22 +149,6 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }, 5000);
     }
-
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 100) {
-            $('#scrollToTopBtn').fadeIn();
-        } else {
-            $('#scrollToTopBtn').fadeOut();
-        }
-    });
-
-    // Smooth scrolling ke atas saat tombol ditekan
-    $('#scrollToTopBtn').click(function() {
-        $('html, body').animate({
-            scrollTop: 0
-        }, 0);
-        return false;
-    });
 });
 </script>
 
