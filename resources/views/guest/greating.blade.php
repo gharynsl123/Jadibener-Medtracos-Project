@@ -33,7 +33,7 @@
             <div class="d-flex flex-column">
                 <div class="d-flex">
                     <img src="{{asset('images/dot.png')}}" alt="dot" class="img-fluid" style="width: 25px; height: 25px;">
-                    <p class="ms-3">Tentang Kami</p>
+                    <p class="ms-3">About Us</p>
                 </div>
                 <p class="montserrat-bold" style="font-size: 2.5rem; line-height: 1.1;">
                     Peralatan Dapur Rusak? <br><span class="text-success"> Serahkan pada Ahlinya!</span>
