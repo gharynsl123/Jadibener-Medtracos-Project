@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('request_part', function (Blueprint $table) {
             $table->id();
-            $name->string('part_name');
+            $table->string('part_name');
             $table->string('part_code')->unique();
             $table->string('part_category');
             $table->string('price_part');
