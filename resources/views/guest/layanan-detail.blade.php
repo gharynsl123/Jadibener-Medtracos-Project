@@ -40,7 +40,10 @@
 
 <div class="container py-3">
     <div class="row">
-        <div class="col-md-6  py-3">
+        <div class="col-md-12 col-lg-6 py-3 mb-5 d-sm-none d-lg-block">
+            <img src="{{ asset('/images/header-new-second-background.jpg') }}" class="rounded rounded-4" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="">
+        </div>
+        <div class="col-md-12 col-lg-6  py-3 mb-5">
             <div class="d-flex gap-2 align-items-center">
                 <a href="{{ url()->previous() }}" class="btn btn-secondary btn-small">
                     <i class="bi bi-arrow-left"></i>
@@ -65,11 +68,13 @@
                 </div>
                 @endif
             </div>
-            <div id="description-container">
+            <div class="card rounded-3 bg-transaparant border-1 border p-2">
+                <div id="description-container">
                     {!! $descriptions[$categories[0]] ?? 'Deskripsi tidak tersedia.' !!}
+                </div>
             </div>
         </div>
-        <div class="col-md-6 py-3 justify-content-center align-items-center d-flex flex-column">
+        <div class="col-md-12 py-3 mt-5 justify-content-center align-items-center d-flex flex-column">
             <h3 class="text-center">Ajukasn Service</h3>
             @include('guest.partials.ajukan-service')
         </div>

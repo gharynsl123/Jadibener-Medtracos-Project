@@ -52,7 +52,7 @@
         <p class="montserrat-bold text-center" style="font-size: 3.125rem;">Layanan kami</p>
         <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                <div class="card shadow border-0 rounded-4 overflow-hidden">
+                <a href="{{url('/layanan-kami/kompor-gas')}}" class="card shadow border-0 rounded-4 overflow-hidden text-decoration-none">
                     <div class="position-relative">
                         <img src="/images/kompor.png" alt="Service Kompor" class="img-fluid w-100" style="height: 180px; object-fit: cover;">
                         
@@ -70,10 +70,10 @@
                             Selengkapnya <i class="bi bi-arrow-right"></i>
                         </p>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                <div class="card shadow border-0 rounded-4 overflow-hidden">
+                <a href="{{url('/layanan-kami/kulkas-chiller-&-freezer')}}" class="card shadow border-0 rounded-4 overflow-hidden text-decoration-none">
                     <div class="position-relative">
                         <img src="/images/kompor.png" alt="Service Kompor" class="img-fluid w-100" style="height: 180px; object-fit: cover;">
                         
@@ -91,10 +91,10 @@
                             Selengkapnya <i class="bi bi-arrow-right"></i>
                         </p>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                <div class="card shadow border-0 rounded-4 overflow-hidden">
+                <a href="{{url('/layanan-kami/servis-open-&-steamer')}}" class="card shadow border-0 rounded-4 overflow-hidden text-decoration-none">
                     <div class="position-relative">
                         <img src="/images/kompor.png" alt="Service Kompor" class="img-fluid w-100" style="height: 180px; object-fit: cover;">
                         
@@ -112,10 +112,10 @@
                             Selengkapnya <i class="bi bi-arrow-right"></i>
                         </p>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                <div class="card shadow border-0 rounded-4 overflow-hidden">
+                <a href="{{url('/layanan-kami/penjualan-sparepart')}}" class="card shadow border-0 rounded-4 overflow-hidden text-decoration-none">
                     <div class="position-relative">
                         <img src="/images/kompor.png" alt="Service Kompor" class="img-fluid w-100" style="height: 180px; object-fit: cover;">
                         
@@ -133,10 +133,10 @@
                             Selengkapnya <i class="bi bi-arrow-right"></i>
                         </p>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                <div class="card shadow border-0 rounded-4 overflow-hidden">
+                <a href="{{url('/layanan-kami/maintenance-&-instalasi-sistem-gas')}}" class="card shadow border-0 rounded-4 overflow-hidden text-decoration-none">
                     <div class="position-relative">
                         <img src="/images/kompor.png" alt="Service Kompor" class="img-fluid w-100" style="height: 180px; object-fit: cover;">
                         
@@ -154,10 +154,10 @@
                             Selengkapnya <i class="bi bi-arrow-right"></i>
                         </p>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                <div class="card shadow border-0 rounded-4 overflow-hidden">
+                <a href="{{url('/layanan-kami/pembersihan-&-servis-hood-dapur')}}" class="card shadow border-0 rounded-4 overflow-hidden text-decoration-none">
                     <div class="position-relative">
                         <img src="/images/kompor.png" alt="Service Kompor" class="img-fluid w-100" style="height: 180px; object-fit: cover;">
                         
@@ -175,7 +175,7 @@
                             Selengkapnya <i class="bi bi-arrow-right"></i>
                         </p>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
@@ -216,7 +216,7 @@
     </div>
 </section>
 
-<section>
+<section id="ajukan-service">
     @include('guest.partials.ajukan-service')
 </section>
 
