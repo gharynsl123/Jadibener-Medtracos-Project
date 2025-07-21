@@ -23,7 +23,6 @@ class SparePartController extends Controller
 
     function store(Request $request) {
         $data = $request->all();
-        $data['slug'] = Str::slug($request->name);
 
         // addphoto to database and local with folder name part
         if ($request->hasFile('photo')) {

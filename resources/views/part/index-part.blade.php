@@ -32,14 +32,6 @@
                 <input type="file" class="form-control" name="photo">
             </div>
         </div>
-
-        <div class="col-md-12">
-            <div class="form-group">
-                <label class="text-dark" for="">Deskripsi</label>
-                <textarea type="text" class="form-control mb-3" name="description"></textarea>
-            </div>
-        </div>
-
         <button type="submit" class="mx-2 btn btn-primary">Tambahkan</button>
     </form>
 </div>
