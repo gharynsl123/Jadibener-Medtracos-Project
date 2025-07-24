@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Instansi;
 use App\Member;
 use App\Part;
+use App\RequestPart;
 use Illuminate\Support\Facades\File;
 
 use Illuminate\Support\Str;
@@ -107,7 +108,7 @@ class GuestController extends Controller
         return view('guest.request-member', compact('instansi'));
     }
 
-    public function storeRequest(Request $request)
+    public function storeRequestPart(Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -118,9 +119,28 @@ class GuestController extends Controller
             'g-recaptcha-response' => 'required|captcha',
         ]);
     
-        Member::create($request->only(['name', 'phone_number', 'tools_type', 'address', 'issue']));
+        RequestPart::create($request->only(['name', 'phone_number', 'tools_type', 'address', 'issue']));
     
         return redirect('/')->with('success', 'Data berhasil disimpan. Silakan menunggu.');
+    }
+
+    public function createRequestMember() {
+        $instansi = Instansi::all();
+        return view('auth.register', compact('instansi'));
+    }
+
+    public function requestMember(Request $request) {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone_number' => 'required|string|max:20',
+            'address' => 'required|string|max:255',
+            'instansi' => 'required|string|max:255',
+        ]);
+
+        Member::create($request->only(['name', 'email', 'phone_number', 'instansi', 'address']));
+
+        return redirect('/')->with('success', 'Permintaan keanggotaan berhasil dikirim. Silakan menunggu konfirmasi dari admin.');
     }
 
     function contact() {

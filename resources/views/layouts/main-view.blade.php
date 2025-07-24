@@ -27,9 +27,43 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/sb-admin-2.min.css') }}">
-    <link rel="stylesheet" href="{{asset('css/custom-style.css')}}">
 </head>
 
+<style>
+    .notification {
+    position: fixed;
+    top: 20px;
+    left: -400px; /* start di luar layar */
+    min-width: 300px;
+    max-width: 90%;
+    padding: 15px 20px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 8px;
+    z-index: 9999;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.notification-success {
+    background-color: #28a745;
+}
+
+.notification-danger {
+    background-color: #dc3545;
+}
+
+.notification-show {
+    left: 20px; /* geser ke dalam layar */
+}
+
+.fade-out {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+</style>
 <body class="page-top">
     <div id="wrapper">
 
@@ -270,28 +304,27 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    const notification = document.getElementById("notification");
+    const notifications = document.querySelectorAll('.notification');
 
     $('#instansi-select').select2();
-    CKEDITOR.replace('editor');
+    if (typeof CKEDITOR !== 'undefined') {
+        CKEDITOR.replace('editor');
+    }
 
+    notifications.forEach(notification => {
+        // Tampilkan notifikasi
+        notification.classList.add("notification-show");
 
-    function showNotification() {
-        notification.style.left = "20px";
+        // Hilang setelah 3 detik
         setTimeout(() => {
-            hideNotification();
+            notification.classList.add("fade-out");
+
+            // Hapus dari DOM setelah animasi selesai
+            notification.addEventListener("transitionend", function() {
+                notification.remove();
+            }, { once: true });
         }, 3000);
-    }
-
-    function hideNotification() {
-        notification.classList.add("fade-out");
-        setTimeout(() => {
-            notification.remove();
-        }, 500);
-    }
-
-    showNotification();
-
+    });
 });
 </script>
 
