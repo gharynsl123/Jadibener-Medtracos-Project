@@ -16,10 +16,10 @@ class CreateMemberTable extends Migration
         Schema::create('member', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('email');
             $table->string('address');
-            $table->string('issue')->nullable();
+            $table->string('instansi')->nullable();
             $table->string('phone_number')->nullable();
-            $table->enum('tools_type', ['Kompor Gas', 'Oven / Steamer', 'Fryer / Grill', 'Lainnya'])->nullable()->default(null);
             $table->timestamps();
         });
     }
