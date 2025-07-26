@@ -107,6 +107,14 @@ class GuestController extends Controller
         return view('guest.request-member', compact('instansi'));
     }
 
+    public function createRequestMember() {
+
+        $instansi = Instansi::all();
+
+        return view('auth.register', compact('instansi'));
+
+    }
+
     public function storeRequest(Request $request)
     {
         $request->validate([

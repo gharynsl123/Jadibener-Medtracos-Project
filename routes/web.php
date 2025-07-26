@@ -155,6 +155,7 @@ Route::get('/download-peralatan-garansi', function () {
 Route::get('/', 'GuestController@greeting');
 Route::get('/spare-part', 'GuestController@viewPart');
 Route::post('/store-request-service', 'GuestController@storeRequest');
+Route::get('/request-as-member', 'GuestController@createRequestMember');
 Route::get('/layanan-kami/{slug}', 'GuestController@about');
 Route::get('/spare-part/{name}', 'GuestController@detailAlat');
 Route::post('/submit-reques-part/{name}', 'GuestController@requestPart')->name('submit.request.part');
