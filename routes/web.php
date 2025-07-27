@@ -154,7 +154,8 @@ Route::get('/download-peralatan-garansi', function () {
 // guest Route
 Route::get('/', 'GuestController@greeting');
 Route::get('/spare-part', 'GuestController@viewPart');
-Route::post('/store-request-service', 'GuestController@storeRequest');
+Route::post('/store-request-service', 'GuestController@storeRequestPart');
+Route::post('/store-request-member', 'GuestController@requestMember');
 Route::get('/request-as-member', 'GuestController@createRequestMember');
 Route::get('/layanan-kami/{slug}', 'GuestController@about');
 Route::get('/spare-part/{name}', 'GuestController@detailAlat');
