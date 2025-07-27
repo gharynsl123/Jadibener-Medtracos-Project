@@ -1,4 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
 /*!
  * Bootstrap v4.6.2 (https://getbootstrap.com/)
@@ -15,7 +16,7 @@
   --red: #e3342f;
   --orange: #f6993f;
   --yellow: #ffed4a;
-  --green: #38c172;
+  --green: #1A8754;
   --teal: #4dc0b5;
   --cyan: #6cb2eb;
   --white: #fff;
@@ -2765,29 +2766,29 @@ fieldset:disabled a.btn {
 
 .btn-success {
   color: #fff;
-  background-color: #38c172;
-  border-color: #38c172;
+  background-color: #1A8754;
+  border-color: #1A8754;
 }
 
 .btn-success:hover {
   color: #fff;
-  background-color: #2fa360;
-  border-color: #2d995b;
+  background-color: #056337;
+  border-color: #056337;
 }
 
 .btn-success:focus,
 .btn-success.focus {
   color: #fff;
-  background-color: #2fa360;
-  border-color: #2d995b;
+  background-color: #056337;
+  border-color: #056337;
   box-shadow: 0 0 0 0.2rem rgba(86, 202, 135, 0.5);
 }
 
 .btn-success.disabled,
 .btn-success:disabled {
   color: #fff;
-  background-color: #38c172;
-  border-color: #38c172;
+  background-color: #1A8754;
+  border-color: #1A8754;
 }
 
 .btn-success:not(:disabled):not(.disabled):active,
@@ -10739,12 +10740,12 @@ a.text-secondary:focus {
 }
 
 .text-success {
-  color: #38c172 !important;
+  color: #1A8754 !important;
 }
 
 a.text-success:hover,
 a.text-success:focus {
-  color: #27864f !important;
+  color: #056337 !important;
 }
 
 .text-info {

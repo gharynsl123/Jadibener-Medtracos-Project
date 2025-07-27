@@ -50,7 +50,7 @@
                     @csrf
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input id="email" type="email" name="username" class="form-control" placeholder="Masukkan Username" required autofocus>
+                        <input id="email" type="text" name="username" class="form-control" placeholder="Masukkan Username" required autofocus>
                     </div>
 
                     <div class="mb-3 position-relative">
