@@ -21,13 +21,13 @@
 
     <style>
     .navbar {
-        min-height: 94px;
+        min-height: 50px;
         background-color: #1C1F21;
     }
 
     .nav-link {
         color: #fff !important;
-        font-size: 1.1rem;
+        font-size: 15px;
         font-family: "Manrope", sans-serif;
         font-weight: 500;
     }
@@ -35,6 +35,12 @@
     .nav-link:hover {
         color: #B2B2B2FF !important;
     }
+
+
+     .navbar.sticky-top {
+        z-index: 1030; /* lebih tinggi dari default Bootstrap */
+    }
+
     /* Base style notifikasi */
     .notification {
         position: fixed;
@@ -64,16 +70,17 @@
         transform: translateY(-20px);
     }
 
+
     </style>
 </head>
 
 <body>
     <!-- Navbar di dalam new-ui.blade.php -->
-    <nav class="navbar navbar-expand-lg shadow-sm">
+    <nav class="navbar navbar-expand-lg shadow-sm sticky-top">
         <div class="container">
             <!-- Logo -->
             <a class="navbar-brand d-flex align-items-center" href="/">
-                <img src="{{ asset('images/icon-web-jadibener.png') }}" alt="Logo" height="65" class="me-2">
+                <img src="{{ asset('images/icon-web-jadibener.png') }}" alt="Logo" height="50" class="me-2">
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" style="border-color: #fff;">

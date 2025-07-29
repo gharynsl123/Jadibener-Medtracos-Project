@@ -2435,6 +2435,8 @@ fieldset:disabled a.btn {
   border-color: #1A8754;
 }
 
+
+
 .btn-success:hover {
   color: #fff;
   background-color: #056337;
@@ -10410,12 +10412,29 @@ a:focus {
   font-weight: 700;
 }
 
+ .toggle-btn-custom {
+    top: 50%;
+    right: -15px;
+    transform: translateY(-50%);
+    border-radius: 0 10px 10px 0;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    font-size: 14px;
+    z-index: 999;
+}
+
 .sidebar #sidebarToggle {
-  width: 2.5rem;
-  height: 2.5rem;
-  text-align: center;
-  margin-bottom: 1rem;
-  cursor: pointer;
+   top: 50%;
+    right: -15px;
+    transform: translateY(-50%);
+    border-radius: 0 10px 10px 0;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    font-size: 14px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 999;
 }
 
 .sidebar #sidebarToggle::after {
