@@ -13,15 +13,11 @@ return new class extends Migration
     {
         Schema::create('request_part', function (Blueprint $table) {
             $table->id();
-            $table->string('part_name');
-            $table->string('part_code')->unique();
-            $table->string('part_category');
-            $table->string('price_part');
-            $table->string('name_user');
-            $table->string('email_user');
-            $table->string('phone_user')->nullable();
-            $table->string('part_image')->nullable();
-            $table->text('part_description')->nullable();
+            $table->string('name');
+            $table->string('address');
+            $table->string('issue')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->enum('tools_type', ['Kompor Gas', 'Oven / Steamer', 'Fryer / Grill', 'Lainnya'])->nullable()->default(null);
             $table->timestamps();
         });
     }

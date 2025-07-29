@@ -36,9 +36,41 @@
         color: #B2B2B2FF !important;
     }
 
+
      .navbar.sticky-top {
         z-index: 1030; /* lebih tinggi dari default Bootstrap */
     }
+
+    /* Base style notifikasi */
+    .notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 16px 24px;
+        background-color: #d4edda; /* warna hijau sukses */
+        color: #155724;
+        border-left: 6px solid #28a745;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        z-index: 9999;
+    }
+
+    /* Saat notifikasi dimunculkan */
+    .notification-show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Saat notifikasi disembunyikan */
+    .notification-hide {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+
     </style>
 </head>
 
