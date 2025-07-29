@@ -1,9 +1,10 @@
 @extends('layouts.main-view')
 @section('content')
 
+
 <!-- Page Heading -->
-<div class="d-sm-flex align-items-center justify-content-between mb-5">
-    <h1 class="h3 mb-0 d-none d-sm-inline-block  text-gray-800">Peralatan Rumah Sakit</h1>
+<div class="d-sm-flex align-items-center justify-content-between mb-3">
+    <!-- <h1 class="h3 mb-0 d-none d-sm-inline-block  text-gray-800">Peralatan Rumah Sakit</h1> -->
     <div>
         @if(Auth::user()->level == 'admin')
         <a href="{{url('/create-equipment')}}" class="btn btn-sm btn-primary">
@@ -17,10 +18,7 @@
         </a>
         @endif
 
-        <button type="button" data-bs-toggle="modal" data-bs-target="#selec-equipment" class="btn btn-sm btn-primary">
-            <i class="fa fa-download"></i>
-            <span>Export Data Peralatan</span>
-        </button>
+        
     </div>
 </div>
 
@@ -66,12 +64,14 @@
 <div class="tab-content" id="pills-tabContent">
     <!-- general table -->
     <div class="tab-pane fade show active" id="pills-general" role="tabpanel" aria-labelledby="pills-home-tab">
-        <div class="card p-3 shadow-lg border-left-primary">
+        <div class="card p-3 shadow-lg border-0">
             <div class="table-responsive">
                 <table class="table border-0 table-borderless table-hover" id="generalTable">
+                    <h1 class="h4 mb-0 d-none d-sm-inline-block text-gray-800">Peralatan Rumah Sakit</h1>
+                    <hr>
                     <thead>
                         <tr class="bg-dark-ori-web text-white">
-                            <th class="rounded-left">Nama Instansi</th>
+                            <!-- <th class="rounded-left">Nama Instansi</th> -->
                             <th>Produk</th>
                             <th class="d-none">kategori</th>
                             <th class="d-none">merek</th>
@@ -87,7 +87,7 @@
                     <tbody>
                         @foreach($equipment as $item)
                         <tr>
-                            <td>{{$item->instansi->name}}</td>
+                            <!-- <td>{{$item->instansi->name}}</td> -->
                             <td>{{$item->poducts->name}}</td>
                             <td class="d-none">{{$item->categories->name}}</td>
                             <td class="d-none">{{$item->brands->name}}</td>
@@ -128,7 +128,15 @@
                     </tbody>
                 </table>
             </div>
+            
         </div>
+    </div>
+     <div class="d-flex justify-content-end mt-3">
+        <button type="button" data-bs-toggle="modal" data-bs-target="#selec-equipment"
+            class="py-2 px-3 btn btn-sm btn-success">
+            <i class="fa fa-download"></i>
+            <span>Export Data Peralatan</span>
+        </button>
     </div>
     <!-- warranty table -->
     <div class="tab-pane fade" id="pills-warranty" role="tabpanel" aria-labelledby="pills-profile-tab">
@@ -207,7 +215,42 @@
             [5, 10, 25, 50, -1],
             [5, 10, 25, 50, "All"]
         ],
+        initComplete: function () {
+            const $filter = $('#generalTable_wrapper .dataTables_filter');
+            const $input = $filter.find('input');
+
+            $filter.find('label').contents().filter(function () {
+                return this.nodeType === 3;
+            }).remove();
+
+            $input.css({
+                'padding-left': '30px',
+                'border-radius': '8px',
+                'border': '1px solid #ccc',
+                'width': '250px',
+                'background-image': 'url("https://cdn-icons-png.flaticon.com/512/622/622669.png")',
+                'background-repeat': 'no-repeat',
+                'background-size': '16px',
+                'background-position': '8px center',
+                'box-sizing': 'border-box'
+            });
+
+            $input.attr('placeholder', 'Search...');
+
+            // Tambahkan margin bawah untuk spacing antar elemen
+            $('#generalTable_wrapper .dataTables_length').css({
+                'margin-bottom': '1rem'
+              
+            });
+
+            // Tambahkan gap kanan pada select-nya
+            $('#generalTable_wrapper .dataTables_length select').css({
+                'margin': '0 8px'
+               
+            });
+        }
     });
+
     $('#warrantyTable').DataTable({
         ordering: false,
         pageLength: 5,
@@ -216,6 +259,41 @@
             [5, 10, 25, 50, -1],
             [5, 10, 25, 50, "All"]
         ],
+        initComplete: function () {
+            const $filter = $('#warrantyTable_wrapper .dataTables_filter');
+            const $input = $filter.find('input');
+
+            $filter.find('label').contents().filter(function () {
+                return this.nodeType === 3;
+            }).remove();
+
+            $input.css({
+                'padding-left': '30px',
+                'border-radius': '8px',
+                'border': '1px solid #ccc',
+                'width': '250px',
+                'background-image': 'url("https://cdn-icons-png.flaticon.com/512/622/622669.png")',
+                'background-repeat': 'no-repeat',
+                'background-size': '16px',
+                'background-position': '8px center',
+                'box-sizing': 'border-box'
+            });
+
+            $input.attr('placeholder', 'Search...');
+
+            $('#warrantyTable_wrapper .dataTables_length').css({
+                'margin-bottom': '1rem'
+            });
+
+            $('#warrantyTable_wrapper .dataTables_length select').css({
+                'margin': '0 8px'
+            });
+        }
     });
 </script>
+
+
+
+
+
 @endsection
