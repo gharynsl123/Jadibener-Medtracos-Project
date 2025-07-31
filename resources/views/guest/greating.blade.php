@@ -26,9 +26,9 @@
         </div>
     </section>
     <!-- Tentang Kami -->
-    <section class="container mt-5 justify-content-center align-items-center d-flex tentang-kami">
+    <section class="container mt-5 justify-content-center align-items-center d-flex" id="tentang">
         <div class="row d-flex align-items-center">
-            <div class="col-lg-6 col-md-12 col-sm-12 mb-5 ">
+            <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
                 <img src="{{asset('images/layanan kami.png')}}" alt="layanan kami" class="img-fluid w-85">
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12">
@@ -63,7 +63,7 @@
         </div>
     </section>
 
-    <section class="container mb-5  justify-content-center">
+    <section class="container mb-5 justify-content-center">
         <div class="container py-4">
             <div class="row gx-3 gy-3">
                 <div class="col-md-3">
@@ -101,7 +101,7 @@
 
 
     <!-- layanan kami -->
-    <section class="mb-5" style="padding-top: 3.25rem; padding-bottom: 3.25rem; background-color: #F9F9F9">
+    <section id="layanan"class="mb-5" style="padding-top: 3.25rem; padding-bottom: 3.25rem; background-color: #F9F9F9">
         <div class="container">
             <p class="montserrat-bold text-center mb-4" style="font-size: 3.125rem;">Layanan kami</p>
             <div class="row g-4">
