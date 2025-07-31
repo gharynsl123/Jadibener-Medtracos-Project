@@ -92,13 +92,6 @@
                     <img src="{{ asset('images/white-logo.png') }}" class="image-thumbnail" style="width: 150px;"
                         alt="Gambar">
                 </a>
-
-                <!-- <div class="btn btn-dark toggle-btn-custom position-absolute">
-                <button class="rounded-circle border-0" id="customSidebarToggle"></button>
-            </div> -->
-                <button id="customSidebarToggle" class="btn btn-green toggle-btn-custom position-absolute">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
             </div>
             <hr class="sidebar-divider my-0">
             <!-- Nav Item - Dashboard -->
