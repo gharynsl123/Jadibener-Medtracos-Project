@@ -96,10 +96,10 @@
                     $isHome = request()->is('/') || request()->is('home');
                     @endphp
                     <li class="nav-item">
-                        <a class="nav-link{{ !$isHome ? ' disabled' : '' }}" href="#layanan">Layanan</a>
+                        <a class="nav-link{{ !$isHome ? ' disabled' : '' }}" href="#tentang">Tentang Kami</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link{{ !$isHome ? ' disabled' : '' }}" href="#tentang">Tentang Kami</a>
+                        <a class="nav-link{{ !$isHome ? ' disabled' : '' }}" href="#layanan">Layanan</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{url('/kontak')}}">Kontak</a></li>
                 </ul>
