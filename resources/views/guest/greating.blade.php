@@ -100,13 +100,13 @@
 
 
     <!-- layanan kami -->
-    <section id="layanan"class="mb-5" style="padding-top: 3.25rem; padding-bottom: 3.25rem; background-color: #F9F9F9">
+    <section id="layanan" class="mb-5" style="padding-top: 3.25rem; padding-bottom: 3.25rem; background-color: #F9F9F9">
         <div class="container">
             <p class="montserrat-bold text-center mb-4" style="font-size: 3.125rem;">Layanan kami</p>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <a href="{{url('/layanan-kami/kompor-gas')}}"
-                        class="card shadow border-0 rounded-4 overflow-hidden text-decoration-none">
+                        class="card shadow-sm border-0 rounded-4 overflow-hidden text-decoration-none">
                         <div class="position-relative">
                             <img src="images/3 service kompor.jpg" alt="Service Kompor" class="img-fluid w-100"
                                 style="height: 180px; object-fit: cover;">
@@ -131,7 +131,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <a href="{{url('/layanan-kami/kulkas-chiller-&-freezer')}}"
-                        class="card shadow border-0 rounded-4 overflow-hidden text-decoration-none">
+                        class="card shadow-sm border-0 rounded-4 overflow-hidden text-decoration-none">
                         <div class="position-relative">
                             <img src="images/6 servis kulkas.jpg" alt="Service Kompor" class="img-fluid w-100"
                                 style="height: 180px; object-fit: cover;">
@@ -155,7 +155,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <a href="{{url('/layanan-kami/servis-open-&-steamer')}}"
-                        class="card shadow border-0 rounded-4 overflow-hidden text-decoration-none">
+                        class="card shadow-sm border-0 rounded-4 overflow-hidden text-decoration-none">
                         <div class="position-relative">
                             <img src="images/5 diswasher.jpg" alt="Service Kompor" class="img-fluid w-100"
                                 style="height: 180px; object-fit: cover;">
@@ -181,7 +181,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <a href="{{url('/layanan-kami/penjualan-sparepart')}}"
-                        class="card shadow border-0 rounded-4 overflow-hidden text-decoration-none">
+                        class="card shadow-sm border-0 rounded-4 overflow-hidden text-decoration-none">
                         <div class="position-relative">
                             <img src="images/1 sparepart.jpg" alt="Service Kompor" class="img-fluid w-100"
                                 style="height: 180px; object-fit: cover;">
@@ -205,7 +205,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <a href="{{url('/layanan-kami/maintenance-&-instalasi-sistem-gas')}}"
-                        class="card shadow border-0 rounded-4 overflow-hidden text-decoration-none">
+                        class="card shadow-sm border-0 rounded-4 overflow-hidden text-decoration-none">
                         <div class="position-relative">
                             <img src="images/4 trolley & furniture ss.jpg" alt="Service Kompor" class="img-fluid w-100"
                                 style="height: 180px; object-fit: cover;">
@@ -231,9 +231,9 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <a href="{{url('/layanan-kami/pembersihan-&-servis-hood-dapur')}}"
-                        class="card shadow border-0 rounded-4 overflow-hidden text-decoration-none">
+                        class="card shadow-sm border-0 rounded-4 overflow-hidden text-decoration-none">
                         <div class="position-relative">
-                            <img src="images/2 service hood.jpg" alt="Service Kompor" class="img-fluid w-100"
+                            <img src="images/hood system.png" alt="Service Kompor" class="img-fluid w-100"
                                 style="height: 180px; object-fit: cover;">
 
                             <div class="position-absolute bottom-1 start-0 translate-middle-y ms-3 mb-n3">
@@ -259,49 +259,50 @@
     </section>
 
     <!-- Visi Misi -->
-    <section class="mb-5 pt-5">
+    <!-- HTML -->
+    <section class="py-5" style="background-color: #ffffff">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-12 mb-5">
-                    <p class="montserrat-bold mb-1" style="color: #1A8754; font-size:1.25rem;">Who We Are</p>
-                    <p class="montserrat-bold" style="color: #00000; font-size:2.5rem;">Bikin Dapur Tetep Jalan Gapake Drama
+            <div class="row d-flex align-items-center mb-5">
+                <div class="col-md-6 d-flex flex-column justify-content-center">
+                    <p class="text-success fw-bold mb-1">Who We Are</p>
+                    <h1 class="fw-bold display-5 mb-0">Bikin Dapur Tetep Jalan<br>Gapake Drama</h1>
+                </div>
+                <div class="col-md-6 ">
+                    <p class="text-muted fs-5" style="text-align: justify;">
+                        Di Jadibener.com, kami hadir sebagai mitra andal untuk menjaga dapur Anda tetap berfungsi tanpa
+                        hambatan. Kami menyediakan layanan servis peralatan dapur, instalasi, serta penyediaan sparepart
+                        asli dengan standar profesional dan teknisi berpengalaman. Fokus kami adalah memberikan solusi
+                        praktis, cepat, dan bergaransi untuk setiap permasalahan dapur, dari dapur rumah tangga, restoran,
+                        hotel, hingga dapur rumah sakit dan industri kuliner skala besar. Dengan layanan yang responsif dan
+                        teknis yang tepat sasaran, kami pastikan dapur Anda selalu siap jalan, tanpa ribet, tanpa drama.
                     </p>
                 </div>
+            </div>
 
-                <div class="col-lg-6 col-md-12 mb-5">
-                    <p style="font-size: 1.25rem;" class="text-muted manrope">Kami berkomitmen untuk mendukung kelancaran
-                        operasional dapur Anda melalui layanan servis dan penyediaan sparepart yang andal. Fokus kami adalah
-                        memberikan solusi praktis untuk menjaga dapur tetap berjalan optimal baik di rumah, restoran, hotel,
-                        maupun industri kuliner lainnya.</p>
+            <div class="row d-flex align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <img src="images/visi misi img.jpeg" alt="Dapur" class="img-fluid rounded-4 w-100"
+                        style="height: 335px; object-fit: cover;" />
                 </div>
-                <div class="col-lg-6 col-md-12 mb-4">
-                    <div class="card rounded-4 border-0 shadow justify-content-end p-3"
-                        style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80'); background-size: cover; min-height: 300px;">
-                        <div class="card p-3 border-0">
-                            <p class="m-1 montserrat-bold" style="font-size: 1.25rem;">Visi Kami</p>
-                            <p class="m-0 manrope-medium" style="font-size:13px;">Menjadi mitra terpercaya dalam mendukung
-                                operasional dapur pelanggan dengan layanan service dan penyediaan spare part terbaik di
-                                Indonesia.</p>
-                        </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center">
+                    <div class="mb-4 ">
+                        <h4 class="fw-bold">Visi Kami</h4>
+                        <p class="text-muted fs-5 " style="text-align: justify;">Menjadi mitra terpercaya dalam mendukung operasional dapur pelanggan
+                            dengan layanan service dan penyediaan spare part terbaik di Indonesia.</p>
                     </div>
-
-                </div>
-
-                <div class="col-lg-6 col-md-12 mb-4">
-                    <div class="card rounded-4 border-0 shadow justify-content-end p-3"
-                        style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80'); background-size: cover; min-height: 300px;">
-                        <div class="card p-3 border-0">
-                            <p class="m-1 montserrat-bold" style="font-size: 1.25rem;">Misi Kami</p>
-                            <p class="m-0 manrope-medium" style="font-size:13px;">Memberikan solusi cepat dan tepat untuk
-                                setiap permasalahan alat dapur. Menyediakan produk dan sparepart berkualitas dengan harga
-                                kompetitif. Menjalin hubungan jangka panjang dengan pelanggan melalui layanan terbaik.</p>
-                        </div>
+                    <div>
+                        <h4 class="fw-bold ">Misi Kami</h4>
+                        <p class="text-muted fs-5 " style="text-align: justify;">Memberikan solusi cepat dan tepat untuk setiap permasalahan alat dapur.
+                            Menyediakan produk dan sparepart berkualitas dengan harga kompetitif. Menjalin hubungan jangka
+                            panjang dengan pelanggan melalui layanan terbaik.</p>
                     </div>
-
                 </div>
             </div>
         </div>
     </section>
+
+
+
 
     <section id="ajukan-service">
         @include('guest.partials.ajukan-service')
