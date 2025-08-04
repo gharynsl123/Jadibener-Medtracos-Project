@@ -264,11 +264,11 @@
         <div class="container">
             <div class="row d-flex align-items-center mb-5">
                 <div class="col-md-6 d-flex flex-column justify-content-center">
-                    <p class="text-success fw-bold mb-1">Who We Are</p>
+                    <p class="text-success fw-bold mb-1">Visi Misi K</p>
                     <h1 class="fw-bold display-5 mb-0">Bikin Dapur Tetep Jalan<br>Gapake Drama</h1>
                 </div>
                 <div class="col-md-6 ">
-                    <p class="text-muted fs-5" style="text-align: justify;">
+                    <p class="text-muted fs-6" style="text-align: justify;">
                         Di Jadibener.com, kami hadir sebagai mitra andal untuk menjaga dapur Anda tetap berfungsi tanpa
                         hambatan. Kami menyediakan layanan servis peralatan dapur, instalasi, serta penyediaan sparepart
                         asli dengan standar profesional dan teknisi berpengalaman. Fokus kami adalah memberikan solusi
@@ -287,12 +287,12 @@
                 <div class="col-md-6 d-flex flex-column justify-content-center">
                     <div class="mb-4 ">
                         <h4 class="fw-bold">Visi Kami</h4>
-                        <p class="text-muted fs-5 " style="text-align: justify;">Menjadi mitra terpercaya dalam mendukung operasional dapur pelanggan
+                        <p class="text-muted fs-6 " style="text-align: justify;">Menjadi mitra terpercaya dalam mendukung operasional dapur pelanggan
                             dengan layanan service dan penyediaan spare part terbaik di Indonesia.</p>
                     </div>
                     <div>
                         <h4 class="fw-bold ">Misi Kami</h4>
-                        <p class="text-muted fs-5 " style="text-align: justify;">Memberikan solusi cepat dan tepat untuk setiap permasalahan alat dapur.
+                        <p class="text-muted fs-6 " style="text-align: justify;">Memberikan solusi cepat dan tepat untuk setiap permasalahan alat dapur.
                             Menyediakan produk dan sparepart berkualitas dengan harga kompetitif. Menjalin hubungan jangka
                             panjang dengan pelanggan melalui layanan terbaik.</p>
                     </div>
