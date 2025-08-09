@@ -41,7 +41,7 @@
                     <p class="montserrat-bold" style="font-size: 2rem; line-height: 1.1;">
                         Peralatan Dapur Rusak? <br><span class="text-success"> Serahkan pada Ahlinya!</span>
                     </p>
-                    <p class="manrope-medium" style="font-size: 0.90rem; line-height: 1.5; color: #858788;">
+                    <p class="manrope-medium" style="font-size: 0.90rem; line-height: 1.5; color: #858788; text-align: justify;" >
                         Jadibener.com adalah solusi terpercaya untuk segala kebutuhan instalasi, perbaikan, dan penyediaan
                         suku cadang peralatan dapur Anda. Kami melayani rumah tangga, restoran, hotel, dapur industri,
                         hingga dapur rumah sakit, dengan layanan profesional yang cepat, tepat, dan bergaransi.</br> </br>
@@ -264,7 +264,7 @@
         <div class="container">
             <div class="row d-flex align-items-center mb-5">
                 <div class="col-md-6 d-flex flex-column justify-content-center">
-                    <p class="text-success fw-bold mb-1">Visi Misi K</p>
+                    <p class="text-success fw-bold mb-1">Visi Misi Kami</p>
                     <h1 class="fw-bold display-5 mb-0">Bikin Dapur Tetep Jalan<br>Gapake Drama</h1>
                 </div>
                 <div class="col-md-6 ">
