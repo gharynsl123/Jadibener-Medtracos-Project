@@ -91,6 +91,7 @@
             <div class="collapse navbar-collapse justify-content-center align-items-center " id="navbarMenu">
                 <ul class="navbar-nav mb-2 mb-lg-0 gap-lg-1">
                     <li class="nav-item"><a class="nav-link" href="{{url('/')}}">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url('/our-product')}}">Product</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{url('/spare-part')}}">Sparet Part</a></li>
                     @php
                     $isHome = request()->is('/') || request()->is('home');

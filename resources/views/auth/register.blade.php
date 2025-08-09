@@ -70,7 +70,7 @@
                     <a href="{{url('/')}}" class="btn btn-outline-secondary w-100 mb-2">
                         Batal
                     </a>
-                    <p class="text-center small mt-4">
+                    <p class="text-start small mt-4">
                         Sudah punya akun? <a href="{{ route('login') }}" class="text-success">Login disini</a>
                     </p>
                 </form>
