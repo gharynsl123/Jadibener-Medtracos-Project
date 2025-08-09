@@ -1,76 +1,85 @@
 @section('content')
-@if($instansi)
-<div class="d-sm-flex align-items-center justify-content-between mb-5">
-    <h1 class="h3 mb-0 d-none d-sm-inline-block  text-gray-800">Profile Rumah Sakit</h1>
-</div>
-<div class="card p-3">
-    <div class="row">
-        <!-- Gambar rumah sakit -->
-        <div class="col-md-5 d-flex justify-content-center align-items-center">
-            @if($instansi->photo)
-            <!-- ambil gambar -->
-            <img src="{{ asset('storage/instansi_images/'.$instansi->photo) }}" style="height:350px;"
-                class="img-thumbnail" alt="Responsive image">
-            @else
-            <p>No Image Available</p>
-            @endif
-        </div>
-        <!-- Informasi rumah sakit -->
-        <div class="col-md-7 my-4 px-4">
-            <h4 class="mb-3">{{$instansi->name}}</h4>
-            <p class="mb-4"><strong>Alamat: </strong><span class="font-weight-bold text-small">{!! $instansi->address
-                    !!}</span></p>
-            <hr>
-            <div class="informasi-user">
-                <p><strong>Informasi User</strong></p>
-                <ul class="list-unstyled">
-                    <li><strong>Nama Asli:</strong> {{$user->name}}</li>
-                    <li><strong>Email:</strong> {{$user->email}}</li>
-                    <li><strong>Username Pengguna:</strong> {{$user->username}}</li>
-                    <li><strong>Divisi:</strong> {{$user->departement ? $user->departement : 'Belum ada'}}</li>
-                    <li><strong>Nomor Telpon:</strong> {{$user->phone_number}}</li>
-                </ul>
-            </div>
-            <a href="#" target="_blank" class="btn my-2 btn-secondary">Cetak PDF</a>
-        </div>
-    </div>
-</div>
+    @if($instansi)
+        <div class="container-fluid py-4" style="background-color: #f8f9fa;">
+            <div class="container bg-white p-4 rounded shadow-sm">
 
-<!-- Informasi bisnis -->
-<div class="row mt-5">
-    <div class="col-md-12">
-        <div class="card border-left-primary">
-            <div class="card-header">BUSINESS INFORMATION</div>
-            <div class="card-body">
-                <table class="table table-borderless">
-                    <tbody>
-                        <tr>
-                            <td>JUMLAH BED</td>
-                            <td>:</td>
-                            <td>{{$instansi->jumlah_kasur}}</td>
-                        </tr>
-                        <tr>
-                            <td>JENIS INSTANSI</td>
-                            <td>:</td>
-                            <td>{{$instansi->jenis_instansi}}</td>
-                        </tr>
-                        <tr>
-                            <td>NO. MEMBER</td>
-                            <td>:</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>JUMLAH PERALATAN</td>
-                            <td>:</td>
-                            <td><a href="{{url('/barang-rumah-sakit')}}">{{$alatPeralatan}} Peralatan</a></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <!-- Judul -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4" >
+                    <h3 class=" mb-0 text-gray-800">Profile Rumah Sakit</h3>
+                </div>
+
+                <!-- Foto + Judul & Alamat -->
+                <div class="row align-items-center mb-3">
+                    <div class="col-md-2">
+                        @if($instansi->photo)
+                            <img src="{{ asset('storage/instansi_images/' . $instansi->photo) }}" class="img-fluid rounded"
+                                alt="Foto Rumah Sakit">
+                        @else
+                            <div class="bg-light border d-flex justify-content-center align-items-center"
+                                style="width:100%;height:100px;">
+                                <span>-</span>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="col-md-10">
+                        <h4 class="fw-bold mb-1">{{ $instansi->name ?? '-' }}</h4>
+                        <p class="mb-0">
+                            <strong>Alamat:</strong>
+                            <span>{!! $instansi->address ?? '-' !!}</span>
+                        </p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <!-- Informasi User -->
+                <div class="mb-3">
+                    <div class="mb-3 ">
+                        <p class="badge py-3 px-4 text-dark" style="background-color: #E8F3EE; font-size: 15px;" >Informasi User</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <ul class="list-unstyled text-muted mb-0">
+                                <li class="mb-3"><strong>Nama Asli:</strong> {{ $user->name ?? '-' }}</li>
+                                <li class="mb-3"><strong>Email:</strong> {{ $user->email ?? '-' }}</li>
+                                <li class="mb-3"><strong>Username:</strong> {{ $user->username ?? '-' }}</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <ul class="list-unstyled text-muted mb-0">
+                                <li class="mb-3"><strong>Divisi:</strong> {{ $user->departement ?? '-' }}</li>
+                                <li class="mb-3"><strong>Nomor Telpon:</strong> {{ $user->phone_number ?? '-' }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="#" target="_blank" class="btn btn-success mt-4">Cetak PDF</a>
+                </div>
+
+                <!-- Kotak Informasi -->
+                <!-- Kotak Informasi (Full Width dengan Margin antar Box) -->
+                <div class="d-flex flex-wrap mt-4" style="margin: -0.5rem;">
+                    <div class="bg-light p-4 rounded   text-center" style="flex: 1 1 200px; margin: 0.5rem;">
+                        <h4 class="text-success fw-bold mb-1">{{ $instansi->jumlah_kasur ?? '-' }}</h4>
+                        <p class="mb-0 text-muted">Jumlah Bed</p>
+                    </div>
+                    <div class="bg-light p-4 rounded  text-center" style="flex: 1 1 200px; margin: 0.5rem;">
+                        <h4 class="text-success fw-bold mb-1">{{ $instansi->jenis_instansi ?? '-' }}</h4>
+                        <p class="mb-0 text-muted">Jenis Instansi</p>
+                    </div>
+                    <div class="bg-light p-4 rounded   text-center" style="flex: 1 1 200px; margin: 0.5rem;">
+                        <h4 class="text-success fw-bold mb-1">{{ $instansi->nomor_member ?? '-' }}</h4>
+                        <p class="mb-0 text-muted">No. Member</p>
+                    </div>
+                    <div class="bg-light p-4 rounded   text-center" style="flex: 1 1 200px; margin: 0.5rem;">
+                        <h4 class="text-success fw-bold mb-1">{{ $alatPeralatan ?? '-' }}</h4>
+                        <p class="mb-0 text-muted">Jumlah Peralatan</p>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </div>
-</div>
-@else
-Belum Peganng Instansi
-@endif
+
+    @else
+        Belum Peggang Instansi
+    @endif
 @endsection
