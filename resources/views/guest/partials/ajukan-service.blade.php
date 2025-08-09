@@ -1,77 +1,162 @@
-<section class="container py-5">
-    <div>
-        <div class="row g-4 d-flex align-items-stretch">
-            <!-- Kiri: Info Kontak -->
-            <div class="col-lg-4">
-                <div class="bg-light rounded-4 p-4 shadow-sm h-100 d-flex flex-column  justify-content-between"
-                    style="min-height: 450px;">
-                    <div>
+<style>
+        body {
+            background-color: #fff;
+        }
+
+        .icon-circle-sm {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #218653;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+
+        .contact-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #198754;
+        }
+
+        .form-section input,
+        .form-section textarea {
+            border-radius: 5px;
+           
+        }
+
+        .map iframe {
+            border-radius: 10px;
+            
+        }
+
+        @media (max-width: 767.98px) {
+            .icon-circle {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+
+    <div class="container my-5 px-3">
+
+        <section class="p-0 bg-transparent border-0">
+
+            <div class="row align-items-center g-5">
+                <div class="col-md-5">
+                    <div class="contact-section p-4">
                         <button class="btn btn-success mb-3">Contact Us</button>
-                        <p class="text-success mb-4 manrope-bold" style="font-size: 30px;">
-                            Need More Information? Get in Touch
+                        <p class="text-success manrope-bold" style="font-size: 30px; margin-bottom: 5rem;">
+                            Butuh Informasi Lebih Lanjut?
+                            Hubungi Kami
                         </p>
-                        <div class="mb-4">
-                            <i class="bi bi-telephone-fill  text-success me-2"></i>
-                            <strong class="manrope-bold text-success" style="font-size: 23px; ">Phone Number</strong>
-                            <p class="mb-0 text-muted" style="font-size: 20px; ">0812-3456-7890</p>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start mb-3">
+                                    <div class="icon-circle-sm bg-success text-white me-3">
+                                        <i class="bi bi-telephone-fill"></i>
+                                    </div>
+                                    <div class="my-auto">
+                                        <p class="mb-0">+62 812-1000-9683</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start mb-3">
+                                    <div class="icon-circle-sm bg-success text-white me-3">
+                                        <i class="bi bi-envelope-fill"></i>
+                                    </div>
+                                    <div class="my-auto">
+                                        <p class="mb-0">CS@jadibener.com</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <i class="bi bi-geo-alt-fill text-success me-2"></i>
-                            <strong class="manrope-bold text-success" style="font-size: 23px;">Location</strong>
-                            <p class="mb-0 text-muted" style="font-size: 20px; ">Jakarta - Indonesia</p>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start mb-3">
+                                    <div class="icon-circle-sm bg-success text-white me-3">
+                                        <i class="bi bi-clock-fill"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-1">Senin – Sabtu</p>
+                                        <p class="mb-0">08:00 – 17:00 WIB</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start mb-3">
+                                    <div class="icon-circle-sm bg-success text-white me-3">
+                                        <i class="bi bi-geo-alt-fill"></i>
+                                    </div>
+                                    <div class="my-auto">
+                                        <p class="mb-0">Jakarta - Indonesia</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
+                <div class="col-md-7">
+                    <div class="form-section bg-light bg-light rounded-3 p-4">
+                        <form class="row g-3">
+                            <div class="col-12">
+                                <input type="text" placeholder="Nama Lengkap:" required class="form-control" />
+                            </div>
+
+                            
+                            <div class="col-md-6">
+                                <input type="text" placeholder="Nama Institusi:" required class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" placeholder="Jabatan:" required class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" placeholder="Email:" required class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" placeholder="Nomor HP:" required class="form-control" />
+                            </div>
+
+                            <div class="col-md-6">
+                                <textarea placeholder="Judul:" required rows="4" class="form-control"></textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <textarea placeholder="Deskripsi:" required rows="4" class="form-control"></textarea>
+                            </div>
+
+                            <div class="col-12 text-end">
+                                <button class="btn btn-success px-4" type="submit">
+                                    Kirim Formulir
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
             </div>
 
-            <!-- Kanan: Formulir -->
-            <div class="col-lg-8">
-                <div class="bg-light rounded-4 p-4 shadow-sm h-100 d-flex flex-column">
-                    <p class="text-success mb-4 manrope-semibold" style="font-size: 32px;">
-                        Ajukan Permintaan Service
-                    </p>
-                    <form action="{{ url('/store-request-service') }}" method="POST"
-                        class="flex-grow-1 d-flex flex-column">
-                        @csrf
-                        <div class="row g-3">
-                            <div class="col-12">
-                                <input type="text" class="form-control" name="name" placeholder="Nama Lengkap" required>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="tel" class="form-control" name="phone_number" placeholder="Nomor Telepon"
-                                    required>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="tools_type" placeholder="Jenis Peralatan">
-                            </div>
-                            <div class="col-md-6">
-                                <textarea class="form-control" name="address" rows="2" placeholder="Alamat Lengkap"
-                                    required></textarea>
-                            </div>
-                            <div class="col-md-6">
-                                <textarea class="form-control" name="issue" rows="2"
-                                    placeholder="Deskripsi Masalah"></textarea>
-                            </div>
-                        </div>
+            <div class="mt-5">
+                <div
+                    class="d-flex justify-content-between align-items-center flex-column flex-md-row bg-white p-4 rounded-3">
+                    <h5 class="mb-3 mb-md-0 fw-medium text-md-start">Masih Bingung? Hubungi tim kami langsung
+                        sekarang juga</h5>
+                    <a href="https://wa.me/6281210009683" class="btn btn-success px-3" target="_blank">
+                        <i class="bi bi-whatsapp me-2"></i> Chat Via WhatsApp
+                    </a>
+                </div>
 
-                        <div class="mt-4">
-                            {!! NoCaptcha::display() !!}
-                            @if ($errors->has('g-recaptcha-response'))
-                                <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
-                            @endif
-                        </div>
-
-                        <div class="mt-auto pt-4 text-end">
-                            <button type="submit" class="btn btn-success px-4 py-2">
-                                Kirim Permintaan Servis
-                            </button>
-                        </div>
-
-                        {!! NoCaptcha::renderJs() !!}
-                    </form>
+                <div class="map mt-4">
+                    <iframe src="https://maps.google.com/maps?q=Jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        style="width:100%; height:300px; border:0;" allowfullscreen></iframe>
                 </div>
             </div>
-        </div>
-    </div>
-
-</section>
+        </section>

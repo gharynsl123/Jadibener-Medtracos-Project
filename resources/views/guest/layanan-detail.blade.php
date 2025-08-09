@@ -55,7 +55,7 @@
             <div class="my-3 d-flex flex-column position-relative">
                 @if($categories && count($categories) > 1)
                 <select id="category-select" class="custom-select">
-                    <option value="{{ $categories[0] }}" selected>KATEGORI {{ $categories[0] }}</option>
+                    <option value="{{ $categories[0] }}" selected> KATEGORI {{ $categories[0] }}</option>
                     @foreach ($categories as $index => $category)
                         @if ($index !== 0)
                             {{-- Menghindari kategori pertama yang sudah dipilih --}}
