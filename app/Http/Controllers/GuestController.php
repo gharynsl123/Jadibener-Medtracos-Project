@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Instansi;
 use App\Member;
+use App\Product;
 use App\Part;
 use App\RequestPart;
 use Illuminate\Support\Facades\File;
@@ -77,6 +78,11 @@ class GuestController extends Controller
             'subtitle' => $service['subtitle'],
             'descriptions' => $service['description']
         ]);
+    }
+
+    public function product() {
+        $products = Product::all();
+        return view('guest.product', compact('products'));
     }
 
     public function requestPart(Request $request, $name) {

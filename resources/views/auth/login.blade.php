@@ -64,7 +64,7 @@
                     <a href="{{url('/')}}" class="btn btn-outline-secondary w-100 mb-2">
                         Batal
                     </a>
-                    <p class="text-center small mt-4">
+                    <p class="text-start small mt-4">
                         Belum punya akun? <a href="/request-as-member" class="text-success">Daftar disini</a>
                     </p>
                 </form>

@@ -1,8 +1,6 @@
 @extends('layouts.welcome')
 
 @section('content')
-
-
     <!-- Hero Content -->
     <section class="hero">
         <div class="background-black-transaparant d-flex flex-column justify-content-center ">
