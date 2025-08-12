@@ -29,21 +29,19 @@ class GuestController extends Controller
 
         $parts = $part->get();
 
-        // Main categories & subcategories
-        $mainCategories = [];
-        $subCategories = [];
+        // Group parts by kategori
         $groupedParts = [];
-
-
         foreach ($parts as $item) {
             $groupedParts[$item->kategori][] = $item;
         }
 
+        // Main categories & subcategories
+        $mainCategories = [];
+        $subCategories = [];
         foreach ($parts as $part) {
-            // Misalnya kategori = "Kulkas 1 Pintu"
-            $kategoriParts = Str::of($part->kategori)->explode(' '); // ['Kulkas', '1', 'Pintu']
-            $main = $kategoriParts[0]; // "Kulkas"
-            $fullKategori = $part->kategori; // "Kulkas 1 Pintu"
+            $kategoriParts = Str::of($part->kategori)->explode(' ');
+            $main = $kategoriParts[0];
+            $fullKategori = $part->kategori;
 
             if (!in_array($main, $mainCategories)) {
                 $mainCategories[] = $main;
@@ -52,14 +50,33 @@ class GuestController extends Controller
             $subCategories[$main][] = $fullKategori;
         }
 
-        // Hapus duplikat subkategori
+        // Remove duplicate subcategories
         foreach ($subCategories as $key => $subs) {
             $subCategories[$key] = array_unique($subs);
         }
 
-        return view('guest.spare-part', compact('mainCategories', 'subCategories', 'groupedParts'));
-    }
+        // ==== PAGINATION LOGIC ====
+        $perPage = 2; // misalnya 2 kategori per halaman
+        $currentPage = (int) $request->get('page', 1);
 
+        // Ubah array menjadi Collection
+        $groupedPartsCollection = collect($groupedParts);
+
+        // Hitung total halaman
+        $totalPages = (int) ceil($groupedPartsCollection->count() / $perPage);
+
+        // Ambil data sesuai halaman
+        $pagedGroupedParts = $groupedPartsCollection
+            ->forPage($currentPage, $perPage);
+
+        return view('guest.spare-part', [
+            'mainCategories' => $mainCategories,
+            'subCategories' => $subCategories,
+            'groupedParts' => $pagedGroupedParts,
+            'currentPage' => $currentPage,
+            'totalPages' => $totalPages
+        ]);
+    }
 
     public function about($slug)
     {
@@ -122,7 +139,6 @@ class GuestController extends Controller
             'tools_type' => 'required|string',
             'address' => 'required|string',
             'issue' => 'nullable|string',
-            'g-recaptcha-response' => 'required|captcha',
         ]);
     
         RequestPart::create($request->only(['name', 'phone_number', 'tools_type', 'address', 'issue']));
