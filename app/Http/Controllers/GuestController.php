@@ -122,7 +122,6 @@ class GuestController extends Controller
             'tools_type' => 'required|string',
             'address' => 'required|string',
             'issue' => 'nullable|string',
-            'g-recaptcha-response' => 'required|captcha',
         ]);
     
         RequestPart::create($request->only(['name', 'phone_number', 'tools_type', 'address', 'issue']));

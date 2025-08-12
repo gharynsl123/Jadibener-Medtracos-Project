@@ -107,12 +107,11 @@
                 </div>
                 <div class="col-md-7">
                     <div class="form-section bg-light bg-light rounded-3 p-4">
-                        <form class="row g-3">
+                        <form class="row g-3" action="{{ url('/store-request-service')}}" method="POST">
+                            @csrf
                             <div class="col-12">
-                                <input type="text" placeholder="Nama Lengkap:" required class="form-control" />
+                                <input type="text" name="name" placeholder="Nama Lengkap:" required class="form-control" />
                             </div>
-
-                            
                             <div class="col-md-6">
                                 <input type="text" placeholder="Nama Institusi:" required class="form-control" />
                             </div>
@@ -123,14 +122,14 @@
                                 <input type="text" placeholder="Email:" required class="form-control" />
                             </div>
                             <div class="col-md-6">
-                                <input type="text" placeholder="Nomor HP:" required class="form-control" />
+                                <input type="text" name="phone_number" placeholder="Nomor HP:" required class="form-control" />
                             </div>
 
                             <div class="col-md-6">
-                                <textarea placeholder="Judul:" required rows="4" class="form-control"></textarea>
+                                <textarea name="tools_type" placeholder="Judul:" required rows="4" class="form-control"></textarea>
                             </div>
                             <div class="col-md-6">
-                                <textarea placeholder="Deskripsi:" required rows="4" class="form-control"></textarea>
+                                <textarea name="issue" placeholder="Deskripsi:" required rows="4" class="form-control"></textarea>
                             </div>
 
                             <div class="col-12 text-end">
