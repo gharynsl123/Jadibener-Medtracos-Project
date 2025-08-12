@@ -3,13 +3,18 @@
 @section('content')
 <style>
 .sidebar {
-    background-color: #FFFFFFFF;
-    border-radius: 12px;
-    padding: 1rem;
-    overflow-y: auto;
+    height: 100vh;
     position: sticky;
-    top: 1rem;
-    height: calc(100vh - 35px);
+}
+.sidebar a {
+    font-size: 15px;
+    transition: background-color 0.2s ease;
+}
+.sidebar a:hover {
+    background-color: #f8f9fa;
+}
+.sidebar .bi {
+    font-size: 14px;
 }
 
 .gallery-item {
@@ -37,6 +42,18 @@
     font-size: 0.95rem;
 }
 
+.list-group-item {
+    padding: 8px 12px;
+    border-color: #ffffff;
+}
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+.bg-light {
+    background-color: #f5f5f5 !important;
+}
+
+
 /* if median is not in desktop/laptop mode */
 @media (max-width: 991px) {
     .sidebar {
@@ -49,29 +66,38 @@
     <div class="row">
         <!-- Sidebar -->
         <div class="col-12 col-lg-3 mb-3">
-            <div class="sidebar shadow-sm">
-                <h5 class="fw-bold">List Kategori</h5>
-                <ul class="nav flex-column">
+            <div class="sidebar shadow-sm border border-1 rounded-4 overflow-hidden sticky-top bg-white">
+                <!-- Header -->
+                <div class="bg-light p-3 fw-bold">List Kategori</div>
+
+                <!-- List -->
+                <ul class="list-unstyled mb-0">
                     @foreach ($mainCategories as $kategori)
                         @php
                             $collapseId = 'collapse-' . Str::slug($kategori);
+                            $isActive = request('search') == $kategori;
                         @endphp
-                        <li class="nav-item">
-                            <a class="filters-list text-decoration-none d-flex justify-content-between align-items-center" 
-                                data-bs-toggle="collapse" 
-                                href="#{{ $collapseId }}" 
-                                role="button" 
-                                aria-expanded="false" 
-                                aria-controls="{{ $collapseId }}">
+
+                        <li class="">
+                            <a class="filters-list text-decoration-none d-flex justify-content-between align-items-center px-3 py-2 
+                                    {{ $isActive ? 'text-success fw-semibold' : 'text-dark' }}"
+                            data-bs-toggle="collapse" 
+                            href="#{{ $collapseId }}" 
+                            role="button" 
+                            aria-expanded="false" 
+                            aria-controls="{{ $collapseId }}">
                                 {{ $kategori }}
-                                <span class="bi bi-chevron-down small"></span>
+                                <span class="bi bi-chevron-right small"></span>
                             </a>
+
                             <div class="collapse ps-3" id="{{ $collapseId }}">
-                                <ul class="nav flex-column">
+                                <ul class="list-unstyled mb-0">
                                     @foreach ($subCategories[$kategori] as $subKategori)
-                                        <li class="nav-item">
-                                            <a class="filters-list text-decoration-none" href="{{ url()->current() . '?search=' . urlencode($subKategori) }}">
+                                        <li>
+                                            <a class="filters-list text-decoration-none d-flex justify-content-between align-items-center px-3 py-2 text-dark"
+                                            href="{{ url()->current() . '?search=' . urlencode($subKategori) }}">
                                                 {{ $subKategori }}
+                                                <span class="bi bi-chevron-right small"></span>
                                             </a>
                                         </li>
                                     @endforeach
@@ -85,43 +111,69 @@
 
         <!-- Konten Kanan -->
         <div class="col-12 col-lg-9">
+            <!-- Form Search -->
             <form method="GET" action="{{ url()->current() }}" class="mb-3">
-                
                 <div class="input-group">
                     <input type="text" name="search" class="form-control" placeholder="Cari spare part..." value="{{ request('search') }}">
                     <button class="btn btn-primary" type="submit">Cari</button>
                 </div>
             </form>
+
+            <!-- Clear Search -->
             @if(request('search'))
-                <div class="d-flex align-items-center">
-                    <!-- button clear search -->
+                <div class="d-flex align-items-center mb-3">
                     <a href="{{ url()->current() }}" class="btn btn-secondary btn-sm me-2">
-                        <span class="bi bi-x-circle"></span>
-                        Clear Search
+                        <span class="bi bi-x-circle"></span> Clear Search
                     </a>
                 </div>
             @endif
 
-            @foreach ($groupedParts as $kategori => $items)
-            <h5 class="category-title">{{$kategori}}</h5>
-            <div class="row g-3">
-                @foreach ($items as $item)
-                <div class="col-12 col-md-6 col-lg-6">
-                    <a href="{{url('/spare-part', $item->name)}}" class="text-decoration-none text-black gallery-item d-flex p-2">
-                        <img src="" alt="gambar" class="img-fluid rounded" style="background-color:  #656565FF; object-fit: cover; min-height: 120px; min-width: 120px; max-width: 120px;">
-                        <div class="ms-2">
-                            <p class="fw-medium mb-0">
-                                {{ $item->name }} ({{ $item->code }})
-                            </p>
-                            <p class="mb-0">Rp {{ number_format($item->price, 0, ',', '.') }}</p>
-                            <p class="mb-0">stock : {{$item->stock ?? '0'}}</p>
-                        </div>
+            <!-- Pagination -->
+            <div class="d-flex justify-content-end align-items-center mb-2">
+                <!-- Tombol Prev -->
+                @if($currentPage > 1)
+                    <a href="{{ request()->fullUrlWithQuery(['page' => $currentPage - 1]) }}" 
+                    class="text-success me-2">
+                        <i class="bi bi-chevron-left"></i>
                     </a>
-                </div>
+                @else
+                    <span class="text-muted me-2"><i class="bi bi-chevron-left"></i></span>
+                @endif
+
+                <!-- Info halaman -->
+                <span class="text-success fw-medium">{{ $currentPage }}/{{ $totalPages }}</span>
+
+                <!-- Tombol Next -->
+                @if($currentPage < $totalPages)
+                    <a href="{{ request()->fullUrlWithQuery(['page' => $currentPage + 1]) }}" 
+                    class="text-success ms-2">
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                @else
+                    <span class="text-muted ms-2"><i class="bi bi-chevron-right"></i></span>
+                @endif
+            </div>
+
+            <!-- List Kategori & Item -->
+            <div class="row g-3">
+                @foreach ($groupedParts as $kategori => $items)
+                    <div class="col-12 col-md-6">
+                        <div class="bg-light fw-semibold px-3 py-2 rounded-top">{{ $kategori }}</div>
+                        <ul class="list-group list-group-flush border rounded-bottom">
+                            @foreach ($items as $item)
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <a href="{{ url('/spare-part', $item->name) }}" class="text-decoration-none text-dark">
+                                        {{ $item->name }}
+                                    </a>
+                                    <i class="bi bi-arrow-up-right"></i>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
                 @endforeach
             </div>
-            @endforeach
         </div>
+
     </div>
 </div>
 @endsection
