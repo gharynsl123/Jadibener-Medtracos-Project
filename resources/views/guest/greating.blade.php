@@ -100,8 +100,8 @@
     <!-- layanan kami -->
     <section id="layanan" class="mb-5" style="padding-top: 3.25rem; padding-bottom: 3.25rem; background-color: #F9F9F9">
         <div class="container">
-            <p class="montserrat-bold text-center mb-4" style="font-size: 3.125rem;">Layanan kami</p>
-            <div class="row g-4">
+            <p class="montserrat-bold text-center mb-5" style="font-size: 2.5rem;">Layanan kami</p>
+            <div class="row g-5">
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <a href="{{url('/layanan-kami/kompor-gas')}}"
                         class="card shadow-sm border-0 rounded-4 overflow-hidden text-decoration-none">
