@@ -67,13 +67,13 @@
 
     <section class="container mt-5 justify-content-center align-items-center d-flex" id="tentang">
         <div class="row d-flex align-items-center">
-           
+
             <div class="col-lg-6 col-md-12 col-sm-12 mb-3 d-flex justify-content-center">
                 <img src="{{asset('images/layanan kami.png')}}" alt="layanan kami" class="img-fluid"
                     style="max-width: 80%;">
             </div>
 
-        
+
             <div class="col-lg-6 col-md-12 col-sm-12">
                 <div class="d-flex flex-column">
 
@@ -110,55 +110,14 @@
         </div>
     </section>
 
-
-   
-
-
     <div class="container py-3">
         <div class="row">
-            <div class="col-md-12 col-lg-6 py-3 mb-5 d-sm-none d-lg-block">
-                <img src="{{ asset('/images/header-new-second-background.jpg') }}" class="rounded rounded-4"
-                    style="width: 100%; height: 100%; object-fit: cover; object-position: center;" alt="">
-            </div>
-            <div class="col-md-12 col-lg-6  py-3 mb-5">
-                <div class="d-flex gap-2 align-items-center">
-                    <a href="{{ url()->previous() }}" class="btn btn-secondary btn-small">
-                        <i class="bi bi-arrow-left"></i>
-                        Back
-                    </a>
-                    <h4 class="m-0 ">{{ $title }}</h4>
-                </div>
-
-                <div class="my-3 d-flex flex-column position-relative">
-                    @if($categories && count($categories) > 1)
-                        <select id="category-select" class="custom-select">
-                            <option value="{{ $categories[0] }}" selected> KATEGORI {{ $categories[0] }}</option>
-                            @foreach ($categories as $index => $category)
-                                @if ($index !== 0)
-                                    {{-- Menghindari kategori pertama yang sudah dipilih --}}
-                                    <option value="{{ $category }}">KATEGORI {{ $category }}</option>
-                                @endif
-                            @endforeach
-                        </select>
-                        <div id="subtitle-text">
-                            {!! $subtitle[$categories[0]] ?? 'Deskripsi tidak tersedia.' !!}
-                        </div>
-                    @endif
-                </div>
-                <div class="card rounded-3 bg-transaparant border-1 border p-2">
-                    <div id="description-container">
-                        {!! $descriptions[$categories[0]] ?? 'Deskripsi tidak tersedia.' !!}
-                    </div>
-                </div>
-            </div>
             <div class="col-md-12 py-3 mt-5 justify-content-center align-items-center d-flex flex-column">
                 <h3 class="text-center">Ajukan Service</h3>
                 @include('guest.partials.ajukan-service')
             </div>
         </div>
     </div>
-
-
 
     <script>
         const descriptions = @json($descriptions);
