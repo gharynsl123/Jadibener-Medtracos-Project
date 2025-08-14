@@ -47,20 +47,19 @@
 
         <div
             class="position-relative z-3 d-flex flex-column align-items-center justify-content-center h-100 px-3 text-center">
-            <h1 class="fw-bold display-4 mb-3">Servis Kompor</h1>
+            <h1 class="fw-bold display-4 mb-3">{{ $title}}</h1>
         </div>
 
     </section>
 
     <section>
         <div class="mb-3 text-center">
-            <h2 class="mx-auto mb-4">Service Kompor Rumah Sakit & Dapur Industri</h2>
+            <h2 class="mx-auto mb-4">
+                <!-- ambil dari data service sub-title -->
+                 {{$subtitle}}
+            </h2>
             <p class="mx-auto" style="max-width: 1000px;">
-                Kinerja Stabil, Aman, dan Higienis. Demi Operasional Dapur Tanpa Gangguan.
-                <strong>Jadibener.com</strong> menyediakan layanan khusus untuk perbaikan dan perawatan kompor skala
-                besar yang digunakan di dapur rumah sakit, dapur umum, katering massal, dan industri makanan.
-                Kompor industri harus bekerja konsisten setiap hari — itulah mengapa kami hadir dengan layanan yang
-                cepat, akurat, dan sesuai standar keselamatan.
+                {!! $descriptions !!}
             </p>
         </div>
     </section>
@@ -84,26 +83,14 @@
 
                     <p class="manrope-medium"
                         style="font-size: 0.90rem; line-height: 1.5; color: #858788; text-align: justify;">
-                        • Diagnosa dan perbaikan kerusakan kompor</br>
-                        • Api tidak stabil / terlalu kecil / tidak menyala</br>
-                        • Penggantian burner, nozzle, ignitor, dan thermocouple</br>
-                        • Perbaikan body, knob, valve, dan jalur gas bocor</br>
-                        • Kalibrasi tekanan gas dan pengaturan suhu</br>
-                        • Pembersihan menyeluruh untuk residu minyak dan kerak karbon</br>
-                        • Pemasangan ulang / relokasi kompor sesuai kebutuhan ruang dapur</br>
-                        • Penyesuaian kompor untuk kebutuhan khusus</br>
+                        {!! $layanan !!}
                     </p>
                     <p class="montserrat-bold" style="font-size: 2rem;">
                         Kelebihan Layanan Kami
                     </p>
                     <p class="manrope-medium"
                         style="font-size: 0.90rem; line-height: 1.5; color: #858788; text-align: justify;">
-                        • Teknisi berpengalaman khusus dapur skala besar & rumah sakit</br>
-                        • Peralatan servis lengkap & pengujian tekanan gas onsite</br>
-                        • Suku cadang berkualitas & penggantian resmi</br>
-                        • Layanan onsite cepat dengan dokumentasi lengkap</br>
-                        • Bisa untuk kontrak servis rutin</br>
-                        • Pekerjaan sesuai standar kebersihan & K3 dapur RS</br>
+                        {!! $kelebihan !!}
                     </p>
                 </div>
             </div>

@@ -96,7 +96,6 @@
         </div>
     </section>
 
-
     <!-- layanan kami -->
     <section id="layanan" class="mb-5" style="padding-top: 3.25rem; padding-bottom: 3.25rem; background-color: #F9F9F9">
         <div class="container">
@@ -202,7 +201,7 @@
                     </a>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                    <a href="{{url('/layanan-kami/maintenance-&-instalasi-sistem-gas')}}"
+                    <a href="{{url('/layanan-kami/trolley-&-furniture-ss-kitchen')}}"
                         class="card shadow-sm border-0 rounded-4 overflow-hidden text-decoration-none">
                         <div class="position-relative">
                             <img src="images/4 trolley & furniture ss.jpg" alt="Service Kompor" class="img-fluid w-100"

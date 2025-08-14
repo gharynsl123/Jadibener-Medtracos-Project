@@ -91,9 +91,10 @@ class GuestController extends Controller
 
         return view('guest.layanan-detail', [
             'title' => $service['title'],
-            'categories' => $service['katogori'],
             'subtitle' => $service['subtitle'],
-            'descriptions' => $service['description']
+            'descriptions' => $service['description'],
+            'layanan' => $service['layanan'],
+            'kelebihan' => $service['kelebihan'],
         ]);
     }
 
