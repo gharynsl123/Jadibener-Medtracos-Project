@@ -73,11 +73,11 @@
     <div class="sidebar-header">Produk Instalasi</div>
     <ul class="nav-list mt-0">
         <li class="active">
-            Kompor Masak
+            Instalasi Ducting Udara
             <span class="chevron">›</span>
         </li>
         <li>
-            Kompor Oven
+            Instalasi Central Gas LPG
             <span class="chevron">›</span>
         </li>
         <li>

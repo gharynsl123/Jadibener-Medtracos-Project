@@ -230,7 +230,7 @@
                     <a href="{{url('/layanan-kami/pembersihan-&-servis-hood-dapur')}}"
                         class="card shadow-sm border-0 rounded-4 overflow-hidden text-decoration-none">
                         <div class="position-relative">
-                            <img src="images/hood system.png" alt="Service Kompor" class="img-fluid w-100"
+                            <img src="images/hood system.jpg" alt="Service Kompor" class="img-fluid w-100"
                                 style="height: 180px; object-fit: cover;">
 
                             <div class="position-absolute bottom-1 start-0 translate-middle-y ms-3 mb-n3">

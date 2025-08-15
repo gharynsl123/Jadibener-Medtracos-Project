@@ -41,6 +41,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/sb-admin-2.min.css') }}">
+    <link rel="stylesheet" href="{{asset('css/jadibener-style-web.css')}}">
 </head>
 
 <style>
