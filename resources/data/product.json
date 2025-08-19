@@ -1,0 +1,15 @@
+[
+  {"id": "ducting_udara", "image": "", "code": "", "description": "", "name": "Instalasi Ducting Udara" },
+  {"id": "central_gas", "image": "", "code": "", "description": "", "name": "Instalasi Central Gas" },
+  {"id": "fresh_air", "image": "", "code": "", "description": "", "name": "Instalasi Fresh Air" },
+  {"id": "scaler", "image": "", "code": "", "description": "", "name": "Scaler (Pengeras kapur)" },
+  {"id": "ro", "image": "", "code": "", "description": "", "name": "Reverses Osmosis" },
+  {"id": "boiler_air", "image": "", "code": "", "description": "", "name": "Mesin Boiler Pemanas air" },
+  {"id": "det_auto_riswasher", "image": "", "code": "", "description": "", "name": "Detergent Riswasher (Auto)" },
+  {"id": "det_auto_rinsaid", "image": "", "code": "", "description": "", "name": "Detergent Rins Aid (Auto)" },
+  {"id": "det_manual_piring", "image": "", "code": "", "description": "", "name": "Detergent Cuci Piring (Manual)" },
+  {"id": "disinf_manual", "image": "", "code": "", "description": "", "name": "Disinfestan Kitchen (Manual)" },
+  {"id": "foam_cleaning", "image": "", "code": "", "description": "", "name": "Foam Cleaning Spray" },
+  {"id": "kontrak_kitchen", "image": "", "code": "", "description": "", "name": "Kontrak Service Kitchen" },
+  {"id": "jasa_service", "image": "", "code": "", "description": "", "name": "Jasa Service" }
+]
