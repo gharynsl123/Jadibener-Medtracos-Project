@@ -13,6 +13,11 @@
         font-size: 14px;
         z-index: 999;
     }
+
+   .sidebar .nav-item .nav-link.active {
+    background-color: #fff;
+    color: #333 !important;  /* abu tua */
+}
 </style>
 
 <head>

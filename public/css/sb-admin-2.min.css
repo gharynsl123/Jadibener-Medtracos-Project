@@ -17,7 +17,7 @@
     --red: #e74a3b;
     --orange: #fd7e14;
     --yellow: #f6c23e;
-    --green: #1cc88a;
+    --green: #1A8754;
     --teal: #20c9a6;
     --cyan: #36b9cc;
     --white: #fff;
@@ -6422,7 +6422,7 @@ a.bg-success:focus, a.bg-success:hover, button.bg-success:focus, button.bg-succe
 }
 
 .bg-info {
-    background-color: #36b9cc !important
+    background-color: var(--green) !important
 }
 
 a.bg-info:focus, a.bg-info:hover, button.bg-info:focus, button.bg-info:hover {
