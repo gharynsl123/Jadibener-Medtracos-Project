@@ -38,7 +38,7 @@
         }
     </style>
     <section class="hero-header position-relative text-white mb-5" style="height: 300px;">
-        <img src="{{ asset('images/1 sparepart.jpg') }}"
+        <img src="{{ asset('images/' . $images) }}"
             class="w-100 h-100 position-absolute top-0 start-0 object-fit-cover" alt="Header Image"
             style="z-index: 1; object-fit: cover;" />
 
@@ -47,7 +47,7 @@
 
         <div
             class="position-relative z-3 d-flex flex-column align-items-center justify-content-center h-100 px-3 text-center">
-            <h1 class="fw-bold display-4 mb-3">{{ $title}}</h1>
+            <h1 class="fw-bold display-4 mb-3">{{$title}}</h1>
         </div>
 
     </section>

@@ -26,12 +26,12 @@
         <table class="table table-hover align-middle table-sm border-light" id="dataTable">
             <thead>
                 <tr class="bg-dark-ori-web text-white">
-                    <th>Instansi</th>
+                    <th class="rounded-left">Instansi</th>
                     <th>Keluhan</th>
                     <th>Teknisi yang Dipilih</th>
                     <th>Datang pada Tanggal</th>
                     <th>Rencana Tindakan</th>
-                    <th></th>
+                    <th class="rounded-right"></th>
                 </tr>
             </thead>
             <tbody>

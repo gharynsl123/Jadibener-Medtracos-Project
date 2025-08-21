@@ -40,7 +40,6 @@
     align-items: center;
     padding: 5px 16px;
     cursor: pointer;
-    border-bottom: 1px solid #eee;
     font-weight: 400;
     color: #000;
     font-size: 0.9rem;
@@ -50,9 +49,9 @@
     border-bottom: none;
 }
 
-.nav-list li.active {
+.nav-list li.active a {
     font-weight: 700;
-    color: #3c8c42;
+    color: #3c8c42 !important;
 }
 
 .nav-list li .chevron {
@@ -62,7 +61,7 @@
 }
 
 .nav-list li.active .chevron {
-    color: #3c8c42;
+    color: #3c8c42 !important;
 }
 
 .nav-list li:hover {
@@ -75,42 +74,42 @@
         <div class="sidebar shadow-sm">
             <div class="sidebar-header">Produk Instalasi</div>
             <ul class="nav-list mt-0">
-                <a href="#" class="text-decoration-none">
-                    <li class="{{ request()->is('intalsi-ducting') ? 'active' : '' }}">
+                <li class="{{ request()->is('our-product/ducting_udara') ? 'active' : '' }}">
+                    <a href="{{ route('our-product.show', 'ducting_udara') }}" class="text-decoration-none" style="color: #000000;">
                         Instalasi Ducting Udara
                         <span class="chevron">›</span>
-                    </li>
-                </a>
-                <a href="#" class="text-decoration-none">
-                    <li>
+                    </a>
+                </li>
+                <li class="{{ request()->is('our-product/central_gas') ? 'active' : '' }}">
+                    <a href="{{ route('our-product.show', 'central_gas') }}" class="text-decoration-none" style="color: #000000;">
                         Instalasi Central Gas
                         <span class="chevron">›</span>
-                    </li>
-                </a>
-                <a href="#" class="text-decoration-none">
-                    <li>
+                    </a>
+                </li>
+                <li class="{{ request()->is('our-product/fresh_air') ? 'active' : '' }}">
+                    <a href="{{ route('our-product.show', 'fresh_air') }}" class="text-decoration-none" style="color: #000000;">
                         Instalasi Fresh Air
                         <span class="chevron">›</span>
-                    </li>
-                </a>
-                <a href="#" class="text-decoration-none">
-                    <li>
+                    </a>
+                </li>
+                <li class="{{ request()->is('our-product/scaler') ? 'active' : '' }}">
+                    <a href="{{ route('our-product.show', 'scaler') }}" class="text-decoration-none" style="color: #000000;">
                         Scaler (Pengeras kapur)
                         <span class="chevron">›</span>
-                    </li>
-                </a>
-                <a href="#" class="text-decoration-none">
-                    <li>
+                    </a>
+                </li>
+                <li class="{{ request()->is('our-product/ro') ? 'active' : '' }}">
+                    <a href="{{ route('our-product.show', 'ro') }}" class="text-decoration-none" style="color: #000000;">
                         Reverses Osmosis
                         <span class="chevron">›</span>
-                    </li>
-                </a>
-                <a href="#" class="text-decoration-none">
-                    <li>
+                    </a>
+                </li>
+                <li class="{{ request()->is('our-product/boiler_air') ? 'active' : '' }}">
+                    <a href="{{route('our-product.show', 'boiler_air')}}" class="text-decoration-none" style="color: #000000;">
                         Mesin Boiler Pemanas air
                         <span class="chevron">›</span>
-                    </li>
-                </a>
+                    </a>
+                </li>
             </ul>
             <div class="sidebar-header">DETERGENT & TRETMENT</div>
             <ul class="nav-list mt-0">
@@ -163,18 +162,31 @@
         </div>
     </div>
     <div class="col-md-9">
-        <div class="container py-4">
-            <div class="d-flex  align-item-center">
-                <img src="{{asset('images/header-new-second-background.jpg')}}" alt="IMG Product" width="300px"
-                    class="image-fuild">
+        @if(!empty($product))
+            <div class="container py-5">
+                <div class="row align-items-center">
+                    <div class="col-md-5 text-center">
+                        <img src="{{ $product['image'] }}" 
+                            alt="{{ $product['name'] }}" 
+                            class="img-fluid rounded shadow-sm">
+                    </div>
+                    <div class="col-md-7">
+                        <h2 class="fw-bold mb-2">{{ $product['name'] }}</h2>
+                        <p class="text-muted fw-semibold mb-3">{{ $product['code'] }}</p>
+                        <p class="mb-4">{{ $product['description'] }}</p>
 
-                <div class="ms-4">
-                    <h3>title</h3>
-                    <p class="fw-bold">code</p>
-                    <p>Description</p>
+                        <a href="/contact" class="btn btn-success px-4 py-2 rounded-pill">
+                            Contact Us
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
+        @else
+            <div class="d-flex justify-content-center align-items-center py-5">
+                <h3 class="text-muted">This is our product</h3>
+            </div>
+        @endif
     </div>
+
 </div>
 @endsection

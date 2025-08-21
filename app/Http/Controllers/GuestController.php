@@ -95,12 +95,26 @@ class GuestController extends Controller
             'descriptions' => $service['description'],
             'layanan' => $service['layanan'],
             'kelebihan' => $service['kelebihan'],
+            'images' => $service['image']
         ]);
     }
 
+    public function dataProduct($slug) {
+        $json = File::get(resource_path('data/product.json'));
+        $products = json_decode($json, true);
+
+        $product = collect($products)->firstWhere('id', $slug);
+
+        if (!$product) {
+            abort(404);
+        }
+
+        return view('guest.product', compact('product'));
+    }
+
+
     public function product() {
-        $products = Product::all();
-        return view('guest.product', compact('products'));
+        return view('guest.product');
     }
 
     public function requestPart(Request $request, $name) {

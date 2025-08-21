@@ -168,3 +168,45 @@ body{
 .min-height-536{
     height: 64.5vh !important;
 }
+
+/* Pagination container */
+#tablePaginationContainer .paginate_button {
+    padding: 6px 12px;
+    margin: 0 2px;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    color: #000000;
+}
+
+/* Active page button */
+#tablePaginationContainer .paginate_button.current {
+    background-color: #004d4d;
+    /* dark teal */
+    color: white !important;
+}
+
+/* Hover effect */
+#tablePaginationContainer .paginate_button:hover {
+    background-color: #e0e0e0;
+    color: black !important;
+}
+
+/* Disabled buttons (Previous/Next when not clickable) */
+#tablePaginationContainer .paginate_button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: transparent !important;
+}
+
+#generalTable td,
+#generalTable th {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+}
+
+.border-light {
+    border: 1px solid #F2F4F7 !important;
+}

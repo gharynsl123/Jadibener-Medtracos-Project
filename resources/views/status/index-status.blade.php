@@ -29,14 +29,14 @@
                 <table class="table table-hover align-middle table-sm border-light" id="statusServiceTable">
                     <thead>
                         <tr class="bg-dark-ori-web text-white">
-                            <th>No</th>
+                            <th class="rounded-left">No</th>
                             <th>Id Pengajuan</th>
                             <th>Dikerjakan Oleh</th>
                             <th>Instansi</th>
                             <th>Jadwal</th>
                             <th>Kategori</th>
                             <th>Nama Produk</th>
-                            <th>Status</th>
+                            <th class="rounded-right">Status</th>
                         </tr>
                     </thead>
                     <tbody>
