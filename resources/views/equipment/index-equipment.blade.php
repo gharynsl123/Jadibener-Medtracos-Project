@@ -1,55 +1,7 @@
 @extends('layouts.main-view')
 @section('content')
-
-    <style>
-        /* Pagination container */
-        #tablePaginationContainer .paginate_button {
-            padding: 6px 12px;
-            margin: 0 2px;
-            border-radius: 8px;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-            font-size: 14px;
-            color: #000000;
-        }
-
-        ''
-
-
-        /* Active page button */
-        #tablePaginationContainer .paginate_button.current {
-            background-color: #004d4d;
-            /* dark teal */
-            color: white !important;
-        }
-
-        /* Hover effect */
-        #tablePaginationContainer .paginate_button:hover {
-            background-color: #e0e0e0;
-            color: black !important;
-        }
-
-        /* Disabled buttons (Previous/Next when not clickable) */
-        #tablePaginationContainer .paginate_button.disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            background: transparent !important;
-        }
-
-        #generalTable td,
-        #generalTable th {
-            padding-top: 15px !important;
-            padding-bottom: 15px !important;
-        }
-
-        .border-light {
-            border: 1px solid #F2F4F7 !important;
-        }
-    </style>
-
     <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-3">
+    <div class="d-sm-flex align-items-center justify-content-end mb-3">
         <div>
             @if(Auth::user()->level == 'admin')
                 <a href="{{url('/create-equipment')}}" class="btn btn-sm btn-primary">
@@ -61,8 +13,6 @@
                     <span>Import Data Peralatan</span>
                 </a>
             @endif
-
-
         </div>
     </div>
 
@@ -113,7 +63,7 @@
         <div class="tab-pane fade show active" id="pills-general" role="tabpanel" aria-labelledby="pills-home-tab">
             <div class="card p-3 shadow-sm border-0">
                 <div class="table-responsive">
-                    <table class="table table-hover align-middle table-sm border-light" id="generalTable">
+                    <table class="table table-hover align-middle table-sm table-striped border-light" id="generalTable">
                         <thead>
                             <tr class="bg-dark-ori-web text-white">
                                 <!-- <th class="rounded-left">Nama Instansi</th> -->
@@ -126,7 +76,7 @@
                                 <th style="text-align:center; width:auto; white-space:nowarp;">Garansi</th>
                                 <th style="text-align:center; width:auto; white-space:nowarp;">Kondisi</th>
                                 <th style="text-align:center; width:auto; white-space:nowarp;">status</th>
-                                <th class="rounded-right-top"></th>
+                                <th class="rounded-right-top" style="text-align:center;">action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -153,22 +103,30 @@
                                             style="font-size:10px;">{{$item->description}}
                                         </span>
                                     </td>
-                                    <td>
-                                        <form action="{{route('destroy.tools', $item->id)}}" method="post">
-                                            <a href="{{url('/detail-equipment', $item->slug)}}" style="font-size:10px;"
-                                                class="btn rounded-pill border-1 border border-dark bg-transparant">
-                                                Detail&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right"></i>
+                                    <td style="width:10%;">
+                                        <form action="{{ route('destroy.tools', $item->id) }}" method="post" 
+                                            class="d-flex gap-3 align-items-center" style="width:auto;">
+                                            
+                                            <a href="{{ url('/detail-equipment', $item->slug) }}" style="font-size:11px;" 
+                                            class="btn btn-sm d-inline-flex align-items-center rounded-pill border border-dark bg-transparent">
+                                                <span>Detail</span> &nbsp;&nbsp;&nbsp;
+                                                <i class="fa fa-angle-right ms-1"></i>
                                             </a>
+
                                             @if(Auth::user()->level != 'pic')
-                                                <a href="{{url('/edit-equipment', $item->slug)}}" class="btn btn-sm btn-success">
-                                                    <i class="fa fa-pen-to-square"></i>
+                                                <a href="{{ url('/edit-equipment', $item->slug) }}" style="font-size:11px;"
+                                                class="btn btn-sm d-inline-flex align-items-center mx-2 rounded-pill border border-success bg-transparent">
+                                                    <span>Edit</span>&nbsp;&nbsp;&nbsp;
+                                                    <i class="fa fa-pen-to-square ms-1"></i>
                                                 </a>
+
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit"
-                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus {{$item->poducts->name}} ?')"
-                                                    class="btn btn-sm btn-danger">
-                                                    <i class="fa fa-trash"></i>
+                                                <button type="submit" style="font-size:11px;"
+                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus {{ $item->poducts->name }} ?')"
+                                                    class="btn btn-sm d-inline-flex align-items-center rounded-pill border border-danger bg-transparent">
+                                                    <span>Hapus</span>&nbsp;&nbsp;&nbsp;
+                                                    <i class="fa fa-trash ms-1"></i>
                                                 </button>
                                             @endif
                                         </form>

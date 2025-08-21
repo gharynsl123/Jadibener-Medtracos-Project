@@ -158,6 +158,7 @@ Route::post('/store-request-service', 'GuestController@storeRequestPart');
 Route::post('/store-request-member', 'GuestController@requestMember');
 Route::get('/request-as-member', 'GuestController@createRequestMember');
 Route::get('/layanan-kami/{slug}', 'GuestController@about');
+Route::get('/our-product/{slug}', 'GuestController@dataProduct')->name('our-product.show');
 Route::get('/our-product', 'GuestController@product');
 Route::get('/spare-part/{name}', 'GuestController@detailAlat');
 Route::post('/submit-reques-part/{name}', 'GuestController@requestPart')->name('submit.request.part');
