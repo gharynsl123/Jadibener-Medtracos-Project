@@ -3,11 +3,8 @@
 @if(Auth::user()->level == 'admin')
 @include('dashboard.sector.admin')
 
-@elseif(Auth::user()->level == 'teknisi' && Auth::user()->role == 'kap_teknisi')
-@include('dashboard.sector.surveyor')
-
 @elseif(Auth::user()->level == 'teknisi')
-@include('dashboard.sector.teknisi')
+@include('dashboard.sector.surveyor')
 
 @elseif(Auth::user()->level == 'pic')
 @include('dashboard.sector.pic')
