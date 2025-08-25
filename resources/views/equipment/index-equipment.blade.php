@@ -142,6 +142,7 @@
                 <div id="tablePaginationContainer"></div>
             </div>
         </div>
+        
         <!-- warranty table -->
         <div class="tab-pane fade" id="pills-warranty" role="tabpanel" aria-labelledby="pills-profile-tab">
             <div class="card p-3 shadow-lg border-left-primary">
@@ -208,6 +209,10 @@
                     </table>
                 </div>
             </div>
+            <div class="d-flex justify-content-between align-items-center mt-3" id="tableFooterContainer">
+                <div id="tableInfoContainerWarranty"></div>
+                <div id="tablePaginationContainerWarranty"></div>
+            </div>
         </div>
     </div>
 
@@ -262,12 +267,6 @@
                     'margin': '0 8px'
                 });
 
-                // ===== Move info & pagination outside =====
-                // Make sure you have these containers in your HTML outside the card/table
-                // <div class="d-flex justify-content-between align-items-center mt-2" id="tableFooterContainer">
-                //     <div id="tableInfoContainer"></div>
-                //     <div id="tablePaginationContainer"></div>
-                // </div>
                 $('#tableInfoContainer').append($wrapper.find('#generalTable_info'));
                 $('#tablePaginationContainer').append($wrapper.find('.dataTables_paginate'));
             }
@@ -283,7 +282,8 @@
                 [5, 10, 25, 50, "All"]
             ],
             initComplete: function () {
-                const $filter = $('#warrantyTable_wrapper .dataTables_filter');
+                const $wrapper = $('#warrantyTable_wrapper');
+                const $filter = $wrapper.find('.dataTables_filter');
                 const $input = $filter.find('input');
 
                 $filter.find('label').contents().filter(function () {
@@ -311,6 +311,9 @@
                 $('#warrantyTable_wrapper .dataTables_length select').css({
                     'margin': '0 8px'
                 });
+
+                $('#tableInfoContainerWarranty').append($wrapper.find('#warrantyTable_info'));
+                $('#tablePaginationContainerWarranty').append($wrapper.find('.dataTables_paginate'));
             }
         });
     </script>
