@@ -2,21 +2,22 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <style>
-    .toggle-btn-custom {
-        top: 50%;
-        right: -15px;
-        transform: translateY(-50%);
-        border-radius: 0 10px 10px 0;
-        width: 40px;
-        height: 40px;
-        padding: 0;
-        font-size: 14px;
-        z-index: 999;
-    }
+.toggle-btn-custom {
+    top: 50%;
+    right: -15px;
+    transform: translateY(-50%);
+    border-radius: 0 10px 10px 0;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    font-size: 14px;
+    z-index: 999;
+}
 
-   .sidebar .nav-item .nav-link.active {
+.sidebar .nav-item .nav-link.active {
     background-color: #fff;
-    color: #333 !important;  /* abu tua */
+    color: #333 !important;
+    /* abu tua */
 }
 </style>
 
@@ -50,10 +51,11 @@
 </head>
 
 <style>
-    .notification {
+.notification {
     position: fixed;
-    top: 20px;
-    left: -400px; /* start di luar layar */
+    bottom: 20px;
+    left: -400px;
+    /* start di luar layar */
     min-width: 300px;
     max-width: 90%;
     padding: 15px 20px;
@@ -62,7 +64,7 @@
     border-radius: 8px;
     z-index: 9999;
     transition: all 0.4s ease-in-out;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .notification-success {
@@ -74,7 +76,8 @@
 }
 
 .notification-show {
-    left: 20px; /* geser ke dalam layar */
+    left: 20px;
+    /* geser ke dalam layar */
 }
 
 .fade-out {
@@ -82,8 +85,8 @@
     transform: translateX(-20px);
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
-
 </style>
+
 <body class="page-top">
     <div id="wrapper">
 
@@ -108,57 +111,57 @@
             </li>
 
             @if(Auth::user()->level == 'teknisi')
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/pengajuan')}}">
-                        <i class="fas fa-fw fa-ticket"></i>
-                        <span>Ticket Pengajuan</span></a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('/pengajuan')}}">
+                    <i class="fas fa-fw fa-ticket"></i>
+                    <span>Ticket Pengajuan</span></a>
+            </li>
             @endif
 
             @if(Auth::user()->level == 'pic')
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/barang-rumah-sakit') }}">
-                        <img src="{{ asset('images/peralatan.svg') }}" alt="Dashboard Icon" width="20" height="20"
-                            style="margin-right: 10px;">
-                        <span>Peralatan Rumah Sakit</span>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/barang-rumah-sakit') }}">
+                    <img src="{{ asset('images/peralatan.svg') }}" alt="Dashboard Icon" width="20" height="20"
+                        style="margin-right: 10px;">
+                    <span>Peralatan Rumah Sakit</span>
+                </a>
+            </li>
             @endif
 
             @if(
-                    Auth::user()->level == 'teknisi' || Auth::user()->level == 'sub_service' || Auth::user()->level ==
-                    'surveyor'
-                )
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/instansi')}}">
-                        <i class="fas fa-toolbox"></i>
-                        <span>Data Rumah Sakit</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/barang-rumah-sakit')}}">
-                        <i class="fas fa-toolbox"></i>
-                        <span>Peralatan Rumah Sakit</span></a>
-                </li>
+            Auth::user()->level == 'teknisi' || Auth::user()->level == 'sub_service' || Auth::user()->level ==
+            'surveyor'
+            )
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('/instansi')}}">
+                    <i class="fas fa-toolbox"></i>
+                    <span>Data Rumah Sakit</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('/barang-rumah-sakit')}}">
+                    <i class="fas fa-toolbox"></i>
+                    <span>Peralatan Rumah Sakit</span></a>
+            </li>
             @endif
 
             @if(Auth::user()->level == 'admin')
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                        aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Configuration</span>
-                    </a>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Rumah Sakit:</h6>
-                            <a class="collapse-item" href="{{url('/instansi')}}">Data Rumah Sakit</a>
-                            <a class="collapse-item" href="{{url('/barang-rumah-sakit')}}">Peralatan Rumah Sakit</a>
-                            <h6 class="collapse-header">User:</h6>
-                            <a class="collapse-item" href="{{url('/user-member')}}">User Member</a>
-                            <a class="collapse-item" href="{{url('/request-user')}}">Pending Request</a>
-                        </div>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Configuration</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Rumah Sakit:</h6>
+                        <a class="collapse-item" href="{{url('/instansi')}}">Data Rumah Sakit</a>
+                        <a class="collapse-item" href="{{url('/barang-rumah-sakit')}}">Peralatan Rumah Sakit</a>
+                        <h6 class="collapse-header">User:</h6>
+                        <a class="collapse-item" href="{{url('/user-member')}}">User Member</a>
+                        <a class="collapse-item" href="{{url('/request-user')}}">Pending Request</a>
                     </div>
-                </li>
+                </div>
+            </li>
             @endif
 
             <li class="nav-item">
@@ -173,7 +176,7 @@
                         <a class="collapse-item" href="{{url('/status')}}">Status & Laporan Teknisi</a>
                         <a class="collapse-item" href="{{url('/jadwal-kedatangan')}}">Jadwal Kedatangan</a>
                         @if(Auth::user()->level != 'teknisi')
-                            <a class="collapse-item" href="{{url('/pengajuan')}}">Pengajuan Ticket</a>
+                        <a class="collapse-item" href="{{url('/pengajuan')}}">Pengajuan Ticket</a>
                         @endif
                         <a class="collapse-item" href="{{url('/estimasi-biaya')}}">Estimasi Biaya</a>
                     </div>
@@ -181,23 +184,23 @@
             </li>
 
             @if(Auth::user()->level == 'admin' || Auth::user()->level == 'surveyor')
-                <hr class="sidebar-divider  my-2">
+            <hr class="sidebar-divider  my-2">
 
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                        aria-expanded="true" aria-controls="collapsePages">
-                        <i class="fas fa-fw fa-folder"></i>
-                        <span>Products & Parts</span>
-                    </a>
-                    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="{{url('/brand')}}">Merek</a>
-                            <a class="collapse-item" href="{{url('/categories')}}">Kategori</a>
-                            <a class="collapse-item" href="{{url('/part')}}">Spare Part</a>
-                            <a class="collapse-item" href="{{url('/product')}}">Products</a>
-                        </div>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Products & Parts</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{url('/brand')}}">Merek</a>
+                        <a class="collapse-item" href="{{url('/categories')}}">Kategori</a>
+                        <a class="collapse-item" href="{{url('/part')}}">Spare Part</a>
+                        <a class="collapse-item" href="{{url('/product')}}">Products</a>
                     </div>
-                </li>
+                </div>
+            </li>
             @endif
 
             <hr class="sidebar-divider  my-2">
@@ -209,33 +212,15 @@
             </li>
 
             @if(Auth::user()->level == 'admin')
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/archive')}}">
-                        <i class="fas fa-archive"></i>
-                        <span>Riwayat Activitas</span></a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('/archive')}}">
+                    <i class="fas fa-archive"></i>
+                    <span>Riwayat Activitas</span></a>
+            </li>
             @endif
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <!-- <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div> -->
-
-            @if(session('success'))
-                <div id="notification" class="shadow-lg notification notification-success">
-                    <span class="notification-text">{{ session('success') }}</span>
-                </div>
-            @endif
-
-            @if(session('failure'))
-                <div id="notification" class="shadow-lg notification notification-danger">
-                    <span class="notification-text">{{ session('failure') }}</span>
-                </div>
-            @endif
-
         </ul>
 
         <div id="content-wrapper" class="d-flex flex-column">
@@ -315,6 +300,17 @@
         </div>
     </div>
 
+    @if(session('success'))
+    <div id="notification" class="shadow-lg notification notification-success">
+        <span class="notification-text">{{ session('success') }}</span>
+    </div>
+    @endif
+
+    @if(session('failure'))
+    <div id="notification" class="shadow-lg notification notification-danger">
+        <span class="notification-text">{{ session('failure') }}</span>
+    </div>
+    @endif
 
     <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
@@ -330,13 +326,6 @@
 
 
 <script>
-
-    document.addEventListener("DOMContentLoaded", function () {
-        const notification = document.getElementById("notification");
-
-        $('#instansi-select').select2();
-        CKEDITOR.replace('editor');
-
 document.addEventListener("DOMContentLoaded", function() {
     const notifications = document.querySelectorAll('.notification');
 
@@ -354,7 +343,7 @@ document.addEventListener("DOMContentLoaded", function() {
             notification.style.left = "20px";
             setTimeout(() => {
                 hideNotification();
-            }, 3000);
+            }, 4000);
         }
 
         function hideNotification() {
@@ -367,28 +356,19 @@ document.addEventListener("DOMContentLoaded", function() {
         showNotification();
 
     });
-    document.getElementById('customSidebarToggle').addEventListener('click', function () {
-        document.body.classList.toggle('sidebar-toggled');
-        document.querySelector('.sidebar').classList.toggle('toggled');
 
-        // Ganti ikon toggle
-        const icon = this.querySelector('i');
-        icon.classList.toggle('fa-chevron-left');
-        icon.classList.toggle('fa-chevron-right');
-    });
+    // Hilang setelah 5 detik
+    setTimeout(() => {
+        notification.classList.add("fade-out");
 
-        // Hilang setelah 3 detik
-        setTimeout(() => {
-            notification.classList.add("fade-out");
-
-            // Hapus dari DOM setelah animasi selesai
-            notification.addEventListener("transitionend", function() {
-                notification.remove();
-            }, { once: true });
-        }, 3000);
-    });
+        // Hapus dari DOM setelah animasi selesai
+        notification.addEventListener("transitionend", function() {
+            notification.remove();
+        }, {
+            once: true
+        });
+    }, 4000);
 });
-
 </script>
 
 </html>

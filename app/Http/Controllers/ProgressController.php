@@ -36,7 +36,7 @@ class ProgressController extends Controller
         $history = [
             'id_user' => Auth::user()->id,
             'status' => 'progress update' ,
-            'description' => 'progress di ajukan oleh ' . Auth::user()->name . ' kepada ' . $dataProgress->users->name,
+            'description' => 'progress dilakukan oleh ' . Auth::user()->name . ' pada tanggal ' . $dataProgress->schedule,
             'id_progress' => $dataProgress->id,
             'submissions_id' => $request->submissions_id,
         ];
@@ -54,41 +54,25 @@ class ProgressController extends Controller
             $progress->work_value = $request->work_value;
             $progress->description = $request->description;
     
-            if ($progress->schedule == null) {
-                $progress->schedule = $request->schedule;
-                $progress->save();
-    
-                $historyTime = [
-                    'id_user' => Auth::user()->id,
-                    'status' => 'progress update' ,
-                    'description' => 'waktu di ajukan oleh ' . Auth::user()->name . ' dengan waktu ' . $progress->schedule,
-                    'id_progress' => $progress->id,
-                    'submissions_id' => $request->submissions_id,
-                ];
+            $progress->save();
 
-    
-                History::create($historyTime);
-            } else {
-                $progress->save();
+            $history = [
+                'id_user' => Auth::user()->id,
+                'status' => 'progress update' ,
+                'description' => 'progress di update oleh ' . Auth::user()->name . ' dengan nilai pengerjaan ' . $progress->work_value . ' dan keterangan ' . $progress->description,
+                'id_progress' => $progress->id,
+                'submissions_id' => $request->submissions_id,
+            ];
 
-                $history = [
-                    'id_user' => Auth::user()->id,
-                    'status' => 'progress update' ,
-                    'description' => 'progress di update oleh ' . Auth::user()->name . ' dengan nilai pengerjaan ' . $progress->work_value . ' dan keterangan ' . $progress->description,
-                    'id_progress' => $progress->id,
-                    'submissions_id' => $request->submissions_id,
-                ];
+            $submission = Submission::find($request->submissions_id);
 
-                $submission = Submission::find($request->submissions_id);
-
-                if ($progress->work_value == 100) {
-                    $history['status'] = 'selesai';
-                    $submission->status = 'closing & unpaid';
-                }
-            
-                $submission->save();
-                History::create($history);
+            if ($progress->work_value == 100) {
+                $history['status'] = 'selesai';
+                $submission->status = 'closing & unpaid';
             }
+        
+            $submission->save();
+            History::create($history);
     
             return redirect()->back()->with('success', 'Progress has been updated');
         }

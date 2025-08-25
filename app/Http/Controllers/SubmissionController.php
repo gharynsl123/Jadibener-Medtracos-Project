@@ -22,13 +22,7 @@ class SubmissionController extends Controller
     }
 
     function index() {
-        if (Auth::user()->level == 'teknisi' && Auth::user()->role == 'kap_teknisi') {
-            $submission = Submission::all();
-        } elseif (Auth::user()->level == 'teknisi') {
-            $submission = Submission::whereHas('progress', function ($query) {
-                $query->where('id_user', Auth::user()->id);
-            })->get();
-        } elseif (Auth::user()->level == 'pic') {
+        if (Auth::user()->level == 'pic') {
             $submission = Submission::whereHas('user', function ($query) {
                 $query->where('id_instansi', Auth::user()->instansi->id);
             })->get();
