@@ -8,7 +8,10 @@ use App\Member;
 use App\Product;
 use App\Part;
 use App\RequestPart;
+use App\Mail\GuestRequest;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Mail;
+
 
 use Illuminate\Support\Str;
 
@@ -148,17 +151,21 @@ class GuestController extends Controller
 
     public function storeRequestPart(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'phone_number' => 'required|string|max:20',
-            'tools_type' => 'required|string',
-            'address' => 'required|string',
-            'issue' => 'nullable|string',
-        ]);
-    
-        RequestPart::create($request->only(['name', 'phone_number', 'tools_type', 'address', 'issue']));
-    
-        return redirect('/')->with('success', 'Data berhasil disimpan. Silakan menunggu.');
+        $dataFrom = $request->all();
+
+        $data = [
+            'name' => $dataFrom['name'],
+            'instansi' => $dataFrom['instansi'],
+            'jabatan' => $dataFrom['jabatan'],
+            'email' => $dataFrom['email'],
+            'phone_number' => $dataFrom['phone_number'],
+            'title' => $dataFrom['title'],
+            'issue' => $dataFrom['issue']
+        ];
+        
+        Mail::to('persolna1243@gmail.com')->send(new GuestRequest($data));
+        
+        return redirect('/')->with('success', 'Pesan Sudah Di kirim ke Admin, Mohon Menunggu Balasan');
     }
 
     public function createRequestMember() {

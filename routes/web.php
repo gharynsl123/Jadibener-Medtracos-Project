@@ -22,8 +22,9 @@ use App\Equipment;
 */
 
 /**
- * Route::view('/check-view', 'email.warranty-announc');
+ * Route::view('/check-view', 'email.guest-request');
  */
+
 
 Auth::routes(['register' => false]);
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');

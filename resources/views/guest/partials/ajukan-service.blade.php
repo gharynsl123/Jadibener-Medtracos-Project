@@ -113,20 +113,20 @@
                                 <input type="text" name="name" placeholder="Nama Lengkap:" required class="form-control" />
                             </div>
                             <div class="col-md-6">
-                                <input type="text" placeholder="Nama Institusi:" required class="form-control" />
+                                <input type="text" name="instansi" placeholder="Nama Institusi:" required class="form-control" />
                             </div>
                             <div class="col-md-6">
-                                <input type="text" placeholder="Jabatan:" required class="form-control" />
+                                <input type="text" name="jabatan" placeholder="Jabatan:" required class="form-control" />
                             </div>
                             <div class="col-md-6">
-                                <input type="text" placeholder="Email:" required class="form-control" />
+                                <input type="text" name="email" placeholder="Email:" required class="form-control" />
                             </div>
                             <div class="col-md-6">
                                 <input type="text" name="phone_number" placeholder="Nomor HP:" required class="form-control" />
-                            </div>
+                            </div> 
 
                             <div class="col-md-6">
-                                <textarea name="tools_type" placeholder="Judul:" required rows="4" class="form-control"></textarea>
+                                <textarea name="title" placeholder="Judul:" required rows="4" class="form-control"></textarea>
                             </div>
                             <div class="col-md-6">
                                 <textarea name="issue" placeholder="Deskripsi:" required rows="4" class="form-control"></textarea>
