@@ -115,11 +115,6 @@ class GuestController extends Controller
         return view('guest.product', compact('product'));
     }
 
-
-    public function product() {
-        return view('guest.product');
-    }
-
     public function requestPart(Request $request, $name) {
         // no validation needed. send data to db and email user
         $dataPart = Part::where('name', $name)->first();
@@ -138,9 +133,9 @@ class GuestController extends Controller
 
         
     }
-
-    public function detailAlat($name) {
-        $part = Part::where('name', $name)->first();
+    
+    public function detailAlat($slug) {
+        $part = Part::where('slug', $slug)->first();
         return view('guest.detail-part', compact('part'));
     }
       
@@ -151,16 +146,29 @@ class GuestController extends Controller
 
     public function storeRequestPart(Request $request)
     {
-        $dataFrom = $request->all();
+        // Validate required fields including captcha
+        $request->validate([
+            'g-recaptcha-response' => 'required|captcha',
+            'name' => 'required|string|max:255',
+            'instansi' => 'required|string|max:255',
+            'jabatan' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone_number' => 'required|string|max:20',
+            'title' => 'required|string|max:255',
+            'issue' => 'required|string'
+        ], [
+            'g-recaptcha-response.required' => 'Silakan centang reCAPTCHA.',
+            'g-recaptcha-response.captcha' => 'reCAPTCHA tidak valid. Silakan coba lagi.'
+        ]);
 
         $data = [
-            'name' => $dataFrom['name'],
-            'instansi' => $dataFrom['instansi'],
-            'jabatan' => $dataFrom['jabatan'],
-            'email' => $dataFrom['email'],
-            'phone_number' => $dataFrom['phone_number'],
-            'title' => $dataFrom['title'],
-            'issue' => $dataFrom['issue']
+            'name' => $request->input('name'),
+            'instansi' => $request->input('instansi'),
+            'jabatan' => $request->input('jabatan'),
+            'email' => $request->input('email'),
+            'phone_number' => $request->input('phone_number'),
+            'title' => $request->input('title'),
+            'issue' => $request->input('issue')
         ];
         
         Mail::to('persolna1243@gmail.com')->send(new GuestRequest($data));

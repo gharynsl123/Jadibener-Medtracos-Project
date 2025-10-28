@@ -24,13 +24,23 @@ class BookingController extends Controller
     public function create($slug) {
         $informationTools = Equipment::where('slug', $slug)->first();
         $teknisi = User::where('level', 'teknisi')->get()->all();
+
         return view('booking.create-booking', compact('informationTools', "teknisi"));
     }
 
     public function store(Request $request, $slug) {
         $data = $request->all();
         $data['slug'] = 'B-' . $request->date;
-        Booking::create($data);
+        $dataBooking = Booking::create($data);
+
+        $dataHistory = [
+            'status' => 'Jadwal Kunjungan Teknisi',
+            'description' => 'Jadwal kedatangan ' . $request->date . ' rencana tindakan : '. $request->action_plan,
+            'id_user' => $request->id_user,
+            'equipment_id' => $request->equipment_id,
+            'booking_id' => $dataBooking->id,
+        ];
+        History::create($dataHistory);
         return redirect('/detail-equipment/'. $slug)->with('success', 'jadwal Telah di atur');
     }
 
@@ -45,7 +55,6 @@ class BookingController extends Controller
     public function detailTwo($slug) {
         $informationTools = Equipment::where('slug', $slug)->first();
         $user = User::whereIn('level', ['teknisi'])->get()->all();
-
         return view('booking.update-second-booking', compact('informationTools', 'user'));
     }
 
@@ -63,7 +72,17 @@ class BookingController extends Controller
 
         $data['slug'] = 'B-' . now('Asia/Jakarta')->format('i:s-d-m-Y');
         $data['status'] = 'close';
-        Booking::create($data);
+        $dataBooking = Booking::create($data);
+
+        $dataHistory = [
+            'status' => 'Hasil Kunjungan Teknisi',
+            'description' => $data['conclusion'],
+            'id_user' => $request->id_user,
+            'equipment_id' => $request->equipment_id,
+            'booking_id' => $dataBooking->id,
+        ];
+
+        History::create($dataHistory);
         return redirect('/jadwal-kedatangan')->with('success', 'Hasil telah diupload');
     }
 

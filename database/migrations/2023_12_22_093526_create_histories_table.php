@@ -32,6 +32,9 @@ class CreateHistoriesTable extends Migration
 
             $table->unsignedBigInteger('equipment_id')->unsigned()->nullable();
             $table->foreign('equipment_id')->references('id')->on('equipment')->onDelete('cascade');
+            
+            $table->unsignedBigInteger('booking_id')->unsigned()->nullable();
+            $table->foreign('booking_id')->references('id')->on('booking')->onDelete('cascade');
             $table->timestamps();
         });
     }

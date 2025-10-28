@@ -131,12 +131,20 @@
                             <div class="col-md-6">
                                 <textarea name="issue" placeholder="Deskripsi:" required rows="4" class="form-control"></textarea>
                             </div>
+                            <div class="mt-4">
+                                {!! NoCaptcha::display() !!}
+                                @if ($errors->has('g-recaptcha-response'))
+                                    <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
+                                @endif
+                            </div>
 
                             <div class="col-12 text-end">
                                 <button class="btn btn-success px-4" type="submit">
                                     Kirim Formulir
                                 </button>
                             </div>
+
+                            {!! NoCaptcha::renderJs() !!}
                         </form>
                     </div>
                 </div>

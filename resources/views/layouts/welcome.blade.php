@@ -93,17 +93,19 @@
             <div class="collapse navbar-collapse justify-content-center align-items-center " id="navbarMenu">
                 <ul class="navbar-nav mb-2 mb-lg-0 gap-lg-1">
                     <li class="nav-item"><a class="nav-link" href="{{url('/')}}">Beranda</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{url('/our-product')}}">Product</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url('/our-product/ducting_udara')}}">Product</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{url('/spare-part')}}">Sparet Part</a></li>
                     @php
                     $isHome = request()->is('/') || request()->is('home');
                     @endphp
+                    @if($isHome)
                     <li class="nav-item">
-                        <a class="nav-link{{ !$isHome ? ' disabled' : '' }}" href="#tentang">Tentang Kami</a>
+                        <a class="nav-link" href="#tentang">Tentang Kami</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link{{ !$isHome ? ' disabled' : '' }}" href="#layanan">Layanan</a>
+                        <a class="nav-link" href="#layanan">Layanan</a>
                     </li>
+                    @endif
                     <li class="nav-item"><a class="nav-link" href="{{url('/kontak')}}">Kontak</a></li>
                 </ul>
                 @auth
