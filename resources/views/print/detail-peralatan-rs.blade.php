@@ -19,7 +19,7 @@ body {
 
 <body>
     <div class="row">
-        <div class="col-md-3 ">
+        <div class="col-md-3">
             <div class="text-center mb-3 d-flex justify-content-centera">
                 <div class="image-frame-detail">
                     @if($equipment->poducts->photo)

@@ -30,4 +30,8 @@ class History extends Model
         return $this->belongsTo('App\Estimate', 'estimate_id');
     }
 
+    function booking() {
+        return $this->belongsTo('App\Booking', 'booking_id');
+    }
+
 }

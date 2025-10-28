@@ -34,7 +34,7 @@
     <tbody>
         @foreach($equipment as $items)
         <tr>
-            <td>{{ $items->poducts->name ?? '-' }} ({{$item->brands->name ?? '-'}})</td>
+            <td>{{ $items->poducts->name ?? '-' }} ({{$items->brands->name ?? '-'}})</td>
             <td>{{ $items->serial_number ?? '-' }}</td>
             <td>{{ $items->installation ?? '-' }}</td>
             <td>{{ $items->condition ?? '-' }}</td>

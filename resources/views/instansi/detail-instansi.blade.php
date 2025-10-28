@@ -71,11 +71,12 @@
                                     Tambah Barang
                                 </span>
                             </a>
-                            <a href="{{ route('print.tools', ['departement' => $items->departement]) }}" class="btn btn-sm btn-secondary">
+                            <a target="_blank" href="{{ route('export.equipment.pdf', [
+                                'id_instansi' => $items->id_instansi,
+                                'departement' => $items->departement
+                            ]) }}" class="btn btn-sm btn-secondary">
                                 <i class="fas fa-file"></i>
-                                <span class="d-none d-sm-inline-block">
-                                    print alat
-                                </span>
+                                <span class="d-none d-sm-inline-block">Print Alat</span>
                             </a>
                             <!-- Gantilah kode tombol filter alat dengan ini -->
                             <a href="#" class="btn btn-sm btn-info btn-filter-alat"

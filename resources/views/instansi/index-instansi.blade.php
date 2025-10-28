@@ -58,17 +58,17 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header text-center">
-                <h5 class="modal-title " id="exampleModalLabel">Select Type</h5>
+                <h5 class="modal-title " id="exampleModalLabel">Pilih Format</h5>
             </div>
             <div class="modal-body">
-                <a href="{{url('/download-instansi-special')}}" class="btn btn-sm btn-primary">
+                <a href="{{url('/download-instansi-pdf')}}" target="_blank" class="btn btn-sm btn-primary">
                     <i class="fa fa-star"></i>
-                    <span>Inport Data Special RS</span>
+                    <span>PDF</span>
                 </a>
                 @if(Auth::user()->level == 'admin')
                 <a href="{{url('/download-instansi-excel')}}" class="btn btn-sm btn-primary">
                     <i class="fa fa-file-alt"></i>
-                    <span>Inport Data General RS</span>
+                    <span>Excel</span>
                 </a>
                 @endif
             </div>

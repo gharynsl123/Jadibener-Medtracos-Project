@@ -3,6 +3,7 @@
 use App\Http\Middleware\CheckUserLevel;
 use Illuminate\Support\Facades\Route;
 use Maatwebsite\Excel\Facades\Excel;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Exports\InstansiExports;
 use App\Exports\EquipmentExports;
 use App\Instansi;
@@ -22,8 +23,9 @@ use App\Equipment;
 */
 
 /**
- * Route::view('/check-view', 'email.warranty-announc');
+ * Route::view('/check-view', 'email.guest-request');
  */
+
 
 Auth::routes(['register' => false]);
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
@@ -70,8 +72,6 @@ Route::middleware(['auth', 'check.user.level'])->group(function () {
     Route::get('/surveyor/create-data', 'InstansiConntroller@createDataSurvey')->name('survey.creat-data');
     Route::post('/create-new-data/surveyor', 'InstansiConntroller@storeDataSurvey')->name('survey.store-data');
     
-
-
     // Booking Management Route
     Route::put('/store-hasil/{slug}', 'BookingController@update');
     Route::post('/store-second-hasil', 'BookingController@updateTwo');
@@ -104,51 +104,122 @@ Route::middleware(['auth', 'check.user.level'])->group(function () {
 });
 
 // START INTANSI EXCEL
-Route::get('/download-instansi-special', function () {
-    $idpic = User::whereNotNull('id_instansi')->get();
-    $instansi = Instansi::whereIn('id', $idpic->pluck('id_instansi')->all())->get();
-
-    return Excel::download(new InstansiExports($instansi), 'Instansi Special Data.xlsx');
-})->name('download.instansi-special');
-
 Route::get('/download-instansi-excel', function () {
     $instansi = Instansi::all();
 
-    return Excel::download(new InstansiExports($instansi), 'Data Instansi.xlsx');
+    $instansiSorted = $instansi->sortByDesc(function($inst) {
+        return User::where('id_instansi', $inst->id)->exists() ? 1 : 0;
+    });
+    return Excel::download(new InstansiExports($instansiSorted->values()), 'Instansi Special Data.xlsx');
+});
+
+Route::get('/download-instansi-pdf', function () {
+    $instansiData = Instansi::all();
+
+    $instansiSorted = $instansiData->sortByDesc(function($inst) {
+        return User::where('id_instansi', $inst->id)->exists() ? 1 : 0;
+    });
+
+    if ($instansiSorted->isEmpty()) {
+        return back()->with('error', 'Data tidak ditemukan.');
+    }
+
+    $instansi = $instansiSorted->values();
+
+    // Render view HTML
+    $html = view('print.instansi-data', compact('instansi'))->render();
+
+    // Generate PDF pakai DomPDF
+    $pdf = Pdf::loadHTML($html)
+        ->setPaper('A4', 'portrait')
+        ->setOptions([
+            'isHtml5ParserEnabled' => true,
+            'isRemoteEnabled' => true,
+        ]);
+
+    $fileName = "Data_List_Rumah_Sakit.pdf";
+
+    // Stream PDF langsung ke browser
+    return $pdf->stream($fileName);
 })->name('download.excel');
 // END EXCEL INSTANSI
 
-// START EQUIPMENT EXCEL
-Route::get('/download-peralatan-general', function () {
+
+// export to PDF equipment by instansi and departement
+Route::get('/export-equipment-pdf/{id_instansi}/{departement}', function ($id_instansi, $departement) {
+    $equipment = Equipment::where('id_instansi', $id_instansi)
+        ->where('departement', $departement)
+        ->get();
+
+    if ($equipment->isEmpty()) {
+        return back()->with('error', 'Data tidak ditemukan.');
+    }
+
+    // Render view HTML
+    $html = view('print.equipment-instansi', compact('equipment', 'id_instansi', 'departement'))->render();
+
+    // Generate PDF pakai DomPDF
+    $pdf = Pdf::loadHTML($html)
+        ->setPaper('A4', 'portrait')
+        ->setOptions([
+            'isHtml5ParserEnabled' => true,
+            'isRemoteEnabled' => true,
+        ]);
+
+    $fileName = "Equipment_{$departement}_Instansi_{$id_instansi}.pdf";
+
+    // Stream PDF langsung ke browser
+    return $pdf->stream($fileName);
+})->name('export.equipment.pdf');
+// end export to PDF equipment by instansi and departement
+
+// Start export equipment to PDF
+Route::get('/download-peralatan-pdf', function () {
     $equipment = null;
     $instansi = null;
     $user = Auth::user();
 
-    $departemenUser = Auth::user()->departement;
-    $userAuth = Auth::user()->id_instansi;
+    $departemenUser = $user->departement;
+    $userAuth = $user->id_instansi;
     
-    if (Auth::user()->level == 'pic' && (Auth::user()->departement == 'Purcashing' || Auth::user()->departement == 'IPS-RS')) {
+    if ($user->level == 'pic' && ($user->departement == 'Purcashing' || $user->departement == 'IPS-RS')) {
         $equipment = Equipment::where('id_instansi', $userAuth)->get();
-        $instansi = Instansi::where('id', Auth::user()->id_instansi)->first();
+        $instansi = Instansi::where('id', $userAuth)->first();
         
-    } else if (Auth::user()->level == 'pic' && $departemenUser) {
+    } else if ($user->level == 'pic' && $departemenUser) {
         $equipment = Equipment::where('id_instansi', $userAuth)
-        ->where('departement', $departemenUser)
-        ->get();
-        $instansi = Instansi::where('id', Auth::user()->id_instansi)->first();
+            ->where('departement', $departemenUser)
+            ->get();
+        $instansi = Instansi::where('id', $userAuth)->first();
     } else {
         $equipment = Equipment::all();
     }
 
-    return Excel::download(new EquipmentExports($equipment), 'Data Peralatan Rumah Sakit.xlsx');
-})->name('download.equipment');
+    $equipment = $equipment->sortByDesc(function ($item) {
+        return $item->warranty ? 1 : 0;
+    })->values();
 
-Route::get('/download-peralatan-garansi', function () {
-    $equipment = Equipment::where('warranty_state', 'true')->get();
+    if ($equipment->isEmpty()) {
+        return back()->with('error', 'Data tidak ditemukan.');
+    }
 
-    return Excel::download(new EquipmentExports($equipment), 'Data Perlatan Bergaransi Rumah Sakit.xlsx');
-})->name('download.special-equipment');
-// END EQUIPMENT EXCEL
+    // Render view HTML
+    $html = view('print.equipment-list', compact('equipment'))->render();
+
+    // Generate PDF pakai DomPDF
+    $pdf = Pdf::loadHTML($html)
+        ->setPaper('A4', 'portrait')
+        ->setOptions([
+            'isHtml5ParserEnabled' => true,
+            'isRemoteEnabled' => true, // biar bisa load gambar dari URL
+        ]);
+
+    $fileName = "Daftar_Peralatan_Yang_Terdaftar.pdf";
+
+    // Stream PDF langsung ke browser
+    return $pdf->stream($fileName);
+});
+// End export equipment to PDF
 
 
 // guest Route
@@ -159,8 +230,7 @@ Route::post('/store-request-member', 'GuestController@requestMember');
 Route::get('/request-as-member', 'GuestController@createRequestMember');
 Route::get('/layanan-kami/{slug}', 'GuestController@about');
 Route::get('/our-product/{slug}', 'GuestController@dataProduct')->name('our-product.show');
-Route::get('/our-product', 'GuestController@product');
-Route::get('/spare-part/{name}', 'GuestController@detailAlat');
+Route::get('/spare-part/{slug}', 'GuestController@detailAlat');
 Route::post('/submit-reques-part/{name}', 'GuestController@requestPart')->name('submit.request.part');
 Route::get('/kontak', 'GuestController@contact');
 
@@ -176,7 +246,6 @@ Route::post('/import-instansi', 'InstansiConntroller@import')->name('import.inst
 
 // Route Print PDF
 Route::get('/print-detail-alat/{slug}', 'PrintController@detailAlat');
-Route::get('/print/tools', 'PrintController@asDepartment')->name('print.tools');
 
 // estimasi route {{route('estimate.store')}}
 Route::get('/estimasi-biaya', 'EstimasiController@index');

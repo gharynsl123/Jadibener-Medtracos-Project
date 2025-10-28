@@ -38,7 +38,7 @@
 
 <div class="card border-left-primary shadow-lg p-3">
     <div class="table-responsive">
-        <table class="table table-borderless" id="dataTable">
+        <table class="table table-borderless table-hover table-striped border-0" id="dataTables">
             <thead>
                 <tr class="bg-dark-ori-web text-white">
                     <th class="rounded-left">Nama Part</th>
@@ -79,4 +79,35 @@
         </table>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('#dataTables').DataTable({
+            "pageLength": 5,
+            ordering: false,
+            "lengthMenu": [
+                [5, 10, 25, 50, -1],
+                [5, 10, 25, 50, "All"]
+            ],
+            initComplete: function () {
+                const $wrapper = $('#dataTables_wrapper');
+                const $filter = $wrapper.find('.dataTables_filter');
+                const $input = $filter.find('input');
+
+                $filter.find('label').contents().filter(function () {
+                    return this.nodeType === 3; // Node.TEXT_NODE
+                }).remove();
+
+                $input.attr('placeholder', 'Search...').css({
+                    'width': '300px',
+                    'display': 'inline-block',
+                    'margin': '0 8px'
+                });
+
+                $('#tableInfoContainer').append($wrapper.find('#dataTables_info'));
+                $('#tablePaginationContainer').append($wrapper.find('.dataTables_paginate'));
+            }
+        });
+    });
+</script>
 @endsection

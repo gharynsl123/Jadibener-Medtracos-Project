@@ -193,7 +193,7 @@
         <div class="col-md-12">
             <div class="card shado mt-2">
                 <div class="card-header bg-info">
-                    <p class="m-0 text-white font-weight-bolder">Saran Perawatan Dan erbaikan</p>
+                    <p class="m-0 text-white font-weight-bolder">Saran Perawatan Dan perbaikan</p>
                 </div>
                 <div class="card-body">
                     <p>{{ $equipment->suggestions ?? 'belum ada saran' }}</p>
@@ -240,6 +240,12 @@
                                             class="btn btn-sm btn-primary">
                                             <i class="fa fa-file"></i>
                                         </a>
+                                    </td>
+                                    <td>-</td>
+                                @elseif($item->booking)
+                                    <td>
+                                        <a href="{{ url('/detail-kunjungan', $item->booking->slug) }}"
+                                            class="btn btn-primary">Booking-{{ $item->booking->id }}</a>
                                     </td>
                                     <td>-</td>
                                 @else

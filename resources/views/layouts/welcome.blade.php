@@ -44,19 +44,21 @@
     /* Base style notifikasi */
     .notification {
         position: fixed;
-        top: 20px;
-        right: 20px;
+        top: 50%;
+        left: 50%;
         padding: 16px 24px;
-        background-color: #d4edda; /* warna hijau sukses */
+        background-color: #EEEEEEFF;
         color: #155724;
         border-left: 6px solid #28a745;
         border-radius: 8px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translate(-50%, -50%); /* bener2 center */
         transition: opacity 0.5s ease, transform 0.5s ease;
         z-index: 9999;
     }
+
+
 
     /* Saat notifikasi dimunculkan */
     .notification-show {
@@ -91,17 +93,19 @@
             <div class="collapse navbar-collapse justify-content-center align-items-center " id="navbarMenu">
                 <ul class="navbar-nav mb-2 mb-lg-0 gap-lg-1">
                     <li class="nav-item"><a class="nav-link" href="{{url('/')}}">Beranda</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{url('/our-product')}}">Product</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url('/our-product/ducting_udara')}}">Product</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{url('/spare-part')}}">Sparet Part</a></li>
                     @php
                     $isHome = request()->is('/') || request()->is('home');
                     @endphp
+                    @if($isHome)
                     <li class="nav-item">
-                        <a class="nav-link{{ !$isHome ? ' disabled' : '' }}" href="#tentang">Tentang Kami</a>
+                        <a class="nav-link" href="#tentang">Tentang Kami</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link{{ !$isHome ? ' disabled' : '' }}" href="#layanan">Layanan</a>
+                        <a class="nav-link" href="#layanan">Layanan</a>
                     </li>
+                    @endif
                     <li class="nav-item"><a class="nav-link" href="{{url('/kontak')}}">Kontak</a></li>
                 </ul>
                 @auth

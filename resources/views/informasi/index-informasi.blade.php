@@ -1,5 +1,14 @@
 @extends('layouts.main-view')
 @section('content')
+<style>
+    .floating{
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 100;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+</style>
 <div class="d-sm-flex align-items-center mb-4">
     <h1 class="h3 mb-0 text-gray-800">Informasi</h1>
 </div>

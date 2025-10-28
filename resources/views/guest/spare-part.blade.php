@@ -74,35 +74,14 @@
                 <ul class="list-unstyled mb-0">
                     @foreach ($mainCategories as $kategori)
                         @php
-                            $collapseId = 'collapse-' . Str::slug($kategori);
                             $isActive = request('search') == $kategori;
                         @endphp
-
-                        <li class="">
-                            <a class="filters-list text-decoration-none d-flex justify-content-between align-items-center px-3 py-2 
-                                    {{ $isActive ? 'text-success fw-semibold' : 'text-dark' }}"
-                            data-bs-toggle="collapse" 
-                            href="#{{ $collapseId }}" 
-                            role="button" 
-                            aria-expanded="false" 
-                            aria-controls="{{ $collapseId }}">
+                        <li>
+                            <a href="{{ url()->current() . '?search=' . urlencode($kategori) }}"
+                            class="d-flex justify-content-between align-items-center px-3 py-2 text-decoration-none {{ $isActive ? 'text-dark fw-semibold' : 'text-dark' }}">
                                 {{ $kategori }}
-                                <span class="bi bi-chevron-right small"></span>
+                                <span class="bi bi-chevron-right"></span>
                             </a>
-
-                            <div class="collapse ps-3" id="{{ $collapseId }}">
-                                <ul class="list-unstyled mb-0">
-                                    @foreach ($subCategories[$kategori] as $subKategori)
-                                        <li>
-                                            <a class="filters-list text-decoration-none d-flex justify-content-between align-items-center px-3 py-2 text-dark"
-                                            href="{{ url()->current() . '?search=' . urlencode($subKategori) }}">
-                                                {{ $subKategori }}
-                                                <span class="bi bi-chevron-right small"></span>
-                                            </a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
                         </li>
                     @endforeach
                 </ul>
@@ -161,12 +140,12 @@
                         <div class="bg-light fw-semibold px-3 py-2 rounded-top">{{ $kategori }}</div>
                         <ul class="list-group list-group-flush border rounded-bottom">
                             @foreach ($items as $item)
+                            <a href="{{ url('/spare-part', $item->slug) }}" class="text-decoration-none text-dark">
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a href="{{ url('/spare-part', $item->name) }}" class="text-decoration-none text-dark">
                                         {{ $item->name }}
-                                    </a>
                                     <i class="bi bi-arrow-up-right"></i>
                                 </li>
+                            </a>
                             @endforeach
                         </ul>
                     </div>

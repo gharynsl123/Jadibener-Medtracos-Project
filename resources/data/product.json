@@ -1,45 +1,246 @@
 [
   {
     "id": "ducting_udara",
-    "image": "https://plus.unsplash.com/premium_photo-1733342512311-2307883f2502?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "code": "DC-1001",
-    "description": "Sistem ducting udara dirancang untuk menjaga sirkulasi udara di dapur tetap bersih dan segar. \nMenggunakan material galvanis berkualitas tinggi dengan lapisan anti karat. \nCocok untuk kitchen hotel, restoran, dan industri dengan standar higienis.",
-    "name": "Instalasi Ducting Udara"
+    "image": "images/ducting.png",
+    "description": "Desain–instalasi hood & grease-duct khusus dapur rumah sakit untuk membuang uap panas, asap, dan bau secara higienis. Material SS 304, baffle filter anti-minyak, duct galvanis/SS berinsulasi, blower centrifugal (opsional VFD) + testing & commissioning, manual, dan opsi monitoring berbasis database",
+    "name": "Pemasangan Hood & Ducting RS – Exhaust Uap Panas & Asap Masak",
+    "additional_info": {
+      "judul": "Standar RS (Ringkas)",
+      "poin": [
+        "Grease-tight welded duct + access door tiap ≤ 3,7 m & di setiap tikungan.",
+        "Kecepatan udara ≥ ±2,5 m/s; slope ±2% untuk alirkan kondensat/grease.",
+        "Tanpa damper/kabel di dalam grease duct; clearance 457 mm dari material mudah terbakar.",
+        "Terminasi atap dengan jarak aman & make-up air seimbang.",
+        "Rujukan desain: SNI 6572, NFPA 96, Permenkes 7/2019."
+      ],
+      "catatan": "<strong>Catatan :</strong> Siap survei & RAB: kirim layout kompor, tinggi plafon, rute ke atap, dan foto lokasi."
+    }
   },
   {
     "id": "central_gas",
-    "image": "https://images.unsplash.com/photo-1617196035164-51979fba9b1b?ixlib=rb-4.0.3&q=80&w=1080&fit=crop",
-    "code": "CG-2001",
-    "description": "Instalasi central gas memberikan distribusi gas yang stabil dan aman untuk dapur profesional. \nDilengkapi dengan sistem pengaman otomatis untuk mencegah kebocoran. \nInstalasi dilakukan sesuai standar internasional keselamatan kerja.",
-    "name": "Instalasi Central Gas"
+    "image": "images/instalasi-central-gas.jpg",
+    "description": "Kami menyediakan layanan instalasi Central Gas yang dirancang khusus untuk dapur rumah sakit. Sistem ini mengintegrasikan distribusi gas LPG/BBG secara aman, efisien, dan terkontrol ke seluruh area dapur, mendukung operasional dapur gizi rumah sakit yang membutuhkan standar tinggi dalam keamanan, higienitas, dan kontinuitas pasokan energi.",
+    "name": "Central Gas untuk Dapur Rumah Sakit",
+    "additional_info": {
+      "judul": "Keunggulan Sistem Central Gas",
+      "poin": [
+        "Keamanan Tinggi – dilengkapi dengan regulator, pressure gauge, serta panel kontrol yang memantau tekanan gas secara real-time.",
+        "Efisiensi Operasional – distribusi gas terpusat mengurangi risiko kebocoran dan memperpanjang umur pakai peralatan dapur.",
+        "Desain Sesuai Standar Rumah Sakit – instalasi menggunakan pipa baja berlapis cat kuning standar industri serta valve kontrol individu untuk tiap jalur.",
+        "Monitoring Tekanan – dengan panel indikator dan alarm pengaman, sistem mampu mendeteksi gangguan sejak dini.",
+        "Instalasi Rapi & Profesional – pipa, valve, dan jalur gas dipasang dengan standar keamanan internasional serta memenuhi regulasi K3 (Keselamatan & Kesehatan Kerja)."
+      ],
+      "catatan": "<strong>Manfaat Bagi Rumah Sakit:</strong><ul style='margin:0; padding-left:20px; list-style-type:disc;'><li>Pasokan energi stabil untuk dapur gizi rumah sakit.</li><li>Mengurangi risiko kebakaran dengan kontrol terpusat.</li><li>Hemat biaya operasional karena distribusi lebih efisien.</li><li>Meningkatkan kepercayaan & audit standar rumah sakit (akreditasi & sertifikasi).</li></ul>"
+    }
   },
   {
     "id": "fresh_air",
-    "image": "https://images.unsplash.com/photo-1505692794403-35b1b78c6c2f?ixlib=rb-4.0.3&q=80&w=1080&fit=crop",
-    "code": "FA-3001",
-    "description": "Sistem fresh air memastikan suplai udara bersih masuk ke area dapur. \nMengurangi kelembaban berlebih dan menjaga kualitas udara tetap sehat. \nDilengkapi dengan filter udara berstandar industri.",
-    "name": "Instalasi Fresh Air"
+    "image": "images/instalasi-fresh-air.png",
+    "description": "Sistem Fresh Air dirancang untuk memasukkan udara bersih dari luar ke dalam dapur rumah sakit secara terkontrol. Dengan aliran udara segar yang stabil, sistem ini membantu:<ul style='margin:0; padding-left:20px; list-style-type:disc;'><li>Menjaga kualitas udara agar tetap sehat, bebas dari polusi, debu, dan bau tidak sedap.</li><li>Mengurangi kelembaban berlebih yang sering timbul akibat aktivitas memasak intensif.</li><li>Meningkatkan sirkulasi udara sehingga ruangan dapur terasa lebih nyaman bagi tenaga kerja.</li><li>Memenuhi standar akreditasi rumah sakit terkait ventilasi dan higienitas ruangan.</li></ul><br>Fresh Air System dipadukan dengan sistem exhaust & ducting, sehingga tercipta keseimbangan tekanan udara positif-negatif. Hasilnya, dapur rumah sakit menjadi lebih bersih, aman, dan sesuai standar sanitasi.",
+    "name": "Fresh Air System untuk Dapur Rumah Sakit",
+    "additional_info": {}
   },
   {
     "id": "scaler",
-    "image": "https://images.unsplash.com/photo-1595796961373-5f83a25d816f?ixlib=rb-4.0.3&q=80&w=1080&fit=crop",
-    "code": "SC-4001",
-    "description": "Scaler (pengeras kapur) digunakan untuk mengurangi kadar mineral berlebih pada air. \nMencegah kerak pada peralatan dapur yang menggunakan air panas. \nTeknologi ion-exchange menjamin kualitas air lebih konsisten.",
-    "name": "Scaler (Pengeras kapur)"
+    "image": "images/instalasi-descaler.png",
+    "description": "Pengendali kerak air keras tanpa listrik & tanpa bahan kimia. Ideal untuk rumah sakit, dapur gizi, laundry, boiler, dishwasher, steamer, water heater, dan jaringan pipa.",
+    "name": "Hard Water Descaler",
+    "additional_info": {
+      "judul": "Ringkas Manfaat",
+      "poin": [
+        "Anti-scale & descaling – mencegah kerak baru sekaligus membantu melonggarkan kerak lama agar terbawa aliran.",
+        "100% proses fisik (DPSE) – aman untuk air minum, tanpa garam, tanpa regenerasi, tanpa emisi.",
+        "Tahan korosi – housing SS 304.",
+        "Hemat energi & perawatan minim – tidak butuh listrik, tidak ada bahan habis pakai.",
+        "Kapasitas besar – laju alir 4 m³/jam @ 2 bar, memenuhi kebutuhan aplikasi komersial.",
+        "Efek jangka panjang – masa pakai hingga 10 tahun, proteksi pipa bisa mencapai ±5 km (tergantung kondisi sistem)."
+      ],
+      "catatan": "<strong>Cara Kerja Singkat:</strong> Media DPSE mengubah bentuk kristal kesadahan (Ca/Mg) menjadi partikel aragonit mikrokristalin yang tidak mudah menempel pada permukaan panas/pipa. Endapan lama perlahan terlepas menjadi serbuk halus dan ikut terbawa aliran—menekan pembentukan kerak, sekaligus membantu descaling.<br><br><strong>Spesifikasi Teknis:</strong><ul style='margin:0; padding-left:20px; list-style-type:disc;'><li>Model: WD001</li><li>Material ruang: Stainless Steel 304</li><li>Media: DPSE (Dynamic Physical Scale Elimination)</li><li>Kualitas air masuk: Air kota/PDAM</li><li>Tekanan kerja: 0,15–1 MPa (≈ 1,5–10 bar)</li><li>Suhu kerja: 0–100 °C</li><li>Laju aliran nominal: 4 m³/jam @ 2 bar</li><li>Ukuran (P × Ø): 255 × 54 mm</li><li>Masa pakai: 10 tahun</li><li>Berat bersih: ±1 kg</li></ul><br><strong>Rekomendasi Pemasangan:</strong><ul style='margin:0; padding-left:20px; list-style-type:disc;'><li>Dipasang in-line (horizontal/vertikal) mengikuti arah aliran.</li><li>Disarankan prefilter sedimen 5–20 µm di sisi hulu untuk hasil optimal.</li><li>Pilih ukuran unit sesuai debit aktual & tekanan sistem.</li><li>Periksa berkala kondisi prefilter dan kebersihan sistem.</li></ul><br><strong>Catatan Penting:</strong><ul style='margin:0; padding-left:20px; list-style-type:disc;'><li>Perangkat ini tidak menurunkan TDS/kesadahan secara kimiawi; fungsinya adalah mengendalikan kerak secara fisik (inhibisi & descaling).</li><li>Kinerja dipengaruhi oleh komposisi air, temperatur, tekanan, dan kecepatan aliran.</li><li>Butuh konsultasi sizing & instalasi untuk fasilitas Anda? Hubungi tim kami—kami bantu desain dari titik masuk (POU/POE) hingga integrasi ke peralatan kritikal rumah sakit.</li></ul>"
+    }
   },
   {
     "id": "ro",
-    "image": "https://genesiswatertech.com/wp-content/uploads/2019/07/reverse-osmosis-wastewater-treatment.jpg",
-    "code": "RO-5001",
-    "description": "Sistem Reverse Osmosis menyaring air hingga tingkat molekul terkecil. \nMenghasilkan air murni bebas bakteri, logam berat, dan kontaminan lain. \nIdeal untuk dapur profesional yang membutuhkan kualitas air tinggi.",
-    "name": "Reverses Osmosis"
+    "image": "images/instalasi-ro.png",
+    "description": "Sistem Reverse Osmosis (RO) Medhigen dirancang khusus untuk memenuhi kebutuhan air murni di rumah sakit. Air murni sangat penting untuk menunjang operasional peralatan medis, CSSD, laboratorium, serta kebutuhan sterilisasi.<br><br>Dengan teknologi multi-filtrasi, membrane RO, softener, dan Electro Deionize (EDI), sistem ini mampu menghasilkan air RO berkualitas tinggi, bebas kontaminan, dan sesuai standar kesehatan rumah sakit.",
+    "name": "Reverse Osmosis (RO) – Pure Water System",
+    "additional_info": {
+      "judul": "Keunggulan Utama",
+      "poin": [
+        "Kapasitas produksi fleksibel: 150L, 300L hingga 600L per jam.",
+        "Sistem otomatis dengan PLC & monitoring panel untuk pengendalian yang presisi.",
+        "Dilengkapi tangki stainless steel penyimpanan air murni.",
+        "Proses backwash, regenerasi, hingga produksi RO terkendali penuh.",
+        "Instalasi dapat dibuat mobile system atau dalam container 20 feet untuk efisiensi ruang."
+      ],
+      "catatan": "<strong>Aplikasi :</strong> <br><ul style='margin:0; padding-left:20px; list-style-type:disc;'><li>SSD & Sterilisasi Rumah Sakit.</li><li>Laboratorium & Analyzer.</li><li>Mesin cuci medis dan keperluan utility lainnya.</li></ul><br>Dengan sistem RO Medhigen, rumah sakit dapat memastikan keandalan pasokan air murni, meningkatkan keamanan pasien, serta memperpanjang usia peralatan medis"
+    }
   },
-  {"id": "boiler_air", "image": "https://solarindustri.com/wp-content/uploads/2023/02/BOILER.jpg", "code": "", "description": "", "name": "Mesin Boiler Pemanas air" },
-  {"id": "det_auto_riswasher", "image": "", "code": "", "description": "", "name": "Detergent Riswasher (Auto)" },
-  {"id": "det_auto_rinsaid", "image": "", "code": "", "description": "", "name": "Detergent Rins Aid (Auto)" },
-  {"id": "det_manual_piring", "image": "", "code": "", "description": "", "name": "Detergent Cuci Piring (Manual)" },
-  {"id": "disinf_manual", "image": "", "code": "", "description": "", "name": "Disinfestan Kitchen (Manual)" },
-  {"id": "foam_cleaning", "image": "", "code": "", "description": "", "name": "Foam Cleaning Spray" },
-  {"id": "kontrak_kitchen", "image": "", "code": "", "description": "", "name": "Kontrak Service Kitchen" },
-  {"id": "jasa_service", "image": "", "code": "", "description": "", "name": "Jasa Service" }
+  {
+    "id": "boiler_air", 
+    "image": "images/instalasi-water-boiler.jpg",
+    "description": "Water Boiler Medhigen dengan pilihan kapasitas 100 L, 200 L, hingga 300 L dirancang khusus untuk memenuhi kebutuhan air panas dalam jumlah besar yang sangat penting di dapur rumah sakit. Alat ini berfungsi untuk memanaskan dan menjaga suhu air secara konsisten, sehingga dapat digunakan sebagai bahan baku berbagai proses di dapur rumah sakit, seperti:<ul><li>Menyediakan air panas untuk proses pemasakan dan perebusan makanan.</li><li>Menjamin ketersediaan air panas untuk sterilisasi peralatan dapur.</li><li>Mendukung kebutuhan air panas pada kegiatan penyajian makanan pasien dan staf rumah sakit.</li> </ul>",
+    "name": "Water Boiler – Penyedia Air Panas untuk Dapur Rumah Sakit", 
+    "additional_info": {
+      "judul" : "Keunggulan",
+      "poin" : [
+        "Kapasitas besar: tersedia 100 L, 200 L, dan 300 L, sesuai kebutuhan.",
+        "Terbuat dari stainless steel dengan bejana double jacket yang lebih awet dan higienis.",
+        "Dilengkapi isolator panas Fire Rock/Rockwool sehingga efisien menjaga panas lebih lama.",
+        "Pemanas ganda dengan heater 2 x 3000 Watt yang cepat dan stabil.",
+        "Dilengkapi control panel digital untuk pengaturan suhu air.",
+        "Roda PU 3” memudahkan pemindahan unit di dapur rumah sakit.",
+        "Output dengan butterfly valve SS 316 yang aman dan higienis."
+      ],
+      "catatan": "Dengan Medhigen Water Boiler, dapur rumah sakit dapat selalu terjamin ketersediaan air panas higienis dalam jumlah besar, mendukung standar pelayanan gizi dan keamanan pangan sesuai kebutuhan rumah sakit modern." 
+    } 
+  },
+  {
+    "id": "temperature-monitor", 
+    "image": "images/instalasi-temperature.png",
+    "description": "Modul pemantau suhu real-time untuk troli distribusi makanan di rumah sakit. Dirancang agar tim gizi dapat memastikan suhu troli selalu aman selama holding & distribusi, sekaligus mendukung pemenuhan standar akreditasi KARS/JCI terkait keamanan pangan dan pencatatan kontrol suhu.<br><p style='margin:0px;'><strong>Kenapa penting:</p></strong><ul><li>Menjaga hot chain/cold chain saat makanan disiapkan, ditampung, dan dikirim ke pasien.</li><li>Memberikan bukti monitoring saat audit (indikasi, alarm, dan opsi pencatatan).</li><li>Mengurangi risiko komplain kualitas makanan dan kontaminasi karena suhu tidak sesuai.</li></ul>",
+    "name": "Temperature Monitoring Food Trolley", 
+    "additional_info": {
+      "judul" : "Keunggulan Utama",
+      "poin" : [
+        "Tampilan digital jelas di panel depan troli (mudah dibaca oleh petugas).",
+        "Monitoring suhu real-time di ruang troli; batas atas/bawah dapat diset.",
+        "Alarm visual (indikator) ketika suhu melewati ambang yang ditentukan.",
+        "Material SS 304: higienis, tahan korosi, mudah dibersihkan.",
+        "Retrofit universal – dapat dipasang pada troli panas yang belum memiliki layar/indikasi suhu (MedHigen maupun non-MedHigen).",
+        "Instalasi rapi & aman: panel tertutup, tombol ON/OFF berlampu.",
+        "Opsi pencatatan: versi standar untuk checklist manual, atau varian datalogger (unduh data/rekap) untuk memudahkan pelaporan akreditasi.",
+        "Layanan kalibrasi & verifikasi berkala (opsional) untuk memastikan akurasi."
+      ],
+      "catatan": "<strong>Cara Kerja Singkat</strong><br>1. Sensor suhu ditempatkan di ruang troli.<br>2. Nilai suhu tampil secara terus-menerus pada layar.<br>3. Jika melewati ambang, indikator menyala (dan buzzer opsional).<br>4. Petugas melakukan tindakan korektif dan, bila dipilih varian datalogger, data dapat diekspor untuk laporan.<br><br><strong>Ruang Lingkup Pemasangan</strong><br>• Instalasi Gizi/Dietetik, CSSD catering internal, dan layanan distribusi makanan pasien.<br>• Troli panas (heated trolley) existing yang belum memiliki indikator/layar suhu.<br><br><strong>Paket & Layanan</strong><br>• Unit modul panel + sensor, bracket & kabel, panduan pemasangan.<br>• Survey lokasi & pemasangan oleh teknisi (opsional).<br>• Garansi hingga 1 tahun* dan ketersediaan suku cadang lokal.<br>* Mengacu pada ketentuan garansi produk MedHigen.<br><br><strong>FAQ Singkat</strong><br>• Apakah bisa dipasang di troli merek lain? Bisa. Kami sediakan bracket/custom fitting agar cocok dengan berbagai model.<br>• Apakah tersedia untuk suhu dingin? Ya, tersedia varian sensor untuk aplikasi chiller/cold trolley.<br>• Perlu kalibrasi? Disarankan dilakukan berkala (mis. tahunan) sesuai kebijakan mutu RS."
+    }
+  },
+  {
+    "id": "roda-trolley", 
+    "image": "images/instalasi-roda-trolley.png",
+    "description": "Roda karet berkualitas tinggi ini dirancang khusus untuk trolley makanan di rumah sakit, memberikan performa lebih kuat, tahan lama, dan nyaman digunakan. Dengan material karet yang elastis sekaligus kokoh, roda mampu menahan beban berat sekaligus tetap halus saat digerakkan, sehingga memudahkan mobilitas di area rumah sakit yang membutuhkan kebersihan dan efisiensi tinggi.",
+    "name": "Pergantian Roda Trolley Makanan Rumah Sakit", 
+    "additional_info": {
+      "judul" : "Keunggulan",
+      "poin" : [
+        "Kekuatan maksimal – rangka besi galvanis tebal dengan daya tahan tinggi.",
+        "Roda karet premium – memberikan cengkeraman baik, tidak licin, dan awet.",
+        "Gerakan lebih halus & mudah penetrasi – memudahkan trolley bergerak di lantai rumah sakit tanpa tersendat.",
+        "Sistem pengunci (brake) – tersedia pada roda putar untuk keamanan saat berhenti.",
+        "Kombinasi roda putar & roda tetap – memastikan stabilitas sekaligus fleksibilitas arah pergerakan."
+      ],
+      "catatan": "<strong>Roda Karet Kembang HD</strong><br><table class='table bg-transparent table-bordered'><thead><tr><th>Ukuran</th><th>Kapasitas</th></tr></thead><tbody><tr><td>4” (100x50)</td><td>150 Kg</td></tr><tr><td>5” (125x50)</td><td>200 Kg</td></tr><tr><td>6” (150x50)</td><td>250 Kg</td></tr><tr><td>8” (200x50)</td><td>275 Kg</td></tr></tbody></table>"
+    }
+  },
+  {
+    "id": "rinse-pro", 
+    "image": "images/rinse-Pro dish auto.png",
+    "description": "<em>“Pembilas otomatis untuk kilau sempurna tanpa noda.”</em><br><br><strong>RINSE PRO DISH AUTO</strong> adalah cairan pembilas (rinse aid) khusus untuk mesin pencuci piring. Diperkaya surfaktan yang mampu menurunkan tegangan permukaan air, produk ini membuat air tersebar merata di permukaan peralatan makan dan meluncur turun tanpa meninggalkan bercak. Akibatnya proses pengeringan lebih cepat dan hasil akhir lebih berkilau.",
+    "name": "RINSE PRO DISH AUTO",
+    "additional_info": {    
+      "judul" : "Manfaat & Keunggulan :",
+      "poin" : [
+        "Mengurangi noda air dan bercak: surfaktan bekerja menurunkan tegangan permukaan air sehingga air tidak menempel dan tidak membentuk tetesan; peralatan makan keluar dari mesin tanpa noda.",
+        "Mempercepat pengeringan: dengan air yang cepat mengalir, proses pengeringan menjadi lebih singkat, mencegah timbulnya bau lembap.",
+        "Perlindungan pada permukaan: membantu mencegah endapan mineral pada gelas, piring, dan peralatan stainless steel.",
+        "Formulasi khusus mesin pencuci piring: tidak menyebabkan busa berlebih dan aman digunakan bersama deterjen otomatis."
+      ],
+      "catatan": "<strong>Cara Penggunaan</strong><ol><li>Dengan menggunakan mesin dishwasher, hubungkan selang dosing pump kepada jerigen detergent.</li><li>Periksa secara berkala: isi ulang pembilas setiap kali indikator dispenser menunjukkan hampir kosong. Jangan menuangkan langsung ke peralatan makan.</li><li>Hanya untuk mesin pencuci piring: produk ini tidak dirancang untuk pencucian manual.</li></ol><strong>Tips & Perhatian</strong><ul><li>Jauhkan dari jangkauan anak-anak dan hewan peliharaan.</li><li>Hindari kontak dengan mata; jika terkena, bilas dengan air mengalir selama 15–20 menit.</li><li>Simpan di tempat sejuk dan kering serta hindari paparan sinar matahari langsung.</li><li>Jangan campur dengan deterjen lain atau bahan kimia rumah tangga lainnya.</li></ul>"
+    }
+  },
+  {
+    "id": "dish-cleaner", 
+    "image": "images/steridish cleaner.png",
+    "description": "<p><em>“Disinfeksi kuat untuk piring dan gelas bebas kuman.”</em></p><p><strong>STERI DISH CLEANER</strong> adalah cairan disinfektan khusus untuk piring, gelas, dan peralatan makan. Formula ini mengandung surfaktan yang menurunkan tegangan permukaan air sehingga cairan merata menutupi permukaan peralatan. Bahan aktif disinfektan bekerja menonaktifkan bakteri dan virus secara cepat, menjadikan peralatan makan higienis tanpa meninggalkan bau atau rasa.</p>",
+    "name": "STERI DISH CLEANER",
+    "additional_info":{
+      "judul" : "Manfaat & Keunggulan :",
+      "poin" : [
+        "Membasmi kuman secara efektif: Disinfektan kuat membantu menghilangkan mikroorganisme penyebab penyakit pada peralatan makan.",
+        "Tidak meninggalkan noda atau bau: Surfaktan membantu cairan menyebar merata dan mengalir, tidak menimbulkan residu atau noda air.",
+        "Cepat dan praktis: Waktu perendaman singkat (beberapa detik) setelah pencucian manual sudah cukup untuk mendisinfeksi, mempercepat proses sanitasi.",
+        "Aman untuk piring dan gelas: Dirancang khusus untuk peralatan makan; tidak mengikis permukaan kaca atau porselen bila digunakan sesuai petunjuk."
+      ],
+      "catatan": "<h4>Cara Penggunaan</h4><ol><li>Cuci dan bilas peralatan makan secara manual menggunakan deterjen biasa hingga bersih dari sisa makanan dan minyak.</li><li>Siapkan larutan disinfektan: Tuangkan <strong>STERI DISH CLEANER</strong> sesuai petunjuk label (misalnya 20 mL produk ke 1 liter air) dalam wadah bersih.</li><li>Rendam peralatan: Masukkan piring, gelas, sendok, dan garpu ke dalam larutan selama ±10–30 detik. Pastikan seluruh permukaan terendam.</li><li>Angkat dan biarkan kering alami: Tidak perlu dibilas kembali agar efek disinfeksi tetap bekerja. Biarkan mengering di rak atau permukaan bersih.</li><li>Ganti larutan secara berkala: Larutan disinfektan harus diganti bila sudah keruh atau setelah digunakan beberapa kali.</li></ol><h4>Tips & Perhatian</h4><ul><li>Jauhkan produk dari jangkauan anak anak dan hewan peliharaan.</li><li>Hindari kontak langsung dengan mata; jika terkena, bilas dengan air mengalir selama 15–20 menit.</li><li>Gunakan sarung tangan untuk melindungi kulit sensitif saat menyiapkan larutan.</li><li>Jangan campur dengan deterjen atau bahan kimia lain.</li><li>Simpan di tempat sejuk dan kering dengan tutup rapat setelah digunakan.</li><li>Tidak untuk dikonsumsi atau digunakan sebagai pembersih tangan.</li></ul>"
+    }
+  },
+  {
+    "id": "medic-plate", 
+    "image": "images/Medicplatesafe.png",
+    "description": "<p><em>“Detergent Cair Pencuci Piring Khusus Rumah Sakit,  Piring Bersih, Pasien Terlindungi”</em></p><p><strong>MEDIC PLATE SAFE</strong> adalah detergent cair berkualitas medis untuk pencucian alat makan pasien. Diformulasikan dengan sedikit busa untuk memudahkan pembilasan, dan mengandung agen antimikroba serta surfaktan aktif untuk mengangkat noda biologis serta mencegah kontaminasi silang. Aman untuk digunakan pada stainless steel, kaca, plastik medis, serta berbagai peralatan makan rumah sakit lainnya.</p>",
+    "name": "MEDIC PLATE SAFE",
+    "additional_info" :{
+      "judul" : "Keunggulan Produk",
+      "poin" : [
+        "Sedikit Busa – Mudah Dibilas",
+        "Mencegah Kontaminasi Silang",
+        "Mengangkat Lemak, Protein & Noda Biologis",
+        "Aman untuk Berbagai Material",
+        "Cocok untuk Mesin & Manual Sink"
+      ],
+      "catatan": "<h4>Cara Pakai</h4><p><strong>Untuk Pencucian Manual (Sink):</strong></p><ol><li>Larutkan 10–20 ml <strong>MEDIC PLATE SAFE</strong> ke dalam 5 liter air hangat (40–50°C).</li><li>Cuci peralatan makan seperti biasa menggunakan spons atau sikat.</li><li>Bilas hingga bersih menggunakan air mengalir.</li><li>Rendam dengan Disinfectan “<strong>STERI DISH CLEANER</strong>” selama 30 detik lalu simpan pada rak pengeringan.</li><li>Gunakan sarung tangan & ikuti SOP dapur gizi saat mencuci alat makan pasien infeksius.</li></ol><h4> Kemasan</h4><ul><li>Jerigen 5 Liter</li><li>Jerigen 20 Liter</li></ul><h4> Komitmen Keamanan</h4><p>Telah teruji laboratorium dan sesuai standar kebersihan food-grade & sanitasi peralatan medis. Aman untuk kontak tidak langsung dengan pasien.</p>"
+    }
+  },
+  {
+    "id": "foam_cleaning", 
+    "image": "images/foam Cleaner Spray.png",
+    "description": "<p><em>Efektif Mengangkat Minyak & Menjaga Stainless Steel tetap berkilau</em></p><p><strong>Kitchen Cleaner Foam Spray</strong> adalah pembersih peralatan dapur berbentuk busa yang diformulasikan khusus dengan surfaktan aktif untuk membersihkan noda minyak membandel, sisa lemak, dan kotoran pada permukaan dapur. Aman digunakan pada permukaan stainless steel, dan membantu menjaga kilau serta daya tahan peralatan dapur Anda.</p><p><strong>Isi Bersih:</strong> 750 ml</p>",
+    "name": "KITCHEN CLEANER FOAM SPRAY",
+    "additional_info" : {
+      "judul" : "Keunggulan",
+      "poin" : [
+        "Mengandung surfaktan kuat pengangkat lemak dan minyak.",
+        "Busa lembut menempel lebih lama di permukaan untuk hasil maksimal",
+        "Aman untuk kompor, meja stainless steel,  dan peralatan dapur lainnya",
+        "Tidak merusak permukaan logam dan meninggalkan kesan bersih berkilau"
+      ],
+      "catatan": "<h4>Petunjuk Penggunaan:</h4><ol><li>Kocok sebelum digunakan.</li><li>Semprotkan langsung pada permukaan yang kotor.</li><li>Diamkan selama 30 detik – 1 menit.</li><li>Gosok dengan spons atau kain lembut.</li><li>Bilas atau lap bersih dengan kain basah.</li></ol><h4>Perhatian:</h4><ul><li>Hindari kontak langsung dengan mata.</li><li>Simpan di tempat sejuk dan terlindung dari sinar matahari langsung.</li><li>Jauhkan dari jangkauan anak-anak.</li></ul>"
+    }
+  },
+  {
+    "id": "enzyme-auto", 
+    "image": "images/Pro Enzyme Dish Auto.png",
+    "description": "<p><em>“Detergent enzim dengan kekuatan pembersih maksimal”</em></p><p><strong>Pro Enzyme Auto King</strong> adalah deterjen khusus mesin pencuci piring yang diformulasikan dengan campuran surfaktan anionik/non ionik dan enzim protease yang mampu memecah lemak dan residu makanan secara efektif. Formula ini menghasilkan pencucian bersih menyeluruh tanpa meninggalkan noda atau bau.</p>",
+    "name": "PRO ENZYME DISH AUTO",
+    "additional_info": {
+      "judul" :"Manfaat & Keunggulan :",
+      "poin" : [
+        "Kekuatan enzim: Enzim aktif memecah protein dan lemak membandel sehingga piring, gelas, dan peralatan makan lain lebih bersih berkilau.",
+        "Khusus untuk mesin pencuci piring: Dirancang untuk penggunaan di mesin otomatis sehingga tidak menghasilkan busa berlebih yang bisa merusak mesin.",
+        "Efisiensi tinggi: Dosis tepat menghemat pemakaian dan memberikan hasil optimal di berbagai kondisi air."
+      ],
+      "catatan": "<h4>Cara Penggunaan :</h4><ol><li>Dengan pengisian manual pada mesin diswasher: Isi detergent cup pada mesin pencuci piring sesuai tingkat kekerasan air. Tuangkan 50ml detergent ke dalam wadah pada mesin.</li><li>Dengan menggunakan Mesin Diswasher hubungkan selang dosing pump pada jerigen detergent. <em>Catatan:</em> Deterjen biasa dapat menyebabkan busa berlebih dan merusak mesin.</li><li>Dengan Pencucian Manual cukup larutkan 1 bagian deterjen ke 20 bagian air dan gunakan spons lembut; bilas sampai bersih.</li></ol><h4>Tips & Perhatian</h4><ul><li>Jauhkan produk dari jangkauan anak anak dan hewan peliharaan.</li><li>Hindari kontak langsung dengan mata; jika terkena, bilas dengan air mengalir selama 15–20 menit.</li><li>Simpan di tempat kering dan sejuk, serta tutup rapat wadah setelah digunakan.</li></ul>"
+    }
+  },
+  {
+    "id": "kontrak_kitchen", 
+    "image": "images/preventive-maintenance.png",
+    "description": "<p><strong>Jadibener.com</strong> menyediakan layanan kontrak service khusus untuk dapur rumah sakit, dengan tujuan menjaga seluruh peralatan dapur tetap dalam kondisi prima, aman, dan siap pakai setiap hari.</p><p><strong>Mengapa Penting?</strong><br>Dapur rumah sakit adalah bagian vital dalam mendukung kebutuhan gizi pasien. Peralatan yang rusak atau tidak terawat dapat menghambat operasional, menurunkan standar higienitas, hingga meningkatkan biaya perbaikan besar. Dengan kontrak service, semua risiko ini bisa diminimalkan.</p><p><strong>Apa yang Kami Tawarkan?</strong></p><ul><li><strong>Perawatan Rutin Terjadwal:</strong> Pemeriksaan dan pembersihan berkala untuk mencegah kerusakan dini.</li><li><strong>Perbaikan Cepat & Profesional:</strong> Setiap gangguan ditangani oleh teknisi berpengalaman sesuai standar dapur rumah sakit.</li><li><strong>Monitoring & Dokumentasi:</strong> Setiap kunjungan dicatat sehingga memudahkan rumah sakit dalam pelaporan dan akreditasi.</li><li><strong>Efisiensi Biaya:</strong> Mengurangi risiko kerusakan besar yang memakan biaya tinggi.</li></ul>",
+    "name": "Kontrak Service Dapur Rumah Sakit",
+    "additional_info": {
+      "judul": "",
+      "poin": [],
+      "catatan": "<h4>Keuntungan Kontrak Service</h4><ul><li>✅ Dapur selalu siap beroperasi</li><li>✅ Mengurangi downtime peralatan</li><li>✅ Meningkatkan umur pakai peralatan</li><li>✅ Menjamin standar kebersihan & akreditasi rumah sakit</li></ul><h4>Hubungi Kami</h4><ul><li>💬 Konsultasikan kebutuhan kontrak service dapur rumah sakit Anda bersama Jadibener.com.</li><li>📞 0812 1000 9683</li><li>✉️ cs@jadibener.com</li></ul>"
+    }
+  },
+  {
+    "id": "jasa_service", 
+    "image": "images/kontrak-service.png",
+    "description": "Jadibener.com hadir sebagai solusi profesional dalam menangani permasalahan peralatan dapur rumah sakit. Layanan kami mencakup pembersihan berkala, perawatan, hingga perbaikan menyeluruh, agar dapur rumah sakit Anda tetap terjaga standar kebersihannya dan berfungsi optimal", 
+    "name": "Preventive Maintenance Hospital Kitchen",
+    "additional_info" : {
+      "judul": "Cakupan Layanan Utama",
+      "poin": [
+        "Kompor pendek & kompor kwali",
+        "Kompor masak 3 deck / oven",
+        "Bain-marie",
+        "Trolley makanan",
+        "Dishwasher",
+        "Kulkas pintu & kulkas ruangan",
+        "Hood & ducting",
+        "Gas outlet",
+        "Robot coupe"
+      ],
+      "catatan": "<h4>Mengapa Perlu Preventive Maintenance?</h4><p>Kebersihan dan performa dapur rumah sakit menjadi faktor penting untuk menjaga standar produksi makanan. Dengan preventive maintenance, risiko kesalahan standar produksi bisa diminimalisir.</p><h4>Keunggulan Layanan Jadibener.com</h4><ul><li>Kunjungan rutin: pemeriksaan, pembersihan, dan pencatatan kondisi peralatan.</li><li>Perbaikan cepat & profesional: setiap kerusakan ditangani oleh teknisi berpengalaman.</li><li>Fleksibel: cakupan kerjasama sesuai dengan kebutuhan rumah sakit.</li><li>Biaya efisien: harga sudah termasuk kunjungan rutin dan layanan perbaikan dasar (sparepart dikenakan biaya terpisah).</li></ul><h4>Hubungi Kami</h4><ul><li>📞 0812 1000 9683</li><li>✉️ cs@jadibener.com</li></ul>"
+    }
+  }
 ]

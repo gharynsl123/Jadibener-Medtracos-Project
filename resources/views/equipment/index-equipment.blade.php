@@ -16,31 +16,6 @@
         </div>
     </div>
 
-    <div class="modal fade" id="selec-equipment" tabindex="-1" aria-labelledby="selec-equipment" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <h5 class="modal-title " id="exampleModalLabel">Select Type</h5>
-                </div>
-                <div class="modal-body">
-                    <a href="{{url('/download-peralatan-garansi')}}" class="btn btn-sm btn-primary">
-                        <i class="fa fa-star"></i>
-                        <span>Inport Data Garansi</span>
-                    </a>
-                    @if(Auth::user()->level == 'admin')
-                        <a href="{{url('/download-peralatan-general')}}" class="btn btn-sm btn-primary">
-                            <i class="fa fa-file-alt"></i>
-                            <span>Inport Data General</span>
-                        </a>
-                    @endif
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     @if(Auth::user()->level != 'pic')
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
@@ -142,6 +117,7 @@
                 <div id="tablePaginationContainer"></div>
             </div>
         </div>
+        
         <!-- warranty table -->
         <div class="tab-pane fade" id="pills-warranty" role="tabpanel" aria-labelledby="pills-profile-tab">
             <div class="card p-3 shadow-lg border-left-primary">
@@ -208,15 +184,19 @@
                     </table>
                 </div>
             </div>
+            <div class="d-flex justify-content-between align-items-center mt-3" id="tableFooterContainer">
+                <div id="tableInfoContainerWarranty"></div>
+                <div id="tablePaginationContainerWarranty"></div>
+            </div>
         </div>
     </div>
 
-    <div class="d-flex justify-content-end mt-3">
-        <button type="button" data-bs-toggle="modal" data-bs-target="#selec-equipment" class="py-2 btn btn-sm text-white"
-            style="background-color: #033E3E;">
+    <div class="d-flex justify-content-end mt-4">
+        <a href="{{url('/download-peralatan-pdf')}}" class="py-2 btn btn-sm text-white"
+            style="background-color: #033E3E;" target="_blank">
             <i class="fa fa-download"></i>
             <span>Export Data Peralatan</span>
-        </button>
+        </a>
     </div>
 
 
@@ -262,12 +242,6 @@
                     'margin': '0 8px'
                 });
 
-                // ===== Move info & pagination outside =====
-                // Make sure you have these containers in your HTML outside the card/table
-                // <div class="d-flex justify-content-between align-items-center mt-2" id="tableFooterContainer">
-                //     <div id="tableInfoContainer"></div>
-                //     <div id="tablePaginationContainer"></div>
-                // </div>
                 $('#tableInfoContainer').append($wrapper.find('#generalTable_info'));
                 $('#tablePaginationContainer').append($wrapper.find('.dataTables_paginate'));
             }
@@ -283,7 +257,8 @@
                 [5, 10, 25, 50, "All"]
             ],
             initComplete: function () {
-                const $filter = $('#warrantyTable_wrapper .dataTables_filter');
+                const $wrapper = $('#warrantyTable_wrapper');
+                const $filter = $wrapper.find('.dataTables_filter');
                 const $input = $filter.find('input');
 
                 $filter.find('label').contents().filter(function () {
@@ -311,6 +286,9 @@
                 $('#warrantyTable_wrapper .dataTables_length select').css({
                     'margin': '0 8px'
                 });
+
+                $('#tableInfoContainerWarranty').append($wrapper.find('#warrantyTable_info'));
+                $('#tablePaginationContainerWarranty').append($wrapper.find('.dataTables_paginate'));
             }
         });
     </script>
