@@ -103,8 +103,8 @@
                     <td>{{$item->name}}</td>
                     <td>{{$item->code}}</td>
                     <td>{{$item->departement}}</td>
-                    <td>{{$item->categories->name}}</td>
-                    <td>{{$item->brands->name}}</td>
+                    <td>{{$item->categories->name ?? "-"}}</td>
+                    <td>{{$item->brands->name ?? "-"}}</td>
                     <td>
                         <div class="image-frame">
                             @if($item->photo)

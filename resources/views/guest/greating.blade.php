@@ -3,11 +3,11 @@
 @section('content')
     <!-- Hero Content -->
     <section class="hero">
-        <div class="background-black-transaparant d-flex flex-column justify-content-center ">
-            <div class="container align-self-center">
+        <div class="background-black-transaparant d-flex flex-column justify-content-xl-end justify-content-md-center">
+            <div class="container align-items-center">
                 <p class="align-self-center poppins-semi-bold montserrat-bold header-title"
-                    style="font-size:5rem; line-height: 1.2;">
-                    SOLUSI SERVICE <br> DAPUR PROFESIONAL
+                    style="font-size:3.5rem; line-height: 1; margin:0px;">
+                    SOLUSI DAPUR PROFESIONAL
                 </p>
                 <p class="manrope-semibold header-subtitle">
                     Service dan penjualan spare part alat dapur untuk rumah sakit, restoran dan hotel
@@ -96,6 +96,45 @@
         </div>
     </section>
 
+    <!-- Sodapur -->
+    <section class="container mt-5 justify-content-center align-items-center d-flex" id="sodapur">
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
+                <img src="{{asset('images/sodapur.png')}}" alt="Sodapur" class="img-fluid w-85">
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="d-flex flex-column">
+                    <div class="d-flex">
+                        <img src="{{asset('images/dot.png')}}" alt="dot" class="img-fluid"
+                            style="width: 25px; height: 25px;">
+                        <p class="ms-3">SODAPUR</p>
+                    </div>
+                    <p class="manrope-medium"
+                        style="font-size: 0.90rem; line-height: 1.5; color: #858788; text-align: justify;">
+                        hadir sebagai penyedia solusi lengkap dapur profesional, khususnya untuk kebutuhan rumah sakit dan
+                        fasilitas kesehatan. Kami merancang setiap sistem dapur dengan mengacu pada standar alur kerja
+                        (flow) yang direkomendasikan oleh Kementerian Kesehatan, mulai dari area penyimpanan (storage),
+                        proses pengolahan dan memasak, hingga distribusi makanan dan pencucian.
+                        </br> </br>
+    
+                        Tidak hanya itu, Sodapur juga menangani instalasi pendukung yang krusial seperti sistem ducting
+                        udara, saluran gas, serta kebutuhan teknis lainnya guna memastikan dapur beroperasi secara aman,
+                        higienis, dan efisien.
+                        </br> </br>
+                        Dengan pengalaman dan pendekatan menyeluruh, Sodapur berkomitmen memberikan layanan terbaik melalui
+                        solusi dapur profesional yang terintegrasi, tepat guna, dan sesuai standar kesehatan.
+                        </br> </br>
+                        Hubungi kami untuk perencanaan yang anda inginkan untuk mendesign bagaimana membuat dapur anda
+                        menjadi lebih profesional melebihi standar yang sudah ada.
+                    </p>
+
+                    <a href="#" class="btn bg-success rounded-pill btn-header fw-medium text-white mt-3" style="width: fit-content;">
+                        Ketahui Lebih Lanjut
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- layanan kami -->
     <section id="layanan" class="mb-5" style="padding-top: 3.25rem; padding-bottom: 3.25rem; background-color: #F9F9F9">
         <div class="container">
@@ -308,7 +347,7 @@
     <section
         style="height:50vh; background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center;">
         <div class="d-flex justify-content-center flex-column align-items-center h-100" style="background-color:#1A875473;">
-            <p class="montserrat-bold text-white" style="font-size:3.75rem;">Donwload Brosur Kami</p>
+            <p class="montserrat-bold text-white" style="font-size:3.75rem;">Download Brosur Kami</p>
             <a href="{{ asset('document/Brosure jadibener.pdf') }}" download class="btn btn-warning px-4">Download &nbsp; <i
                     class="fa fa-download" aria-hidden="true"></i></a>
         </div>

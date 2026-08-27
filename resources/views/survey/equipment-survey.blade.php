@@ -2,7 +2,8 @@
 @section('content')
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center mb-4">
-    <a href="{{url()->previous()}}" class="btn mr-4 btn-secondary">Kembali</a>
+    <!-- tombol kembali ke rumah sakit yang di pilih tadi -->
+    <a href="{{url('/detail-instansi/' . $user->instansi->slug)}}" class="btn mr-4 btn-secondary">Kembali</a>
     <h1 class="h3 mb-0 text-gray-800">Tambahkan Alat</h1>
 </div>
 
@@ -87,6 +88,7 @@
         </div>
     </div>
     <button class="mt-3 btn btn-primary" type="submit">create</button>
+    <a href="{{url('/detail-instansi/' . $user->instansi->slug)}}" class="mt-3 btn btn-danger">Cancel</a>
 </form>
 
 <script>

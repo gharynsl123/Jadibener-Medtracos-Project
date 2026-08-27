@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <hr>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
                         <laebl>teknisi</laebl>
                         <select readonly class="form-control">
@@ -70,10 +70,17 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
                         <laebl>Hasil Kunjungan Teknisi</laebl>
                         <input type="text" readonly value="{{$booking->results}}" id="" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <laebl>Tanggal Pelaksanaan</laebl>
+                        <input type="text" name="created_at" id="created_at" class="form-control"
+                            value="{{$booking->created_at->format('d/m/Y')}}">
                     </div>
                 </div>
                 <div class="col-md-12">

@@ -75,7 +75,7 @@ body{
 
 /* Hero Container */
 .hero {
-    background: url('/images/header-new-second-background.jpg') no-repeat center 5px fixed;
+    background: url('/images/sodapur-backgroun.png') no-repeat center 5px fixed;
     background-size: cover;
     color: white;
     min-height: 91vh;
@@ -122,8 +122,8 @@ body{
 .header-subtitle{
     font-size: 1.6rem;
     color: #FFFFFFCC;
-    margin-bottom: 6.6rem;
-    margin-top: 1.625rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .btn-header{

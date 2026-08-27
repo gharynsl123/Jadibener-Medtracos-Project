@@ -52,7 +52,11 @@
                             </ul>
                         </div>
                     </div>
-                    <a href="#" target="_blank" class="btn btn-success mt-4">Cetak PDF</a>
+                    <a href="{{url('/download-peralatan-pdf')}}" class="py-2 btn btn-success btn-sm text-white"
+                        target="_blank">
+                        <i class="fa fa-download"></i>
+                        <span>Cetak Data Peralatan</span>
+                    </a>
                 </div>
 
                 <!-- Kotak Informasi -->

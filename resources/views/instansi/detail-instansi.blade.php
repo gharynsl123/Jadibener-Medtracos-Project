@@ -104,6 +104,8 @@
     @else
     <p>Belum ada PIC</p>
     @endif
+
+    <!-- if there an id from controler get that id.. and than scoll to the row where the data have a same id.-->
     <hr class="my-4">
     <div class="table-responsive">
         <table class="table table-borderless table-hover" id="dataTable">
@@ -123,7 +125,7 @@
             </thead>
             <tbody>
                 @foreach($equipment as $item)
-                <tr data-departement="{{$item->departement}}">
+                <tr id="equipment-{{ $item->id }}" data-departement="{{$item->departement}}">
                     <td>{{$item->instansi->name}}</td>
                     <td>{{$item->poducts->name}}</td>
                     <td class="d-none">{{$item->categories->name}}</td>
@@ -163,6 +165,30 @@
         </table>
     </div>
 </div>
+
+@if(session('scroll_to_equipment'))
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let target = document.getElementById(
+            "equipment-{{ session('scroll_to_equipment') }}"
+        );
+
+        if (target) {
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+            // optional: highlight
+            target.style.backgroundColor = "#E5DCBDFF";
+            setTimeout(() => {
+                target.style.backgroundColor = "";
+            }, 2000);
+        }
+    });
+</script>
+@endif
+
 <script>
 $(document).ready(function() {
     var currentFilter = null;

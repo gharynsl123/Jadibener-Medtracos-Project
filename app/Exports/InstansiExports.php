@@ -29,7 +29,7 @@ class InstansiExports implements FromView, WithStyles, ShouldAutoSize
     public function styles(Worksheet $sheet)
     {
         $sheet->getDefaultRowDimension()->setRowHeight(20);
-        $sheet->getStyle('A1:F1')->applyFromArray([
+        $sheet->getStyle('A1:H1')->applyFromArray([
             'font' => [
                 'bold' => true,
                 'size' => 15,

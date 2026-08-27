@@ -1,199 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <meta charset="utf-8">
+    <title>Laporan Peralatan</title>
+    <style>
+        body {
+            font-family: DejaVu Sans, sans-serif;
+            font-size: 12px;
+            color: #000;
+        }
 
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            padding: 6px;
+            border: 1px solid #000;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .info-table td {
+            padding: 4px 6px;
+            vertical-align: top;
+        }
+
+        .info-table td.label {
+            width: 18%;
+            font-weight: bold;
+        }
+
+        .info-table td.separator {
+            width: 2%;
+        }
+
+        .box {
+            border: 1px solid #000;
+            padding: 6px;
+        }
+
+        .history-table th {
+            border: 1px solid #000;
+            padding: 6px;
+            background: #f0f0f0;
+        }
+
+        .history-table td {
+            border: 1px solid #000;
+            padding: 6px;
+        }
+
+        .small {
+            font-size: 11px;
+        }
+    </style>
 </head>
-<style>
-body {
-    padding: 0 !important;
-    margin: 0 !important;
-    font-family: Arial, sans-serif;
-}
-</style>
-
 <body>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="text-center mb-3 d-flex justify-content-centera">
-                <div class="image-frame-detail">
-                    @if($equipment->poducts->photo)
-                    <img src="{{asset('storage/product_images/' .$equipment->poducts->photo)}}" alt="" srcset="">
-                    @else
-                    Image Not Available
-                    @endif
-                </div>
-            </div>
-        </div>
 
-        <!-- Keterangan Produk -->
-        <div class="col-md-9">
-            <div class="card shadow mb-3">
-                <div class="card-header bg-info">
-                    <p class="m-0 text-white font-weight-bolder">KETERANGAN ALAT</p>
-                </div>
-                <div class="card-body">
-                    <table class="table table-responsive table-borderless">
-                        <tr>
-                            <th>Instansi</th>
-                            <td>:</td>
-                            <td>{{ $equipment->instansi->name }}</td>
-                            <th>Nama Product</th>
-                            <td>:</td>
-                            <td>{{$equipment->poducts->name}}</td>
-                        </tr>
-                        <tr>
-                            <th>Serial Number</th>
-                            <td>:</td>
-                            <td>{{ $equipment->serial_number }}</td>
-                            <th>Kode Product</th>
-                            <td>:</td>
-                            <td>{{ $equipment->poducts->code }}</td>
-                        </tr>
+    <div class="title">LAPORAN DATA PERALATAN</div>
 
-                        <tr>
-                            <th>Merek</th>
-                            <td>:</td>
-                            <td>{{ $equipment->brands->name }}</td>
-                            <th>Instalasi</th>
-                            <td>:</td>
-                            <td>{{ $equipment->installation }}</td>
-                        </tr>
-                        <tr>
-                            <th>Durasi Pemakaian</th>
-                            <td>:</td>
-                            <td>
-                                {{ date('Y') - $equipment->installation }}tahun
-                            </td>
-                            <th>Status Alat</th>
-                            <td>:</td>
-                            <td>{{$equipment->description}}</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
+    <!-- ================= KETERANGAN ALAT ================= -->
+    <div class="section-title">KETERANGAN ALAT</div>
 
+    <table class="info-table">
+        <tr>
+            <td class="label">Instansi</td>
+            <td class="separator">:</td>
+            <td>{{ $equipment->instansi->name }}</td>
 
-        <!-- kondisi div -->
+            <td class="label">Nama Produk</td>
+            <td class="separator">:</td>
+            <td>{{ $equipment->poducts->name }}</td>
+        </tr>
+        <tr>
+            <td class="label">Serial Number</td>
+            <td class="separator">:</td>
+            <td>{{ $equipment->serial_number }}</td>
 
-        <div class="col-md-12">
-            <div class="card shado mt-2">
-                <div class="card-header bg-info">
-                    <p class="m-0 text-white font-weight-bolder">Kondisi produk</p>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table  table-borderless">
-                            <tr>
-                                <th>kondisi</th>
-                                <td>:</td>
-                                <td>
-                                    <div class="progress vw-90">
-                                        <div class="progress-bar progress-bar-striped progress-bar-animated"
-                                            role="progressbar" aria-valuenow="{{$equipment->condition}}"
-                                            aria-valuemin="0" aria-valuemax="100"
-                                            style="width: {{$equipment->condition}}%">
-                                            {{$equipment->condition}}</div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Request tahun pergantian</th>
-                                <td>:</td>
-                                <td>{{$equipment->age}} tahun</td>
-                            </tr>
-                            <tr>
-                                <th>Penurunan nilai barang</th>
-                                <td>:</td>
-                                <td>
-                                    <strong>
-                                        {{ round(100 - ((date('Y') - $equipment->installation) / $equipment->age * 100)) }}%</strong>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>TANGGAL pendataan</th>
-                                <td>:</td>
-                                @if($equipment->update_at != null)
-                                <td>{{ $equipment->update_at->format('Y-m-d') }}</td>
-                                @else
-                                <td>{{ $equipment->created_at->format('Y-m-d') }}</td>
-                                @endif
-                            </tr>
-                            <tr>
-                                <th>SURVEYOR</th>
-                                <td>:</td>
-                                <td>{{$equipment->users->name}}</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <td class="label">Kode Produk</td>
+            <td class="separator">:</td>
+            <td>{{ $equipment->poducts->code }}</td>
+        </tr>
+        <tr>
+            <td class="label">Merek</td>
+            <td class="separator">:</td>
+            <td>{{ $equipment->brands->name }}</td>
 
-        <div class="col-md-12">
-            <div class="card shado mt-2">
-                <div class="card-header bg-info">
-                    <p class="m-0 text-white font-weight-bolder">Saran perawatan dan perbaikan</p>
-                </div>
-                <div class="card-body">
-                    <p>{{ $equipment->suggestions ?? 'belum ada saran' }}</p>
-                </div>
-            </div>
-        </div>
+            <td class="label">Tahun Instalasi</td>
+            <td class="separator">:</td>
+            <td>{{ $equipment->installation }}</td>
+        </tr>
+        <tr>
+            <td class="label">Durasi Pemakaian</td>
+            <td class="separator">:</td>
+            <td>{{ date('Y') - $equipment->installation }} tahun</td>
+
+            <td class="label">Status Alat</td>
+            <td class="separator">:</td>
+            <td>{{ $equipment->description }}</td>
+        </tr>
+    </table>
+
+    <!-- ================= KONDISI ================= -->
+    <div class="section-title">KONDISI PRODUK</div>
+
+    <table class="info-table">
+        <tr>
+            <td class="label">Kondisi</td>
+            <td class="separator">:</td>
+            <td><strong>{{ $equipment->condition }}%</strong></td>
+        </tr>
+        <tr>
+            <td class="label">Request Pergantian</td>
+            <td class="separator">:</td>
+            <td>{{ $equipment->age }} tahun</td>
+        </tr>
+        <tr>
+            <td class="label">Penurunan Nilai</td>
+            <td class="separator">:</td>
+            <td>
+                <strong>
+                    {{ round(100 - ((date('Y') - $equipment->installation) / $equipment->age * 100)) }}%
+                </strong>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">Tanggal Pendataan</td>
+            <td class="separator">:</td>
+            <td>
+                {{ $equipment->updated_at 
+                    ? $equipment->updated_at->format('Y-m-d') 
+                    : $equipment->created_at->format('Y-m-d') }}
+            </td>
+        </tr>
+        <tr>
+            <td class="label">Surveyor</td>
+            <td class="separator">:</td>
+            <td>{{ $equipment->users->name }}</td>
+        </tr>
+    </table>
+
+    <!-- ================= SARAN ================= -->
+    <div class="section-title">SARAN PERAWATAN & PERBAIKAN</div>
+
+    <div class="box">
+        {{ $equipment->suggestions ?? 'Belum ada saran.' }}
     </div>
 
-    <!-- history table -->
+    <!-- ================= RIWAYAT ================= -->
+    <div class="section-title">RIWAYAT PERALATAN</div>
 
-    <div class="card border-left-primary mt-3 shadow-lg p-3 ">
-        <h3 class="h3">Riwayat Peralatan</h3>
-        <div class="table-responsive">
-            <table id="historyTable" class="table table-borderless">
-                <thead>
-                    <tr>
-                        <th>NO</th>
-                        <th>STATUS</th>
-                        <th>deskripsi</th>
-                        <th>tanggal</th>
-                        <th>id tiket</th>
-                        <th>keluhan</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($history as $item)
-                    <tr>
-                        <td>{{$loop->iteration}}</td>
-                        <td>{{$item->status}}</td>
-                        <td>{{$item->description}}</td>
-                        <td>{{$item->created_at->format('d-m-Y H:s') }}</td>
-                        @if($item->submissions)
-                        <td>
-                            <a href="/progress/{{$item->submissions->slug}}"
-                                class="btn btn-primary">{{$item->submissions->tikects_id}}</a>
-                        </td>
-                        <td>{{$item->submissions->title}}</td>
-                        {{$item->estimation}}
-                        @elseif($item->estimation)
-                        <td>
-                            <!-- Tambahkan tombol aksi sesuai kebutuhan -->
-                            <a href="#" target="_blank" class="btn btn-sm btn-primary"><i class="fa fa-file"></i></a>
-                        </td>
-                        <td>-</td>
-                        @else
-                        <td>-</td>
-                        <td>-</td>
-                        @endif
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
+    <table class="history-table small">
+        <thead>
+            <tr>
+                <th width="5%">No</th>
+                <th width="15%">Status</th>
+                <th width="30%">Keterangan</th>
+                <th width="15%">Tanggal</th>
+                <th width="15%">ID Tiket</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($history as $item)
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $item->status }}</td>
+                <td>{{ $item->description }}</td>
+                <td>{{ $item->created_at->format('d-m-Y H:i') }}</td>
+                @if($item->submissions)
+                    <td>
+                        <a href="/progress/{{$item->submissions->slug}}"
+                            class="btn btn-primary">{{$item->submissions->tikects_id}}</a>
+                    </td>
+                @elseif($item->estimation)
+                    <td>
+                        <a href="{{ asset('storage/biaya_estimasi_images/' . $item->estimation->photo) }}" download
+                            class="btn btn-sm btn-primary">
+                            <i class="fa fa-file"></i>
+                        </a>
+                    </td>
+                    <td>-</td>
+                @elseif($item->booking)
+                    <td>
+                        <a href="{{ url('/detail-kunjungan', $item->booking->slug) }}"
+                            class="btn btn-primary">Booking-{{ $item->booking->id }}</a>
+                    </td>
+                @else
+                    <td>-</td>
+                @endif
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+
+    <div style="position: fixed; bottom: 0; left: 0; right: 0; padding: 10px; text-align: center; font-size: 10px; background: white; width: 100%;">
+        <p style="margin: 0;">Jadibener.com by <strong>PT Fokus Mandiri Alkestron</strong></p>
     </div>
 </body>
-
 </html>

@@ -212,12 +212,12 @@
                 <table id="historyTable" class="table table-borderless">
                     <thead>
                         <tr>
-                            <th>NO</th>
-                            <th>STATUS</th>
-                            <th>deskripsi</th>
-                            <th>tanggal</th>
-                            <th>id tiket</th>
-                            <th>keluhan</th>
+                            <th>No</th>
+                            <th>Status</th>
+                            <th>Keterangan</th>
+                            <th>Tanggal</th>
+                            <th>ID tiket</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -247,11 +247,19 @@
                                         <a href="{{ url('/detail-kunjungan', $item->booking->slug) }}"
                                             class="btn btn-primary">Booking-{{ $item->booking->id }}</a>
                                     </td>
-                                    <td>-</td>
                                 @else
                                     <td>-</td>
-                                    <td>-</td>
                                 @endif
+                                <td>
+                                    <!-- delete item -->
+                                    <form action="{{ route('history.destroy', $item->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

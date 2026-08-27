@@ -103,7 +103,13 @@
 
     <!-- MAIN CONTENT -->
     <main>
+        @if(Auth::user()->level == 'pic')
+        <p style="margin: 0px !important;"><strong>Nama Instansi:</strong> {{ $instansi->name }}</p>
+        <p style="margin: 0px !important;"><strong>Alamat:</strong> {{ $instansi->address }}</p>
+        <p style="margin: 0px !important;"><strong>Jumlah Peralatan :</strong> {{ $equipment->count() }}</p>
+        @else
         <p><strong>Jumlah Peralatan :</strong> {{ $equipment->count() }}</p>
+        @endif
 
         <table>
             <thead>

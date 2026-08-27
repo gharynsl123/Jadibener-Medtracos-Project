@@ -21,11 +21,12 @@ class BookingController extends Controller
         $booking = Booking::all();
         return view('booking.index-booking', compact('booking'));
     }
+
     public function create($slug) {
         $informationTools = Equipment::where('slug', $slug)->first();
-        $teknisi = User::where('level', 'teknisi')->get()->all();
+        $teknisi = User::whereIn('level', ['teknisi', 'surveyor'])->get()->all();
 
-        return view('booking.create-booking', compact('informationTools', "teknisi"));
+        return view('booking.create-booking', compact('informationTools', 'teknisi'));
     }
 
     public function store(Request $request, $slug) {
@@ -47,14 +48,14 @@ class BookingController extends Controller
     public function detail($slug) {
         $booking = Booking::where('slug', $slug)->first();
         $informationTools = Equipment::where('slug', $booking->equipments->slug)->first();
-        $user = User::whereIn('level', ['teknisi'])->get()->all();
+        $user = User::whereIn('level', ['teknisi', 'surveyor', 'sub_service'])->get()->all();
 
         return view('booking.update-booking', compact('informationTools', 'booking', 'user'));
     }
 
     public function detailTwo($slug) {
         $informationTools = Equipment::where('slug', $slug)->first();
-        $user = User::whereIn('level', ['teknisi'])->get()->all();
+        $user = User::whereIn('level', ['teknisi', 'surveyor', 'sub_service'])->get()->all();
         return view('booking.update-second-booking', compact('informationTools', 'user'));
     }
 
@@ -64,6 +65,31 @@ class BookingController extends Controller
         $booking->fill($request->all());
     
         $booking->save();
+
+        $now = now(); // or $request->created_at
+
+        $dataHistory = [
+            [
+                'status'       => 'Keluhan Rumah Sakit',
+                'description'  => $request->conclusion,
+                'id_user'      => $request->id_user,
+                'equipment_id' => $request->equipment_id,
+                'booking_id'   => $booking->id,
+                'created_at'   => $request->created_at ?? $now,
+                'updated_at'   => $now,
+            ],
+            [
+                'status'       => 'Hasil Kunjungan Teknisi',
+                'description'  => $request->results,
+                'id_user'      => $request->id_user,
+                'equipment_id' => $request->equipment_id,
+                'booking_id'   => $booking->id,
+                'created_at'   => $request->created_at ?? $now,
+                'updated_at'   => $now,
+            ],
+        ];
+
+        History::insert($dataHistory);
         return redirect('/jadwal-kedatangan')->with('success', 'Hasil telah diupload');
     }
 
@@ -74,16 +100,36 @@ class BookingController extends Controller
         $data['status'] = 'close';
         $dataBooking = Booking::create($data);
 
+        $now = now(); // or $request->created_at
+
         $dataHistory = [
-            'status' => 'Hasil Kunjungan Teknisi',
-            'description' => $data['conclusion'],
-            'id_user' => $request->id_user,
-            'equipment_id' => $request->equipment_id,
-            'booking_id' => $dataBooking->id,
+            [
+                'status'       => 'Keluhan Rumah Sakit',
+                'description'  => $data['conclusion'], // example custom field
+                'id_user'      => $request->id_user,
+                'equipment_id' => $request->equipment_id,
+                'booking_id'   => $dataBooking->id,
+                'created_at'   => $request->created_at ?? $now,
+                'updated_at'   => $now,
+            ],
+            [
+                'status'       => 'Hasil Kunjungan Teknisi',
+                'description'  => $data['results'],
+                'id_user'      => $request->id_user,
+                'equipment_id' => $request->equipment_id,
+                'booking_id'   => $dataBooking->id,
+                'created_at'   => $request->created_at ?? $now,
+                'updated_at'   => $now,
+            ],
         ];
 
-        History::create($dataHistory);
-        return redirect('/jadwal-kedatangan')->with('success', 'Hasil telah diupload');
+        History::insert($dataHistory);
+        return redirect('/detail-instansi/'. $dataBooking->instansi->slug)
+            ->with([
+                'success' => 'Hasil telah diupload',
+                'button_access_route' => '/detail-kunjungan/'. $dataBooking->slug,
+                'scroll_to_equipment' => $dataBooking->equipment_id
+            ]);
     }
 
     public function show($slug) {

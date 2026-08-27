@@ -1,26 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-<style>
-.toggle-btn-custom {
-    top: 50%;
-    right: -15px;
-    transform: translateY(-50%);
-    border-radius: 0 10px 10px 0;
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    font-size: 14px;
-    z-index: 999;
-}
-
-.sidebar .nav-item .nav-link.active {
-    background-color: #fff;
-    color: #333 !important;
-    /* abu tua */
-}
-</style>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,13 +31,31 @@
 </head>
 
 <style>
+.toggle-btn-custom {
+    top: 50%;
+    right: -15px;
+    transform: translateY(-50%);
+    border-radius: 0 10px 10px 0;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    font-size: 14px;
+    z-index: 999;
+}
+
+.sidebar .nav-item .nav-link.active {
+    background-color: #fff;
+    color: #333 !important;
+    /* abu tua */
+}
+
 .notification {
     position: fixed;
     bottom: 20px;
     left: -400px;
     /* start di luar layar */
     min-width: 300px;
-    max-width: 90%;
+    max-width: 400px;
     padding: 15px 20px;
     color: #fff;
     font-weight: bold;
@@ -303,6 +301,9 @@
     @if(session('success'))
     <div id="notification" class="shadow-lg notification notification-success">
         <span class="notification-text">{{ session('success') }}</span>
+        @if(session('button_access_route'))
+        <a href="{{ session('button_access_route') }}" class="btn bg-primary text-white btn-sm m-0">Klik Ini Untuk Melihat Detail</a>
+        @endif
     </div>
     @endif
 
@@ -329,23 +330,20 @@
 document.addEventListener("DOMContentLoaded", function() {
     const notifications = document.querySelectorAll('.notification');
 
-    $('#instansi-select').select2();
+    $('#instansi-select').select2({
+        theme: 'bootstrap-5', // Ini harus sama dengan class CSS di atas
+        placeholder: '-- PILIH PRODUK --',
+        width: '100%' // Agar lebar penuh mengikuti kolom parent
+    });
     if (typeof CKEDITOR !== 'undefined') {
         CKEDITOR.replace('editor');
     }
 
     notifications.forEach(notification => {
-        // Tampilkan notifikasi
         notification.classList.add("notification-show");
 
-
-        function showNotification() {
-            notification.style.left = "20px";
-            setTimeout(() => {
-                hideNotification();
-            }, 4000);
-        }
-
+        const hasButton = notification.querySelector('.btn');
+        
         function hideNotification() {
             notification.classList.add("fade-out");
             setTimeout(() => {
@@ -353,21 +351,24 @@ document.addEventListener("DOMContentLoaded", function() {
             }, 500);
         }
 
-        showNotification();
-
+        // Only auto-hide if there's no button
+        if (!hasButton) {
+            setTimeout(() => {
+                hideNotification();
+            }, 4000);
+        } else {
+            // Add close icon if button exists
+            const closeBtn = document.createElement('button');
+            closeBtn.type = 'button';
+            closeBtn.className = 'btn-close btn btn-sm bg-transparent m-0 text-white';
+            closeBtn.innerHTML = '<i class="fas fa-times text-white"></i>';
+            closeBtn.style.position = 'absolute';
+            closeBtn.style.top = '10px';
+            closeBtn.style.right = '0px';
+            closeBtn.onclick = hideNotification;
+            notification.appendChild(closeBtn);
+        }
     });
-
-    // Hilang setelah 5 detik
-    setTimeout(() => {
-        notification.classList.add("fade-out");
-
-        // Hapus dari DOM setelah animasi selesai
-        notification.addEventListener("transitionend", function() {
-            notification.remove();
-        }, {
-            once: true
-        });
-    }, 4000);
 });
 </script>
 

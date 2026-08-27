@@ -46,7 +46,7 @@
     <form action="{{url('/store-second-hasil')}}" method="post">
         @csrf
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group">
                     <laebl>teknisi</laebl>
                     <select class="form-control" name="id_user">
@@ -57,10 +57,16 @@
                     </select>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group">
                     <laebl>Hasil Kunjungan Teknisi</laebl>
                     <input type="text" name="results" id="" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <laebl>Tanggal Pelaksanaan</laebl>
+                    <input type="date" name="created_at" id="created_at" class="form-control">
                 </div>
             </div>
 

@@ -17,68 +17,9 @@ use Illuminate\Support\Str;
 
 class GuestController extends Controller
 {
-    public function viewPart(Request $request) {
-        $search = $request->input('search');
+    public function sodapur(Request $request) {
 
-        $part = Part::query();
-
-        if ($search) {
-            $part->where(function($q) use ($search) {
-                $q->where('name', 'like', '%' . $search . '%')
-                ->orWhere('code', 'like', '%' . $search . '%')
-                ->orWhere('kategori', 'like', '%' . $search . '%');
-            });
-        }
-
-        $parts = $part->get();
-
-        // Group parts by kategori
-        $groupedParts = [];
-        foreach ($parts as $item) {
-            $groupedParts[$item->kategori][] = $item;
-        }
-
-        // Main categories & subcategories
-        $mainCategories = [];
-        $subCategories = [];
-        foreach ($parts as $part) {
-            $kategoriParts = Str::of($part->kategori)->explode(' ');
-            $main = $kategoriParts[0];
-            $fullKategori = $part->kategori;
-
-            if (!in_array($main, $mainCategories)) {
-                $mainCategories[] = $main;
-            }
-
-            $subCategories[$main][] = $fullKategori;
-        }
-
-        // Remove duplicate subcategories
-        foreach ($subCategories as $key => $subs) {
-            $subCategories[$key] = array_unique($subs);
-        }
-
-        // ==== PAGINATION LOGIC ====
-        $perPage = 2; // misalnya 2 kategori per halaman
-        $currentPage = (int) $request->get('page', 1);
-
-        // Ubah array menjadi Collection
-        $groupedPartsCollection = collect($groupedParts);
-
-        // Hitung total halaman
-        $totalPages = (int) ceil($groupedPartsCollection->count() / $perPage);
-
-        // Ambil data sesuai halaman
-        $pagedGroupedParts = $groupedPartsCollection
-            ->forPage($currentPage, $perPage);
-
-        return view('guest.spare-part', [
-            'mainCategories' => $mainCategories,
-            'subCategories' => $subCategories,
-            'groupedParts' => $pagedGroupedParts,
-            'currentPage' => $currentPage,
-            'totalPages' => $totalPages
-        ]);
+        return view('guest.profile-sodapur');
     }
 
     public function about($slug)
@@ -171,7 +112,12 @@ class GuestController extends Controller
             'issue' => $request->input('issue')
         ];
         
-        Mail::to('persolna1243@gmail.com')->send(new GuestRequest($data));
+        // error catch email
+        try {
+            Mail::to('persolna1243@gmail.com')->send(new GuestRequest($data));
+        } catch (\Exception $e) {
+            return redirect('/')->with('error', 'Pesan Gagal Di kirim ke Admin, Mohon Coba Lagi');
+        }
         
         return redirect('/')->with('success', 'Pesan Sudah Di kirim ke Admin, Mohon Menunggu Balasan');
     }

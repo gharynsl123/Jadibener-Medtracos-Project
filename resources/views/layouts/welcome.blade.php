@@ -93,8 +93,8 @@
             <div class="collapse navbar-collapse justify-content-center align-items-center " id="navbarMenu">
                 <ul class="navbar-nav mb-2 mb-lg-0 gap-lg-1">
                     <li class="nav-item"><a class="nav-link" href="{{url('/')}}">Beranda</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{url('/our-product/ducting_udara')}}">Product</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{url('/spare-part')}}">Sparet Part</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url('/our-product/ducting_udara')}}">Layanan Jasa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url('/sodapur')}}">Sodapur</a></li>
                     @php
                     $isHome = request()->is('/') || request()->is('home');
                     @endphp
@@ -132,13 +132,19 @@
         </div>
     </nav>
 
-    <section>
+    <section style="min-height: 80vh;">
         @yield('content')
     </section>
 
     @if(session('success'))
     <div id="notification" class="shadow-lg notification notification-success">
         <span class="notification-text">{{ session('success') }}</span>
+    </div>
+    @endif
+
+    @if(session('error'))
+    <div id="notification" class="shadow-lg notification notification-error">
+        <span class="notification-text">{{ session('error') }}</span>
     </div>
     @endif
 

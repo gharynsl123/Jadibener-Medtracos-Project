@@ -50,9 +50,9 @@
             <div class="form-group col-md-6">
                 <label for="">pilih teknisi yang pergi</label>
                 <select name="id_user" id="" class="form-control">
-                    <option value="">pilih teknisi</option>
+                    <option>pilih teknisi</option>
                     @foreach($teknisi as $items)
-                    <option value="{{$items->id}}">{{$items->name}}</option>
+                        <option value="{{$items->id}}">{{$items->name}}</option>
                     @endforeach
                 </select>
             </div>

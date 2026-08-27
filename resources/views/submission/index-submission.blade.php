@@ -39,6 +39,10 @@
             Ajukan Perbaikan
         </a>
     @endif
+    <a href="{{url('download-submission-excel')}}" class="btn btn-sm btn-green mt-1 shadow-sm">
+        <i class="fas fa-download fa-sm text-white-50 mr-2"></i>
+        Export Excel
+    </a>
 </div>
 
 <div class="card p-3 shadow-sm border-0">

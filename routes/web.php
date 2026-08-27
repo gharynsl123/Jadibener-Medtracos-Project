@@ -144,6 +144,14 @@ Route::get('/download-instansi-pdf', function () {
 })->name('download.excel');
 // END EXCEL INSTANSI
 
+// START EXCEL SUBMISSION
+Route::get('/download-submission-excel', function () {
+    $submission = Submission::all();
+
+    return Excel::download(new SubmissionExports($submission), 'Recap Submission Data.xlsx');
+});
+// END EXCEL SUBMISSION
+
 
 // export to PDF equipment by instansi and departement
 Route::get('/export-equipment-pdf/{id_instansi}/{departement}', function ($id_instansi, $departement) {
@@ -204,7 +212,7 @@ Route::get('/download-peralatan-pdf', function () {
     }
 
     // Render view HTML
-    $html = view('print.equipment-list', compact('equipment'))->render();
+    $html = view('print.equipment-list', compact('equipment', 'instansi'))->render();
 
     // Generate PDF pakai DomPDF
     $pdf = Pdf::loadHTML($html)
@@ -224,7 +232,7 @@ Route::get('/download-peralatan-pdf', function () {
 
 // guest Route
 Route::get('/', 'GuestController@greeting');
-Route::get('/spare-part', 'GuestController@viewPart');
+Route::get('/sodapur', 'GuestController@sodapur');
 Route::post('/store-request-service', 'GuestController@storeRequestPart');
 Route::post('/store-request-member', 'GuestController@requestMember');
 Route::get('/request-as-member', 'GuestController@createRequestMember');
@@ -291,3 +299,5 @@ Route::post('/uploud-bukti-pembayaran/{id}', 'ProgressController@payment');
 Route::get('/status', 'StatusController@index');
 // Archive Route
 Route::get('/archive', 'ArchiveController@index');
+// History Route
+Route::delete('/delete-history/{id}', 'EquipmentController@destroyHistory')->name('history.destroy');

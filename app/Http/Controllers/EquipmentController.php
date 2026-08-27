@@ -220,4 +220,22 @@ class EquipmentController extends Controller
         History::create($dataHistory);
         return redirect()->back()->with('success', 'Peralatan Berhasil Di input');
     }
+
+    function destroyHistory($id) {
+        $history = History::find($id);
+        if ($history->id_progress != null) {
+            $history->progress()->delete();
+        }
+        if ($history->estimate_id != null) {
+            $history->estimation()->delete();
+        }
+        if ($history->submissions_id != null) {
+            $history->submissions()->delete();
+        }
+        if ($history->booking_id != null) {
+            $history->booking()->delete();
+        }
+        $history->delete();
+        return redirect()->back()->with('success', 'History Berhasil Di hapus');
+    }
 }
